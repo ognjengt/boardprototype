@@ -42,10 +42,10 @@ router.get('/:username', middleware.ensureAuthenticated, function(req, res, next
 
 router.post('/addBoard',function(req, res, next) {
   //TODO: post request da se samo ovo sto je u inputu pushuje u board array, i da se napravi novi id.
-  var newBoard = new Object({
+  var newBoard = {
     _id: new mongoose.Types.ObjectId,
     title: req.body.title
-  });
+  };
   User.createBoard(req.user._id,newBoard,res);
 });
 
