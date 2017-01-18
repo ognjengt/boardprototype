@@ -65,10 +65,12 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
 }
 
 module.exports.createBoard = function(id,board,res) {
-  User.findByIdAndUpdate(id, {$push: {boards: board}},{new: true}, function(err, board) {
+  User.findByIdAndUpdate(id, {$push: {boards: board}},{new: true}, function(err, user) {
     if (err) {
       throw err;
     }
+    res.send(user.boards[user.boards.length-1]); //vraca mi poslednji dodat board
+    res.end();
     //res.send(board); ovde ili smisli kako da vratis to pa da ti se populatuje u realtimeu, ili jednostavno nemoj dirati nista, i samo nekako iz ajax calla rucno napravi novi div, na success funkciju
   });
 }

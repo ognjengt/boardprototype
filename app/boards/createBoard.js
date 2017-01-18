@@ -10,10 +10,10 @@ $(document).ready(function() {
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
     url: '/user/addBoard',
-  }).done(function() {
-    alert('works');
-  }).fail(function() {
-    alert('not working');
+    complete: function(data) {
+      console.log(data.responseJSON);
+    }
+
   });
 
     });

@@ -70,6 +70,20 @@
                     <p>Brainstormovanje za imena aplikacije.</p>
                   </div>
                 </div>
+
+                <% if(hasBoards) {%>
+                  <% boards.forEach(function(board) {%>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                      <div class="board board-blue">
+                        <h4><b><%= board.title%></b></h4>
+                        <div class="type-title"><h5><b>Brainstorm</b></h5></div>
+                        <p>Brainstormovanje za imena aplikacije.</p>
+                      </div>
+                    </div>
+                  <% }); %>
+                <%} else {%>
+                  <h2>Nema boardova</h2>
+                <%}%>
               </div>
             </div>
             <form class="" id="testPostForm" action="/user/addBoard" method="post">

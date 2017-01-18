@@ -10,7 +10,14 @@ var User = require('../models/user');
 /* GET home page. */
 router.get('/:username/boards', middleware.ensureAuthenticated, function(req, res, next) {
   if (req.params.username == res.locals.user.username) {
-    res.render('user/index'); //TODO: proslediti boardove
+    var boardsExist=false;
+    if(req.user.boards[0])
+      boardsExist = true;
+
+    res.render('user/index', {
+      boards: req.user.boards,
+      hasBoards: boardsExist
+    });
   }
   else res.render('error', {
     message: 'You do not have permission to access this page.',
@@ -23,6 +30,10 @@ router.get('/:username/boards', middleware.ensureAuthenticated, function(req, re
 
 router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
   res.redirect('/user/'+req.user.username+'/boards');
+});
+
+router.get('/getBoards', function(req, res, next) {
+  res.send(req.user.boards);
 });
 
 router.get('/:username', middleware.ensureAuthenticated, function(req, res, next) {
