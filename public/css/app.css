@@ -118,6 +118,9 @@
   background: #15cd72;
   color: #fff; }
 
+/*.hvr-sweep-to-right:before{ videti mozda da se ubaci
+  background: $blue !important;
+}*/
 @media (max-width: 1400px) {
   #workspace {
     padding-left: 160px !important;
