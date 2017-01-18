@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stormboards | Welcome</title>
+    <link rel='stylesheet' href='../../css/app.css' />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/fonts.css">
+  </head>
+  <body>
+    <div class="container-fluid app">
+      <div class="sidebar-column">
+        <div id="sidebar">
+          <% if (user) { %>
+            <p><b><%=user.username%></b></p>
+            <p><%=user.fullName%></p>
+          <% } %>
+
+          <p><b>Projects</b></p>
+          <a href="/logout">Logout</a>
+
+        </div>
+      </div>
+      <div class="workspace-column">
+        <div id="workspace">
+          <h1>My Boards</h1>
+          <h4>All boards that you are currently working on.</h4>
+          <div class="container-fluid">
+            <div class="top col-md-12">
+                <button class="btn button-blue button-small" id="btnAddNewBoard"><b>+ New Board</b></button>
+            </div>
+            <div class="group-title">
+              <h5><b>All boards</b></h5>
+            </div>
+
+
+            <div class="main-content">
+              <div class="row board-row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <div class="board board-blue">
+                    <h4><b>Hci projekat</b></h4>
+                    <div class="type-title"><h5> <b>Project | HCI</b></h5></div>
+                    <p>Ovde da ide ili goal ili desc.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <div class="board board-red">
+                    <h4><b>Baze usmeni</b></h4>
+                    <div class="type-title"><h5><b>Idea</b></h5></div>
+                    <p>Nauciti baze za usmeni u cetvrtak</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <div class="board board-green">
+                    <h4><b>Moj novi projekat</b></h4>
+                    <div class="type-title"><h5><b>Brainstorm</b></h5></div>
+                    <p>Brainstormovanje za novi projekat</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <div class="board board-red">
+                    <h4><b>Baze usmeni</b></h4>
+                    <div class="type-title"><h5><b>Idea</b></h5></div>
+                    <p>Nauciti baze za usmeni u cetvrtak. Napisati skriptu za baze i uraditi projekat za 27.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <div class="board board-green">
+                    <h4><b>Ideje za imena</b></h4>
+                    <div class="type-title"><h5><b>Brainstorm</b></h5></div>
+                    <p>Brainstormovanje za imena aplikacije.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form class="" id="testPostForm" action="/user/addBoard" method="post">
+              <input type="text" name="testPost" id="testPostIn" value="">
+              <button type="submit" name="button" id="testPostBtn">Test post</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="../../js/jquery.min.js" charset="utf-8"></script>
+    <script src="../../js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../../boards/createBoard.js" charset="utf-8"></script>
+  </body>
+</html>

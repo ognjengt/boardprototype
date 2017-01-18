@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+@import "components/buttons";
+@import "components/sidebar";
+@import "bootstrap-fixes/fixes";
+@import "components/top";
+@import "components/boards";
+@import "responsive/responsive-app";
+
+*{
+  font-family: 'Proxima Nova Rg';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.02em;
+}
+body{
+  background: $applicationBackground !important;
+}
+#workspace{
+  width: 100%;
+  background: $applicationBackground;
+  min-height: 100vh;
+  max-height: auto;
+  padding: 20px 100px;
+}
+.sidebar-column{
+  width: 12%;
+  float: left;
+}
+.workspace-column{
+  width: 88%;
+  float: right;
+}
+.main-content{
+  margin-top: -20px !important;
+}

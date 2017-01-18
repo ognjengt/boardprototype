@@ -1,0 +1,24 @@
+@media (max-width:1400px) {
+  #workspace{
+    padding-left: 160px !important;
+    padding-right: 50px !important;
+  }
+}
+@media(max-width:850px) {
+  #workspace{
+    padding-left: 190px !important;
+    padding-right: 40px !important;
+  }
+}
+@media(max-width:600px) {
+  #sidebar{
+    display: none !important;
+  }
+  .workspace-column{
+    width: 100% !important;
+  }
+  #workspace{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}

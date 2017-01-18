@@ -1,0 +1,38 @@
+.button-signin{
+  width: 100%;
+  margin-top: 20px;
+  height: 50px;
+  background: $greenGradient !important;
+  color: #fff;
+  transition: 0.2s ease;
+  @include box-shadow(7px);
+  opacity: 1;
+}
+.button-signin:hover{
+  opacity: 0.78;
+  color: #fff !important;
+}
+.button-blue{
+  width: 100%;
+  margin-top: 20px;
+  height: 50px;
+  background: $blueGradient !important;
+  color: #fff;
+  transition: 0.2s ease;
+  @include box-shadow(7px);
+  opacity: 1;
+  border-bottom: 1px solid $lightblue;
+}
+.button-blue:hover{
+  opacity: 0.78;
+  color: #fff !important;
+}
+
+.button-signin:active, .button-signin:focus, .button-blue:active, .button-blue:focus{
+  color: #fff !important;
+}
+.button-small{
+  width: 150px;
+  height: 37px;//ili 35 ili 37 ili 40
+  @include box-shadow(7px); //ili 10 ili 3 ili 7
+}

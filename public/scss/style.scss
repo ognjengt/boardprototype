@@ -1,0 +1,16 @@
+@import "variables";
+@import "mixins";
+@import "components/buttons";
+@import "loginregister";
+
+*{
+  font-family: 'Proxima Nova Rg';
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+  padding: 50px;
+}
+.centertext{
+  text-align: center;
+}
