@@ -22,6 +22,7 @@ var UserSchema = mongoose.Schema({
       title: String,
       description: String,
       goal: String,
+      boardType: String,//type je kljucna rec
       pinned: Boolean,
       dateCreated: Date,
       //ovde workspaceovi
@@ -69,7 +70,7 @@ module.exports.createBoard = function(id,board,res) {
     if (err) {
       throw err;
     }
-    res.send(user.boards[user.boards.length-1]); //vraca mi poslednji dodat board
+    res.send(user.boards[user.boards.length-1]); //vraca mi poslednji dodat board, TODO:ovde kada budem menjao da postoji Boards model, samo isto upisi mi u boards bazu i kada se creatuje OVDE novi board sa svim opcijama prosledjenim, kazi da je newboard.id = user.boards[user.boards.length-1]._id;
     res.end();
     //res.send(board); ovde ili smisli kako da vratis to pa da ti se populatuje u realtimeu, ili jednostavno nemoj dirati nista, i samo nekako iz ajax calla rucno napravi novi div, na success funkciju
   });

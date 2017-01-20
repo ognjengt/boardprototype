@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     });
 
-  function createBoard(data) {
+  function createBoard(data) { //nekako skontati kako da se board doda na ekran, mozilla ne podrzava ovo.
     var grid = document.createElement('div');
     grid.className = 'col-sm-6 col-md-4 col-lg-3';
     var board = document.createElement('div');

@@ -14,6 +14,8 @@ router.get('/:username/boards', middleware.ensureAuthenticated, function(req, re
     if(req.user.boards[0])
       boardsExist = true;
 
+      // ovde prvo getovati iz Boards modela kad se napravi , i onda samo postaviti neku promenljivu boards pre upita iz baze, u upitu baze samo kazem da je boards = boards koji su dobijeni; I onda samo kazem render boards:boards
+
     res.render('user/index', {
       boards: req.user.boards,
       hasBoards: boardsExist
