@@ -6,6 +6,7 @@ var middleware = require('../middleware/middleware.js');
 var mongoose = require('mongoose');
 
 var User = require('../models/user');
+var Board = require('../models/board');
 
 /* GET home page. */
 router.get('/:username/boards', middleware.ensureAuthenticated, function(req, res, next) {
@@ -14,12 +15,13 @@ router.get('/:username/boards', middleware.ensureAuthenticated, function(req, re
     if(req.user.boards[0])
       boardsExist = true;
 
-      // ovde prvo getovati iz Boards modela kad se napravi , i onda samo postaviti neku promenljivu boards pre upita iz baze, u upitu baze samo kazem da je boards = boards koji su dobijeni; I onda samo kazem render boards:boards
-
-    res.render('user/index', {
-      boards: req.user.boards,
-      hasBoards: boardsExist
-    });
+      // nadji sve boardove od tog usera
+      Board.find({userId: req.user._id}, function(err,boards) {
+        res.render('user/index', {
+          boards: boards,
+          hasBoards: boardsExist
+        });
+      })
   }
   else res.render('error', {
     message: 'You do not have permission to access this page.',
@@ -44,11 +46,14 @@ router.get('/:username', middleware.ensureAuthenticated, function(req, res, next
 
 router.post('/addBoard',function(req, res, next) {
   //TODO: post request da se samo ovo sto je u inputu pushuje u board array, i da se napravi novi id.
-  var newBoard = {
+  var newBoard = new Board({
     _id: new mongoose.Types.ObjectId,
-    title: req.body.title
-  };
-  User.createBoard(req.user._id,newBoard,res);
+    title: req.body.title,
+    userId: req.user._id
+    //ovde jos description, goal i kom useru pripada
+  });
+  //User.createBoard(req.user._id,newBoard,res);
+  Board.createBoard(req.user._id,newBoard,res);
 });
 
 module.exports = router;
