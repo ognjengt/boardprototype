@@ -18,8 +18,7 @@ var BoardSchema = mongoose.Schema({
 var Board = module.exports = mongoose.model('Board', BoardSchema);
 
 module.exports.createBoard = function(userId,newBoard,res) {
-// u userov board array dodati newBoard._id
-// u boardovima uraditi samo .save
+
   User.findByIdAndUpdate(userId, {$push: {boards: new Object({_id: newBoard._id})}},{new: true}, function(err, user) {
     if (err) {
       throw err;

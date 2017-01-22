@@ -9,7 +9,7 @@ $(document).ready(function() {
     data: JSON.stringify(data),
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
-    url: '/user/addBoard',
+    url: '/boards/addBoard',
     complete: function(data) {
       console.log(data.responseJSON);
       createBoard(data.responseJSON);

@@ -10,14 +10,14 @@ var User = require('../models/user');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.user) {
-    res.redirect('/user/'+req.user.username+'/boards');
+    res.redirect('/boards');
   }
   res.render('index');
 });
 
 router.get('/register', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.redirect('/user/'+req.user.username+'/boards');
+    res.redirect('/boards');
   }
   else res.render('register');
 });
@@ -63,7 +63,7 @@ router.post('/register', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.redirect('/user/'+req.user.username+'/boards');
+    res.redirect('/boards');
   }
   else res.render('login');
 
@@ -129,7 +129,7 @@ passport.deserializeUser(function(id, done) {
 router.post('/login',
   passport.authenticate('local', {failureRedirect: '/login', failureFlash: true}),//failureFlash promeniti kada ubacis flash messages
   function(req, res) {
-    res.redirect('/user/'+req.user.username+'/boards');
+    res.redirect('/boards');
 });
 
 // Nece trebati na indexu posto ce se prikazivati samo landing page
