@@ -28,6 +28,20 @@
   color: #fff !important;
 }
 
+.button-cancel{
+  width: 100%;
+  margin-top: 20px;
+  height: 50px;
+  background: #fff !important;
+  color: $gray;
+  transition: 0.2s ease;
+  opacity: 1;
+}
+
+.move-left{
+  margin-left: 30px !important;
+}
+
 .button-signin:active, .button-signin:focus, .button-blue:active, .button-blue:focus{
   color: #fff !important;
 }
@@ -35,4 +49,10 @@
   width: 150px;
   height: 37px;//ili 35 ili 37 ili 40
   @include box-shadow(5px); //ili 10 ili 3 ili 7
+}
+.button-small-moveleft{
+  width: 150px;
+  height: 37px;//ili 35 ili 37 ili 40
+  @include box-shadow(5px); //ili 10 ili 3 ili 7
+  margin-left: 37px;
 }

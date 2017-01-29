@@ -4,6 +4,20 @@
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
+@mixin custom-radius($radius1,$radius2,$radius3,$radius4) {
+  -webkit-border-top-left-radius: $radius1;
+  -webkit-border-top-right-radius: $radius2;
+  -webkit-border-bottom-right-radius: $radius3;
+  -webkit-border-bottom-left-radius: $radius4;
+  -moz-border-radius-topleft: $radius1;
+  -moz-border-radius-topright: $radius2;
+  -moz-border-radius-bottomright: $radius3;
+  -moz-border-radius-bottomleft: $radius4;
+  border-top-left-radius: $radius1;
+  border-top-right-radius: $radius2;
+  border-bottom-right-radius: $radius3;
+  border-bottom-left-radius: $radius4;
+}
 @mixin box-shadow($spread) {
   -webkit-box-shadow: 0px 2px $spread -2px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 2px $spread -2px rgba(0,0,0,0.75);

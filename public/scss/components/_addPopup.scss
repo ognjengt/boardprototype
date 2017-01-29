@@ -1,13 +1,97 @@
-.overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
+#addPopup{
   display: none;
-}
-.addFormBody{
-  width: 900px;
-  height: 900px;
+
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+
+    .addFormBody{
+      width: 850px;
+      height: 600px;
+      margin:auto;
+      margin-top: 150px;
+      @include border-radius(4px);
+      @include box-shadow(5px);
+      background: #fff;
+
+
+      .form-header{
+        width: 100%;
+        padding: 7px;
+        background: $googleBlue;
+        @include custom-radius(4px,4px,0,0);
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+      }
+
+      #choosingType{
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px 10px;
+
+        .col-md-4{
+          padding-top: 10px;
+
+          .board{
+            text-align: left;
+            padding-top: 0;
+          }
+        }
+      }
+
+      #boardDetails{
+        display: none;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px 50px;
+
+        #addBoardForm{
+          margin-top: 50px;
+        }
+
+        input{
+          height: 40px;
+          box-shadow: none !important;
+          font-size: 0.99em;
+        }
+        input:focus{
+          border-left: 3px solid $blue;
+        }
+        textarea{
+          resize: none;
+          box-shadow: none !important;
+          font-size: 0.99em;
+        }
+        textarea:focus{
+          border-left: 3px solid $blue;
+        }
+        .col-md-6{
+          margin: 0;
+          padding: 0;
+        }
+        select{
+          width: 90%;
+          cursor: pointer;
+        }
+        #boardWorkspace{
+          float: right;
+        }
+        #btnSubmitNewBoard{
+          float: right;
+        }
+        #btnCancelInput {
+          float: right;
+        }
+      }
+
+
+    }
+  }
 }

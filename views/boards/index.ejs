@@ -31,6 +31,7 @@
               <a href="#"><li>ico Workspaces</li></a>
               <a href="#"><li>ico Teams</li></a>
               <a href="#"><li>ico Archive</li></a>
+              <a href="#"><li>ico Statistics</li></a>
             </ul>
           </nav>
 
@@ -62,6 +63,7 @@
 
             <div class="main-content">
               <div class="row board-row" id="allBoards">
+                <!--Odavde brisati ove nepotrebne-->
                 <div class="col-sm-6 col-md-4 col-lg-3">
                   <div class="board board-blue">
                     <h4><b>Hci projekat</b></h4>
@@ -123,14 +125,82 @@
       <!--Popup-->
       <div id="addPopup">
         <div class="overlay">
+          <div class="addFormBody">
+            <div class="form-header">
+              <h4>Create new board</h4>
+            </div>
 
+            <div id="choosingType">
+              <h4><b>Choose board type</b></h4>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="board board-blue chosen">
+                    <h4><b>Project</b></h4>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="board board-red chosen">
+                    <h4><b>Idea</b></h4>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="board board-green chosen">
+                    <h4><b>Brainstorm</b></h4>
+                  </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+              </div>
+            </div>
+
+            <div id="boardDetails">
+              <h4><b id="boardDetailsHeader"></b></h4>
+              <form id="addBoardForm" action="" method="post"><!--TODO dodaj ovde action-->
+                <div class="form-group">
+                  <input type="hidden" type="text" class="form-control" name="type" id="boardType">
+                </div>
+
+                <div class="form-group">
+                  <input autocomplete="off" type="text" class="form-control" placeholder="Title" name="title" id="boardTitle">
+                </div>
+
+                <div class="form-group">
+                  <textarea class="form-control" placeholder="Description" name="description" id="boardDescription" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Goal (What do you want to accomplish)" name="goal" id="boardGoal">
+                </div>
+
+
+                <div class="col-md-6"><select type="text" class="form-control" placeholder="Team" name="team" id="boardTeam"><!--TODO ovde populatovati timove foreach tim bacaj opciju sa timom kojem user pripada-->
+                  <option>Personal board</option>
+                  <option>Team1</option>
+                </select></div>
+
+
+                <div class="col-md-6"><select type="text" class="form-control" placeholder="Workspace" name="workspace" id="boardWorkspace"><!--TODO ovde populatovati timove foreach tim bacaj opciju sa timom kojem user pripada-->
+                  <option>No workspace</option>
+                  <option>WS1</option>
+                </select></div>
+
+                <button class="btn button-blue button-small-moveleft" type="submit" name="button" id="btnSubmitNewBoard">Create</button>
+
+                <button class="btn button-cancel button-small" name="button" id="btnCancelInput">Cancel</button>
+              </form>
+            </div>
+
+          </div>
         </div>
       </div>
+
     </div>
 
 
     <script src="../../js/jquery.min.js" charset="utf-8"></script>
     <script src="../../js/bootstrap.min.js" charset="utf-8"></script>
     <script src="../../api/boards/createBoard.js" charset="utf-8"></script>
+    <script src="../../interaction/newBoard.js" charset="utf-8"></script>
   </body>
 </html>

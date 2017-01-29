@@ -31,6 +31,18 @@
   opacity: 0.78;
   color: #fff !important; }
 
+.button-cancel {
+  width: 100%;
+  margin-top: 20px;
+  height: 50px;
+  background: #fff !important;
+  color: #272727;
+  transition: 0.2s ease;
+  opacity: 1; }
+
+.move-left {
+  margin-left: 30px !important; }
+
 .button-signin:active, .button-signin:focus, .button-blue:active, .button-blue:focus {
   color: #fff !important; }
 
@@ -40,6 +52,14 @@
   -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75); }
+
+.button-small-moveleft {
+  width: 150px;
+  height: 37px;
+  -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+  margin-left: 37px; }
 
 #sidebar {
   height: 100vh;
@@ -164,7 +184,11 @@
   cursor: pointer;
   transition: 0.2s ease;
   word-wrap: break-word;
-  overflow: hidden; }
+  overflow: hidden;
+  border: 1px solid #D5D5D5;
+  border-bottom: none; }
+  .board h4 {
+    font-size: 1em; }
   .board p {
     font-size: 0.82em; }
 
@@ -198,18 +222,89 @@
 /*.hvr-sweep-to-right:before{ videti mozda da se ubaci
   background: $blue !important;
 }*/
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
+#addPopup {
   display: none; }
-
-.addFormBody {
-  width: 900px;
-  height: 900px; }
+  #addPopup .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); }
+    #addPopup .overlay .addFormBody {
+      width: 850px;
+      height: 600px;
+      margin: auto;
+      margin-top: 150px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+      background: #fff; }
+      #addPopup .overlay .addFormBody .form-header {
+        width: 100%;
+        padding: 7px;
+        background: linear-gradient(180deg, #4d90fe, #4787ed);
+        -webkit-border-top-left-radius: 4px;
+        -webkit-border-top-right-radius: 4px;
+        -webkit-border-bottom-right-radius: 0;
+        -webkit-border-bottom-left-radius: 0;
+        -moz-border-radius-topleft: 4px;
+        -moz-border-radius-topright: 4px;
+        -moz-border-radius-bottomright: 0;
+        -moz-border-radius-bottomleft: 0;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        text-align: center;
+        line-height: 40px;
+        color: #fff; }
+      #addPopup .overlay .addFormBody #choosingType {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px 10px; }
+        #addPopup .overlay .addFormBody #choosingType .col-md-4 {
+          padding-top: 10px; }
+          #addPopup .overlay .addFormBody #choosingType .col-md-4 .board {
+            text-align: left;
+            padding-top: 0; }
+      #addPopup .overlay .addFormBody #boardDetails {
+        display: none;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px 50px; }
+        #addPopup .overlay .addFormBody #boardDetails #addBoardForm {
+          margin-top: 50px; }
+        #addPopup .overlay .addFormBody #boardDetails input {
+          height: 40px;
+          box-shadow: none !important;
+          font-size: 0.99em; }
+        #addPopup .overlay .addFormBody #boardDetails input:focus {
+          border-left: 3px solid #0080FF; }
+        #addPopup .overlay .addFormBody #boardDetails textarea {
+          resize: none;
+          box-shadow: none !important;
+          font-size: 0.99em; }
+        #addPopup .overlay .addFormBody #boardDetails textarea:focus {
+          border-left: 3px solid #0080FF; }
+        #addPopup .overlay .addFormBody #boardDetails .col-md-6 {
+          margin: 0;
+          padding: 0; }
+        #addPopup .overlay .addFormBody #boardDetails select {
+          width: 90%;
+          cursor: pointer; }
+        #addPopup .overlay .addFormBody #boardDetails #boardWorkspace {
+          float: right; }
+        #addPopup .overlay .addFormBody #boardDetails #btnSubmitNewBoard {
+          float: right; }
+        #addPopup .overlay .addFormBody #boardDetails #btnCancelInput {
+          float: right; }
 
 @media (max-width: 1400px) {
   #workspace {
@@ -240,7 +335,7 @@ body {
 
 #workspace {
   width: 100%;
-  background: #f5f5f5;
+  background: #fff;
   min-height: 100vh;
   max-height: auto;
   padding: 20px 100px; }
