@@ -6,18 +6,44 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
+    <link rel="stylesheet" href="../../css/animate.min.css">
   </head>
   <body>
+
+
     <div class="container-fluid app">
       <div class="sidebar-column">
         <div id="sidebar">
-          <% if (user) { %>
-            <p><b><%=user.username%></b></p>
-            <p><%=user.fullName%></p>
-          <% } %>
+          <div class="userInfo">
+            <%if(user.picture) {%>
+            <img class="profileImg" src="img/<%=user.picture%>"></img>
+            <%} else {%>
+              <img class="profileImg" src="img/no-avatar.png"></img>
+            <%}%>
+            <h4><%=user.fullName%></h4>
+            <p><%=user.email%></p>
 
-          <p><b>Projects</b></p>
-          <a href="/logout">Logout</a>
+          </div>
+
+          <nav>
+            <ul>
+              <a href="#"><li class="active">ico Boards</li></a>
+              <a href="#"><li>ico Workspaces</li></a>
+              <a href="#"><li>ico Teams</li></a>
+              <a href="#"><li>ico Archive</li></a>
+            </ul>
+          </nav>
+
+          <div class="bottom">
+            <ul>
+              <a href="#"><li>ico Account</li></a>
+              <a href="#"><li>ico Settings</li></a>
+              <a href="/logout"><li>ico Logout</li></a>
+            </ul>
+            <div class="footerLogo">
+              Stormboards
+            </div>
+          </div>
 
         </div>
       </div>
@@ -92,6 +118,12 @@
               <button type="submit" name="button" id="testPostBtn">Test post</button>
             </form>
           </div>
+        </div>
+      </div>
+      <!--Popup-->
+      <div id="addPopup">
+        <div class="overlay">
+
         </div>
       </div>
     </div>

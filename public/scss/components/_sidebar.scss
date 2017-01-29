@@ -1,10 +1,114 @@
 #sidebar{
   height: 100vh;
   width: 250px;
-  background: $sidebarBg;
+  background: $sidebarGradient;
   color: #fff;
   text-align: left;
-  padding: 10px 15px;
   position: fixed;
+
+  .userInfo{
+    width: 100%;
+    height: 300px;
+    padding: 50px 15px;
+    text-align: center;
+    color: $applicationBackground;
+    background: darken($sidebarBg, 5);
+    transition: 0.2s ease;
+    cursor: pointer;
+
+    .profileImg{
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      @include border-radius(50%);
+      margin-bottom: 5px;
+    }
+
+    p{
+      font-size: 0.93em;
+      opacity: 0.5;
+      //ovde eventualno ubaciti konkretnu boju umesto opacityja
+    }
+  }
+  .userInfo:hover{
+    background: lighten($sidebarBg, 2);
+  }
+
+  nav{
+    ul{
+      list-style-type: none;
+      margin-top: 20px;
+      padding: 0;
+
+        a{
+          color: #6A7583;
+          text-decoration: none;
+
+          li{
+            padding-top: 8px;
+            padding-left: 30px;
+            padding-bottom: 8px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            font-family: 'Proxima Nova Lt';
+            font-weight: bold;
+            font-style: normal;
+        }
+      }
+      li:hover{
+        background: lighten($sidebarBg, 10);
+        padding-left: 35px;
+        color: $sidebarOptionHover;
+      }
+    }
+  }
+
+  .bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    ul{
+      list-style-type: none;
+      padding: 0;
+
+        a{
+          color: #6A7583;
+          text-decoration: none;
+
+          li{
+            padding-top: 6px;
+            padding-left: 30px;
+            padding-bottom: 6px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            //opacity: 0.7;
+            font-family: 'Proxima Nova Lt';
+            font-weight: bold;
+            font-style: normal;
+        }
+      }
+      li:hover{
+        background: lighten($sidebarBg, 10);
+        padding-left: 35px;
+        color: $sidebarOptionHover;
+      }
+    }
+
+    .footerLogo{
+      background: darken($sidebarBg,7);
+      padding: 10px 30px;
+      margin: 0;
+    }
+  }
+}
+
+.active{
+  background: lighten($sidebarBg, 10);
+  padding-left: 35px;
+  color: $sidebarOptionHover;
+  border-left: 4px solid $red;
 }
 //TODO : uraditi sidebar

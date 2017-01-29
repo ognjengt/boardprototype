@@ -4,6 +4,7 @@ $(document).ready(function() {
     var data={//ovaj data se uzima iz prave forme za dodavanje kad se ona napravi
       title: $('#testPostIn').val()
     };
+    // TODO mozda ovde pozvati funkciju createBoard, zato sto npr na laptopu treba jedno par sekundi da se to napravi.
     $.ajax({
     type: 'POST',
     data: JSON.stringify(data),
@@ -26,7 +27,8 @@ $(document).ready(function() {
     board.className = 'board board-blue';
     var title = document.createElement('h4');
     var bold = document.createElement('b');
-    bold.innerText = data.title;
+    //bold.innerText = data.title;
+    bold.textContent = data.title;
     title.appendChild(bold);
     //ovde dodati type | workspace i description, kada se odradi bas pravi
 

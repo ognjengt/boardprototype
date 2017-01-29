@@ -16,6 +16,7 @@ var UserSchema = mongoose.Schema({
   },
   fullName: String,
   password: String,
+  picture: String,
   boards: [
     {
       _id: {

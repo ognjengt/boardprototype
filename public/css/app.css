@@ -37,18 +37,95 @@
 .button-small {
   width: 150px;
   height: 37px;
-  -webkit-box-shadow: 0px 2px 7px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 2px 7px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 2px 7px -2px rgba(0, 0, 0, 0.75); }
+  -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75); }
 
 #sidebar {
   height: 100vh;
   width: 250px;
-  background: #232323;
+  background: linear-gradient(180deg, #1F222D, #15171e);
   color: #fff;
   text-align: left;
-  padding: 10px 15px;
   position: fixed; }
+  #sidebar .userInfo {
+    width: 100%;
+    height: 300px;
+    padding: 50px 15px;
+    text-align: center;
+    color: #f5f5f5;
+    background: #15171e;
+    transition: 0.2s ease;
+    cursor: pointer; }
+    #sidebar .userInfo .profileImg {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%;
+      margin-bottom: 5px; }
+    #sidebar .userInfo p {
+      font-size: 0.93em;
+      opacity: 0.5; }
+  #sidebar .userInfo:hover {
+    background: #232733; }
+  #sidebar nav ul {
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0; }
+    #sidebar nav ul a {
+      color: #6A7583;
+      text-decoration: none; }
+      #sidebar nav ul a li {
+        padding-top: 8px;
+        padding-left: 30px;
+        padding-bottom: 8px;
+        cursor: pointer;
+        transition: 0.2s ease;
+        font-family: 'Proxima Nova Lt';
+        font-weight: bold;
+        font-style: normal; }
+    #sidebar nav ul li:hover {
+      background: #34394b;
+      padding-left: 35px;
+      color: #b7b7b7; }
+  #sidebar .bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0; }
+    #sidebar .bottom ul {
+      list-style-type: none;
+      padding: 0; }
+      #sidebar .bottom ul a {
+        color: #6A7583;
+        text-decoration: none; }
+        #sidebar .bottom ul a li {
+          padding-top: 6px;
+          padding-left: 30px;
+          padding-bottom: 6px;
+          cursor: pointer;
+          transition: 0.2s ease;
+          font-family: 'Proxima Nova Lt';
+          font-weight: bold;
+          font-style: normal; }
+      #sidebar .bottom ul li:hover {
+        background: #34394b;
+        padding-left: 35px;
+        color: #b7b7b7; }
+    #sidebar .bottom .footerLogo {
+      background: #101218;
+      padding: 10px 30px;
+      margin: 0; }
+
+.active {
+  background: #34394b;
+  padding-left: 35px;
+  color: #b7b7b7;
+  border-left: 4px solid #de3b44; }
 
 .container-fluid {
   padding: 0 !important;
@@ -80,9 +157,9 @@
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
-  -webkit-box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
   padding: 2px 10px;
   cursor: pointer;
   transition: 0.2s ease;
@@ -121,6 +198,19 @@
 /*.hvr-sweep-to-right:before{ videti mozda da se ubaci
   background: $blue !important;
 }*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: none; }
+
+.addFormBody {
+  width: 900px;
+  height: 900px; }
+
 @media (max-width: 1400px) {
   #workspace {
     padding-left: 160px !important;

@@ -42,8 +42,6 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-//TODO passport
-
 //Global vars
 app.use(function(req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
