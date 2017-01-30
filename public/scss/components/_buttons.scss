@@ -34,6 +34,7 @@
   height: 50px;
   background: #fff !important;
   color: $gray;
+  border: 1px solid $boardBorder !important;
   transition: 0.2s ease;
   opacity: 1;
 }
@@ -51,8 +52,6 @@
   @include box-shadow(5px); //ili 10 ili 3 ili 7
 }
 .button-small-moveleft{
-  width: 150px;
-  height: 37px;//ili 35 ili 37 ili 40
-  @include box-shadow(5px); //ili 10 ili 3 ili 7
+  @extend .button-small;
   margin-left: 37px;
 }

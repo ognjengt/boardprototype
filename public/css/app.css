@@ -37,6 +37,7 @@
   height: 50px;
   background: #fff !important;
   color: #272727;
+  border: 1px solid #D5D5D5 !important;
   transition: 0.2s ease;
   opacity: 1; }
 
@@ -46,7 +47,7 @@
 .button-signin:active, .button-signin:focus, .button-blue:active, .button-blue:focus {
   color: #fff !important; }
 
-.button-small {
+.button-small, .button-small-moveleft {
   width: 150px;
   height: 37px;
   -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
@@ -54,11 +55,6 @@
   box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75); }
 
 .button-small-moveleft {
-  width: 150px;
-  height: 37px;
-  -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
   margin-left: 37px; }
 
 #sidebar {
@@ -229,60 +225,53 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); }
+    min-height: 100%;
+    max-height: auto;
+    background: #fff; }
     #addPopup .overlay .addFormBody {
-      width: 850px;
-      height: 600px;
-      margin: auto;
-      margin-top: 150px;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      -ms-border-radius: 4px;
-      border-radius: 4px;
-      -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
-      box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+      width: 100%;
+      min-height: 100%;
+      max-height: auto;
       background: #fff; }
+      #addPopup .overlay .addFormBody .line {
+        width: 100%;
+        height: 4px;
+        background: #0080FF;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        border-radius: 4px; }
       #addPopup .overlay .addFormBody .form-header {
-        width: 100%;
-        padding: 7px;
-        background: linear-gradient(180deg, #4d90fe, #4787ed);
-        -webkit-border-top-left-radius: 4px;
-        -webkit-border-top-right-radius: 4px;
-        -webkit-border-bottom-right-radius: 0;
-        -webkit-border-bottom-left-radius: 0;
-        -moz-border-radius-topleft: 4px;
-        -moz-border-radius-topright: 4px;
-        -moz-border-radius-bottomright: 0;
-        -moz-border-radius-bottomleft: 0;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-        text-align: center;
-        line-height: 40px;
-        color: #fff; }
+        padding: 10px 20px;
+        margin-top: 60px; }
+        #addPopup .overlay .addFormBody .form-header h4 {
+          color: #878787; }
       #addPopup .overlay .addFormBody #choosingType {
-        text-align: center;
         width: 100%;
         height: 100%;
-        padding: 20px 10px; }
-        #addPopup .overlay .addFormBody #choosingType .col-md-4 {
+        background: #fff; }
+        #addPopup .overlay .addFormBody #choosingType .col-md-3 {
           padding-top: 10px; }
-          #addPopup .overlay .addFormBody #choosingType .col-md-4 .board {
+          #addPopup .overlay .addFormBody #choosingType .col-md-3 .board {
             text-align: left;
-            padding-top: 0; }
+            margin-top: 10px;
+            height: 200px; }
       #addPopup .overlay .addFormBody #boardDetails {
+        padding: 20px;
         display: none;
-        text-align: center;
         width: 100%;
-        height: 100%;
-        padding: 20px 50px; }
+        height: 100%; }
+        #addPopup .overlay .addFormBody #boardDetails .col-md-10 {
+          padding: 0; }
         #addPopup .overlay .addFormBody #boardDetails #addBoardForm {
-          margin-top: 50px; }
+          margin-top: 20px; }
+          #addPopup .overlay .addFormBody #boardDetails #addBoardForm label {
+            padding-left: 2px;
+            color: #494949; }
+          #addPopup .overlay .addFormBody #boardDetails #addBoardForm col-md-6 {
+            margin-left: 20px; }
         #addPopup .overlay .addFormBody #boardDetails input {
-          height: 40px;
+          height: 53px;
           box-shadow: none !important;
           font-size: 0.99em; }
         #addPopup .overlay .addFormBody #boardDetails input:focus {
@@ -297,14 +286,17 @@
           margin: 0;
           padding: 0; }
         #addPopup .overlay .addFormBody #boardDetails select {
-          width: 90%;
-          cursor: pointer; }
+          width: 100%;
+          cursor: pointer;
+          height: 53px; }
+        #addPopup .overlay .addFormBody #boardDetails #boardTeam {
+          width: 90%; }
         #addPopup .overlay .addFormBody #boardDetails #boardWorkspace {
-          float: right; }
+          float: left; }
         #addPopup .overlay .addFormBody #boardDetails #btnSubmitNewBoard {
           float: right; }
         #addPopup .overlay .addFormBody #boardDetails #btnCancelInput {
-          float: right; }
+          float: left; }
 
 @media (max-width: 1400px) {
   #workspace {

@@ -2,13 +2,11 @@ $(document).ready(function() {
   var selectedType;
 
   $('#btnAddNewBoard').on('click',function() {
-    $('#addPopup').show();
+    openPopup();
   });
 
   $('.form-header').on('click',function() {
-    $('#addPopup').hide();
-    $('#choosingType').show();
-    $('#boardDetails').hide();
+    closePopup();
   })
 
   $('.chosen').on('click',function() {
@@ -21,8 +19,18 @@ $(document).ready(function() {
 
   $('#btnCancelInput').on('click',function(e){
     e.preventDefault();
+    closePopup();
+  })
+
+  function openPopup() {
+    $('#addPopup').show();
+    $('#workspace').hide();
+  }
+
+  function closePopup() {
     $('#addPopup').hide();
+    $('#workspace').show();
     $('#choosingType').show();
     $('#boardDetails').hide();
-  })
+  }
 });

@@ -6,58 +6,71 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
+    min-height: 100%;
+    max-height: auto;
+    background: #fff;
 
     .addFormBody{
-      width: 850px;
-      height: 600px;
-      margin:auto;
-      margin-top: 150px;
-      @include border-radius(4px);
-      @include box-shadow(5px);
+      width: 100%;
+      min-height: 100%;
+      max-height: auto;
       background: #fff;
 
+      .line{
+        width: 100%;
+        height: 4px;
+        background: $blue;
+        @include border-radius(4px);
+      }
 
       .form-header{
-        width: 100%;
-        padding: 7px;
-        background: $googleBlue;
-        @include custom-radius(4px,4px,0,0);
-        text-align: center;
-        line-height: 40px;
-        color: #fff;
+        padding: 10px 20px;
+        margin-top: 60px;
+        h4{
+          color: $groupTitleGray;
+        }
       }
 
       #choosingType{
-        text-align: center;
         width: 100%;
         height: 100%;
-        padding: 20px 10px;
+        background: #fff;
 
-        .col-md-4{
+        .col-md-3{
           padding-top: 10px;
 
           .board{
             text-align: left;
-            padding-top: 0;
+            margin-top: 10px;
+            height: 200px;
           }
         }
       }
 
       #boardDetails{
+        padding: 20px;
         display: none;
-        text-align: center;
         width: 100%;
         height: 100%;
-        padding: 20px 50px;
+
+        .col-md-10{
+          padding: 0;
+        }
 
         #addBoardForm{
-          margin-top: 50px;
+          margin-top: 20px;
+          label{
+            padding-left: 2px;
+            color: $labelColor;
+          }
+
+          col-md-6{
+            margin-left: 20px;
+          }
         }
 
         input{
-          height: 40px;
+          height: 53px;
           box-shadow: none !important;
           font-size: 0.99em;
         }
@@ -77,17 +90,21 @@
           padding: 0;
         }
         select{
-          width: 90%;
+          width: 100%;
           cursor: pointer;
+          height: 53px;
+        }
+        #boardTeam{
+          width: 90%;
         }
         #boardWorkspace{
-          float: right;
+          float: left;
         }
         #btnSubmitNewBoard{
           float: right;
         }
         #btnCancelInput {
-          float: right;
+          float: left;
         }
       }
 
