@@ -38,11 +38,14 @@
   background: #fff !important;
   color: #272727;
   border: 1px solid #D5D5D5 !important;
-  transition: 0.2s ease;
+  transition: 0.1s ease;
   opacity: 1; }
 
-.move-left {
-  margin-left: 30px !important; }
+.button-cancel:hover {
+  color: #de3b44 !important; }
+
+.shorten {
+  width: 45%; }
 
 .button-signin:active, .button-signin:focus, .button-blue:active, .button-blue:focus {
   color: #fff !important; }
@@ -69,7 +72,7 @@
     height: 300px;
     padding: 50px 15px;
     text-align: center;
-    color: #f5f5f5;
+    color: #ffffff;
     background: #15171e;
     transition: 0.2s ease;
     cursor: pointer; }
@@ -95,6 +98,7 @@
       color: #6A7583;
       text-decoration: none; }
       #sidebar nav ul a li {
+        width: 90%;
         padding-top: 8px;
         padding-left: 30px;
         padding-bottom: 8px;
@@ -102,7 +106,24 @@
         transition: 0.2s ease;
         font-family: 'Proxima Nova Lt';
         font-weight: bold;
-        font-style: normal; }
+        font-style: normal;
+        -webkit-border-top-left-radius: 0;
+        -webkit-border-top-right-radius: 4px;
+        -webkit-border-bottom-right-radius: 4px;
+        -webkit-border-bottom-left-radius: 0;
+        -moz-border-radius-topleft: 0;
+        -moz-border-radius-topright: 4px;
+        -moz-border-radius-bottomright: 4px;
+        -moz-border-radius-bottomleft: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 0; }
+        #sidebar nav ul a li span {
+          font-size: 0.9em;
+          font-family: 'Proxima Nova Lt';
+          font-weight: bold;
+          font-style: normal; }
     #sidebar nav ul li:hover {
       background: #34394b;
       padding-left: 35px;
@@ -186,7 +207,8 @@
   .board h4 {
     font-size: 1em; }
   .board p {
-    font-size: 0.82em; }
+    font-size: 0.82em;
+    color: #878787; }
 
 .board-blue {
   border-left: 4px solid #0080FF; }
@@ -199,6 +221,8 @@
 
 .board:hover .type-title {
   color: #dbdbdb; }
+.board:hover p {
+  color: #fff; }
 
 .board-blue:hover {
   border-left: 20px solid #0080FF;
@@ -221,9 +245,6 @@
 #addPopup {
   display: none; }
   #addPopup .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     min-height: 100%;
     max-height: auto;
@@ -242,8 +263,7 @@
         -ms-border-radius: 4px;
         border-radius: 4px; }
       #addPopup .overlay .addFormBody .form-header {
-        padding: 10px 20px;
-        margin-top: 60px; }
+        padding: 10px 20px; }
         #addPopup .overlay .addFormBody .form-header h4 {
           color: #878787; }
       #addPopup .overlay .addFormBody #choosingType {
@@ -271,7 +291,7 @@
           #addPopup .overlay .addFormBody #boardDetails #addBoardForm col-md-6 {
             margin-left: 20px; }
         #addPopup .overlay .addFormBody #boardDetails input {
-          height: 53px;
+          height: 50px;
           box-shadow: none !important;
           font-size: 0.99em; }
         #addPopup .overlay .addFormBody #boardDetails input:focus {
@@ -288,15 +308,16 @@
         #addPopup .overlay .addFormBody #boardDetails select {
           width: 100%;
           cursor: pointer;
-          height: 53px; }
+          height: 50px; }
         #addPopup .overlay .addFormBody #boardDetails #boardTeam {
           width: 90%; }
         #addPopup .overlay .addFormBody #boardDetails #boardWorkspace {
           float: left; }
         #addPopup .overlay .addFormBody #boardDetails #btnSubmitNewBoard {
-          float: right; }
+          float: right;
+          margin-left: 20px; }
         #addPopup .overlay .addFormBody #boardDetails #btnCancelInput {
-          float: left; }
+          float: right; }
 
 @media (max-width: 1400px) {
   #workspace {
@@ -323,14 +344,16 @@
   font-size: 1.02em; }
 
 body {
-  background: #f5f5f5 !important; }
+  background: #ffffff !important; }
 
 #workspace {
   width: 100%;
-  background: #fff;
+  background: #ffffff;
   min-height: 100vh;
   max-height: auto;
   padding: 20px 100px; }
+  #workspace #pageContent .subtitle {
+    color: #878787; }
 
 .sidebar-column {
   width: 12%;

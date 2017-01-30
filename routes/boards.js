@@ -10,7 +10,6 @@ var Board = require('../models/board');
 
 /* GET home page. */
 router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
-
     var boardsExist=false;
     if(req.user.boards[0]) {
       boardsExist = true;
@@ -18,7 +17,8 @@ router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
       Board.find({userId: req.user._id}, function(err,boards) {
         res.render('boards/index', {
           boards: boards,
-          hasBoards: boardsExist
+          hasBoards: boardsExist,
+          boardCount: req.user.boards.length
         });
       })
     }

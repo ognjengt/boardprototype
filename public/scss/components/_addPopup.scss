@@ -1,10 +1,6 @@
-#addPopup{
+#addPopup {
   display: none;
-
-  .overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
+ .overlay{
     width: 100%;
     min-height: 100%;
     max-height: auto;
@@ -25,7 +21,6 @@
 
       .form-header{
         padding: 10px 20px;
-        margin-top: 60px;
         h4{
           color: $groupTitleGray;
         }
@@ -44,7 +39,9 @@
             margin-top: 10px;
             height: 200px;
           }
+
         }
+
       }
 
       #boardDetails{
@@ -70,7 +67,7 @@
         }
 
         input{
-          height: 53px;
+          height: 50px;
           box-shadow: none !important;
           font-size: 0.99em;
         }
@@ -92,7 +89,7 @@
         select{
           width: 100%;
           cursor: pointer;
-          height: 53px;
+          height: 50px;
         }
         #boardTeam{
           width: 90%;
@@ -102,9 +99,10 @@
         }
         #btnSubmitNewBoard{
           float: right;
+          margin-left: 20px;
         }
         #btnCancelInput {
-          float: left;
+          float: right;
         }
       }
 

@@ -19,10 +19,16 @@ body{
 }
 #workspace{
   width: 100%;
-  background: #fff;
+  background: $applicationBackground;
   min-height: 100vh;
   max-height: auto;
   padding: 20px 100px;
+
+  #pageContent{
+    .subtitle{
+      color: $groupTitleGray;
+    }
+  }
 }
 .sidebar-column{
   width: 12%;

@@ -45,6 +45,7 @@
           text-decoration: none;
 
           li{
+            width: 90%;
             padding-top: 8px;
             padding-left: 30px;
             padding-bottom: 8px;
@@ -53,6 +54,14 @@
             font-family: 'Proxima Nova Lt';
             font-weight: bold;
             font-style: normal;
+            @include custom-radius(0,4px,4px,0);
+
+            span{
+              font-size: 0.9em;
+              font-family: 'Proxima Nova Lt';
+              font-weight: bold;
+              font-style: normal;
+            }
         }
       }
       li:hover{

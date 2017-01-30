@@ -35,12 +35,15 @@
   background: #fff !important;
   color: $gray;
   border: 1px solid $boardBorder !important;
-  transition: 0.2s ease;
+  transition: 0.1s ease;
   opacity: 1;
 }
 
-.move-left{
-  margin-left: 30px !important;
+.button-cancel:hover{
+  color: $red !important;
+}
+.shorten{
+  width: 45%;
 }
 
 .button-signin:active, .button-signin:focus, .button-blue:active, .button-blue:focus{

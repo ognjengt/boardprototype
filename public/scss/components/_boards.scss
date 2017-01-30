@@ -29,6 +29,7 @@
 
   p{
     font-size: 0.82em;
+    color: $groupTitleGray;
   }
 }
 .board-blue{
@@ -44,6 +45,9 @@
 .board:hover{
   .type-title{
     color: $groupTitleGrayHover;
+  }
+  p{
+    color: #fff;
   }
 }
 .board-blue:hover{
