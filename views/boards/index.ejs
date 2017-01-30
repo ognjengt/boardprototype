@@ -117,7 +117,7 @@
                   <div id="boardDetails">
                     <h4><b id="boardDetailsHeader"></b></h4>
                     <div class="col-md-10">
-                      <form id="addBoardForm" action="/boards/addBoard" method="post"><!--TODO dodaj ovde action-->
+                      <form id="addBoardForm" action="/boards/addBoard" method="post">
                         <div class="form-group">
                           <input type="hidden" type="text" class="form-control" name="type" id="boardType">
                         </div>
@@ -129,12 +129,12 @@
 
                         <div class="form-group">
                           <label>Description</label>
-                          <textarea class="form-control" placeholder="What is this board about?" name="description" id="boardDescription" rows="6"></textarea>
+                          <textarea autocomplete="off" class="form-control" placeholder="What is this board about?" name="description" id="boardDescription" rows="6"></textarea>
                         </div>
 
                         <div class="form-group">
                           <label>Goal</label>
-                          <input type="text" class="form-control" placeholder="What do you want to accomplish with this board? (Leave blank if unnecessary)" name="goal" id="boardGoal">
+                          <input type="text" autocomplete="off" class="form-control" placeholder="What do you want to accomplish with this board? (Leave blank if unnecessary)" name="goal" id="boardGoal">
                         </div>
 
 

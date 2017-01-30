@@ -8,7 +8,7 @@ var BoardSchema = mongoose.Schema({
   goal: String,
   boardType: String,//type je kljucna rec
   pinned: Boolean,
-  dateCreated: Date,
+  dateCreated: Date,//TODO dodati workspaces i teams
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     index: true

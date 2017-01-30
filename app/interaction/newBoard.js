@@ -7,9 +7,13 @@ $(document).ready(function() {
     openPopup();
   });
 
-  $('.form-header').on('click',function() {
+  $('.form-header').on('click',function() {//TODO ovde promeniti samo staviti X-button
     closePopup();
-  })
+  });
+
+  $('#btnSubmitNewBoard').on('click',function() {
+    closePopup();
+  });
 
   $('.chosen').on('click',function() {
     selectedType = $(this).children('h4').text().trim();
@@ -24,6 +28,7 @@ $(document).ready(function() {
   $('#btnCancelInput').on('click',function(e){
     e.preventDefault();
     closePopup();
+    clearFields();
   })
 
   function openPopup() {
@@ -38,4 +43,14 @@ $(document).ready(function() {
     $('#boardDetails').hide();
     $('#chooseTypeDescription').html(typeText);
   }
+
+  function clearFields() {
+    $('#boardType').val("");
+    $('#boardTitle').val("");
+    $('#boardDescription').val("");
+    $('#boardGoal').val("");
+    $('#boardTeam').val("Personal board");
+    $('#boardWorkspace').val("No workspace");
+  }
+
 });

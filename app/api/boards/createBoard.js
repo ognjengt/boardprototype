@@ -12,8 +12,8 @@ $(document).ready(function() {
       dateCreated: new Date()
     };
 
-    createBoard(data);
-    // TODO mozda ovde pozvati funkciju createBoard, zato sto npr na laptopu treba jedno par sekundi da se to napravi.
+    createBoard(data); //pravi board
+
     $.ajax({
     type: 'POST',
     data: JSON.stringify(data),
@@ -22,8 +22,7 @@ $(document).ready(function() {
     url: '/boards/addBoard',
     complete: function(data) {
       console.log(data.responseJSON);
-      $('#addPopup').hide();
-      $('#pageContent').show();
+      clearFields();
     }
 
   });
@@ -58,4 +57,14 @@ $(document).ready(function() {
     grid.appendChild(board);
     $('#allBoards').append(grid);
   }
+
+  function clearFields() {
+    $('#boardType').val("");
+    $('#boardTitle').val("");
+    $('#boardDescription').val("");
+    $('#boardGoal').val("");
+    $('#boardTeam').val("Personal board");
+    $('#boardWorkspace').val("No workspace");
+  }
+
 })
