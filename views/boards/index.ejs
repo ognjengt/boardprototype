@@ -64,50 +64,14 @@
 
             <div class="main-content">
               <div class="row board-row" id="allBoards">
-                <!--Odavde brisati ove nepotrebne-->
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <div class="board board-blue">
-                    <h4><b>Hci projekat</b></h4>
-                    <div class="type-title"><h5> <b>Project | HCI</b></h5></div>
-                    <p>Ovde da ide ili goal ili desc.</p>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <div class="board board-red">
-                    <h4><b>Baze usmeni</b></h4>
-                    <div class="type-title"><h5><b>Idea</b></h5></div>
-                    <p>Nauciti baze za usmeni u cetvrtak</p>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <div class="board board-green">
-                    <h4><b>Moj novi projekat</b></h4>
-                    <div class="type-title"><h5><b>Brainstorm</b></h5></div>
-                    <p>Brainstormovanje za novi projekat</p>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <div class="board board-red">
-                    <h4><b>Baze usmeni</b></h4>
-                    <div class="type-title"><h5><b>Idea</b></h5></div>
-                    <p>Nauciti baze za usmeni u cetvrtak. Napisati skriptu za baze i uraditi projekat za 27.</p>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <div class="board board-green">
-                    <h4><b>Ideje za imena</b></h4>
-                    <div class="type-title"><h5><b>Brainstorm</b></h5></div>
-                    <p>Brainstormovanje za imena aplikacije.</p>
-                  </div>
-                </div>
 
                 <% if(hasBoards) {%>
                   <% boards.forEach(function(board) {%>
                     <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="board board-blue">
+                      <div class="board board-<%=board.boardType%>">
                         <h4><b><%= board.title%></b></h4>
-                        <div class="type-title"><h5><b>Brainstorm</b></h5></div>
-                        <p>Brainstormovanje za imena aplikacije.</p>
+                        <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
+                        <p><%= board.description%></p>
                       </div>
                     </div>
                   <% }); %>
@@ -118,10 +82,6 @@
 
 
             </div>
-            <form class="" id="testPostForm" action="/boards/addBoard" method="post">
-              <input type="text" name="testPost" id="testPostIn" value="">
-              <button type="submit" name="button" id="testPostBtn">Test post</button>
-            </form>
           </div>
 
         </div>
@@ -137,28 +97,18 @@
                   <div id="choosingType">
 
                       <div class="col-sm-6 col-md-3">
-                        <div class="board board-blue chosen">
+                        <div class="board board-Project chosen">
                           <h4><b>Project</b></h4>
                         </div>
                       </div>
                       <div class="col-sm-6 col-md-3">
-                        <div class="board board-red chosen">
+                        <div class="board board-Idea chosen">
                           <h4><b>Idea</b></h4>
                         </div>
                       </div>
                       <div class="col-sm-6 col-md-3">
-                        <div class="board board-green chosen">
+                        <div class="board board-Brainstorm chosen">
                           <h4><b>Brainstorm</b></h4>
-                        </div>
-                      </div>
-                      <div class="col-sm-6 col-md-3">
-                        <div class="board board-green chosen">
-                          <h4><b>Isto brainstorm</b></h4>
-                        </div>
-                      </div>
-                      <div class="col-sm-6 col-md-3">
-                        <div class="board board-green chosen">
-                          <h4><b>Isto brainstorm</b></h4>
                         </div>
                       </div>
 
@@ -167,7 +117,7 @@
                   <div id="boardDetails">
                     <h4><b id="boardDetailsHeader"></b></h4>
                     <div class="col-md-10">
-                      <form id="addBoardForm" action="" method="post"><!--TODO dodaj ovde action-->
+                      <form id="addBoardForm" action="/boards/addBoard" method="post"><!--TODO dodaj ovde action-->
                         <div class="form-group">
                           <input type="hidden" type="text" class="form-control" name="type" id="boardType">
                         </div>

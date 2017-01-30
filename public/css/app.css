@@ -210,13 +210,13 @@
     font-size: 0.82em;
     color: #878787; }
 
-.board-blue {
+.board-Project {
   border-left: 4px solid #0080FF; }
 
-.board-red {
+.board-Idea {
   border-left: 4px solid #de3b44; }
 
-.board-green {
+.board-Brainstorm {
   border-left: 4px solid #15cd72; }
 
 .board:hover .type-title {
@@ -224,17 +224,17 @@
 .board:hover p {
   color: #fff; }
 
-.board-blue:hover {
+.board-Project:hover {
   border-left: 20px solid #0080FF;
   background: #0080FF;
   color: #fff; }
 
-.board-red:hover {
+.board-Idea:hover {
   border-left: 20px solid #de3b44;
   background: #de3b44;
   color: #fff; }
 
-.board-green:hover {
+.board-Brainstorm:hover {
   border-left: 20px solid #15cd72;
   background: #15cd72;
   color: #fff; }

@@ -32,13 +32,13 @@
     color: $groupTitleGray;
   }
 }
-.board-blue{
+.board-Project{
   border-left: 4px solid $blue;
 }
-.board-red{
+.board-Idea{
   border-left: 4px solid $red;
 }
-.board-green{
+.board-Brainstorm{
   border-left: 4px solid $green;
 }
 // Hoveri
@@ -50,17 +50,17 @@
     color: #fff;
   }
 }
-.board-blue:hover{
+.board-Project:hover{
   border-left: 20px solid $blue;
   background: $blue;
   color: #fff;
 }
-.board-red:hover{
+.board-Idea:hover{
   border-left: 20px solid $red;
   background: $red;
   color: #fff;
 }
-.board-green:hover{
+.board-Brainstorm:hover{
   border-left: 20px solid $green;
   background: $green;
   color: #fff;

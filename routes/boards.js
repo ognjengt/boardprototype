@@ -26,7 +26,8 @@ router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
       //da ne bi dzabe pozivao upit iz db-a nego samo baci da nema
       res.render('boards/index', {
         boards: [],
-        hasBoards: boardsExist
+        hasBoards: boardsExist,
+        boardCount: 0
       });
     }
   /*
@@ -56,6 +57,13 @@ router.post('/addBoard',function(req, res, next) {
   var newBoard = new Board({
     _id: new mongoose.Types.ObjectId,
     title: req.body.title,
+    boardType: req.body.type,
+    description: req.body.description,
+    goal: req.body.goal,
+    team: req.body.team,
+    workspace: req.body.workspace,
+    pinned: req.body.pinned,
+    dateCreated: req.body.dateCreated,
     userId: req.user._id
     //ovde jos description, goal i kom useru pripada itd...
   });

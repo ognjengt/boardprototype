@@ -1,9 +1,18 @@
 $(document).ready(function() {
-  $('#testPostForm').submit(function(event) {
+  $('#addBoardForm').submit(function(event) {
     event.preventDefault();
     var data={//ovaj data se uzima iz prave forme za dodavanje kad se ona napravi
-      title: $('#testPostIn').val()
+      type: $('#boardType').val(),
+      title: $('#boardTitle').val(),
+      description: $('#boardDescription').val(),
+      goal: $('#boardGoal').val(),
+      team: $('#boardTeam').val(),
+      workspace: $('#boardWorkspace').val(),
+      pinned: false,
+      dateCreated: new Date()
     };
+
+    createBoard(data);
     // TODO mozda ovde pozvati funkciju createBoard, zato sto npr na laptopu treba jedno par sekundi da se to napravi.
     $.ajax({
     type: 'POST',
@@ -13,26 +22,39 @@ $(document).ready(function() {
     url: '/boards/addBoard',
     complete: function(data) {
       console.log(data.responseJSON);
-      createBoard(data.responseJSON);
+      $('#addPopup').hide();
+      $('#pageContent').show();
     }
 
   });
 
     });
 
-  function createBoard(data) { //nekako skontati kako da se board doda na ekran, mozilla ne podrzava ovo.
+  function createBoard(data) {
     var grid = document.createElement('div');
     grid.className = 'col-sm-6 col-md-4 col-lg-3';
     var board = document.createElement('div');
-    board.className = 'board board-blue';
+    board.className = 'board board-'+data.type;
     var title = document.createElement('h4');
     var bold = document.createElement('b');
     //bold.innerText = data.title;
-    bold.textContent = data.title;
+    bold.textContent = data.title; // da bi radilo na mozili
     title.appendChild(bold);
-    //ovde dodati type | workspace i description, kada se odradi bas pravi
+    //type creationg
+    var type = document.createElement('div');
+    type.className = 'type-title';
+    var h5 = document.createElement('h5');
+    var bold2 = document.createElement('b');
+    bold2.textContent = data.type;
+    h5.appendChild(bold2);
+    type.appendChild(h5);
+    //description creation
+    var description = document.createElement('p');
+    description.textContent = data.description;
 
     board.appendChild(title);
+    board.appendChild(type);
+    board.appendChild(description);
     grid.appendChild(board);
     $('#allBoards').append(grid);
   }

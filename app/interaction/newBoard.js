@@ -12,7 +12,8 @@ $(document).ready(function() {
   })
 
   $('.chosen').on('click',function() {
-    selectedType = $(this).text().trim();
+    selectedType = $(this).children('h4').text().trim();
+    console.log(selectedType);
     $('#choosingType').hide();
     $('#boardDetails').show();
     $('#boardType').val(selectedType); // postavio getovani value u hidden field
