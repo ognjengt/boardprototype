@@ -1,7 +1,8 @@
 // Backgrounds
 $loginbackground: '../img/bg.jpg';
 $brainstormBoardBg: '../img/photography.png';
-$applicationBackground: #ffffff;
+$applicationBackgroundPattern: '../img/geometry.png';
+$applicationBackground: #fdfdfd;
 $sidebarBg: #1F222D;
 // Colors
 $green: #15cd72;
@@ -17,6 +18,6 @@ $labelColor: #494949;
 // Gradienti
 $greenGradient: linear-gradient(180deg, #15cd72,#14bb68);
 $redGradient: linear-gradient(180deg, #f06d73,#de3b44);
-$blueGradient: linear-gradient(-180deg, #2796F8, #206EFF);
+$blueGradient: linear-gradient(-180deg, #4d90fe, #206EFF);
 $googleBlue: linear-gradient(180deg,#4d90fe,#4787ed);
 $sidebarGradient: linear-gradient(180deg, #1F222D, #15171e);

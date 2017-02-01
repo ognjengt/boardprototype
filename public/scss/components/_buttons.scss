@@ -21,7 +21,7 @@
   transition: 0.2s ease;
   @include box-shadow(7px);
   opacity: 1;
-  border-bottom: 1px solid $lightblue;
+  //border: 1px solid $lightblue !important;
 }
 .button-blue:hover{
   opacity: 0.78;
@@ -52,7 +52,7 @@
 .button-small{
   width: 150px;
   height: 37px;//ili 35 ili 37 ili 40
-  @include box-shadow(5px); //ili 10 ili 3 ili 7
+  @include box-shadow(2px); //ili 10 ili 3 ili 7
 }
 .button-small-moveleft{
   @extend .button-small;

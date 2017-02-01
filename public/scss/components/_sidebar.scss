@@ -53,7 +53,7 @@
             font-family: 'Proxima Nova Lt';
             font-weight: bold;
             font-style: normal;
-            @include custom-radius(0,4px,4px,0);
+            //@include custom-radius(0,4px,4px,0);
 
             span{
               font-size: 0.9em;

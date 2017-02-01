@@ -37,7 +37,7 @@ router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
       status: '404',
       stack: 'Access denied.'
     }
-  });*/ // ovo je ostalo od ranije kada je bila ruta /user/ognjen/boards, pa se proveravalo da li je username iz paramsa jednak sa ovim userom, da jedan user ne moze da ode na profil od drugog ali ovo je nepotrebno kad je samo /boards onda je ok , ovo ubaciti tamo kada se bude islo localhost/ognjen itd... pa ce onda trebati proveravanje da ne moze jedan user da ode kod ovog.
+  });*/ // ovo je ostalo od ranije kada je bila ruta /user/ognjen/boards, pa se proveravalo da li je username iz paramsa jednak sa ovim userom, da jedan user ne moze da ode na profil od drugog ali ovo je nepotrebno kad je samo /boards onda je ok , ovo ubaciti tamo kada se bude islo localhost/ognjen tj kada ide kod sebe na account itd... pa ce onda trebati proveravanje da ne moze jedan user da ode kod ovog.
 
 });
 
