@@ -14,14 +14,15 @@
   background: #fff;
   height: 150px;
   @include border-radius(4px);
-  @include box-shadow(5px);
+  //@include box-shadow(5px);
+  box-shadow: 1px 2px 50px -20px rgba(0, 0, 0, 0.5); //1px 2px 50px -20px rgba(0, 0, 0, 0.5)
   padding: 2px 10px;
   cursor: pointer;
-  transition: 0.18s ease; //TODO ovo videti da li da ostane 2 ili 0.15,0.18 itd..
+  transition: 0.17s ease; //TODO ovo videti da li da ostane 2 ili 0.15,0.18 itd..
   word-wrap: break-word;
   overflow: hidden;
   border: 1px solid $boardBorder;
-  border-bottom: none;
+  //border-bottom: none;
 
   h4{
     font-size: 1em;
@@ -32,6 +33,11 @@
     color: $groupTitleGray;
   }
 }
+.loading{
+  opacity: 0.5;
+  //TODO namestiti kako ce izgledati kartica pri loadingu
+}
+
 .board-Project{
   border-left: 4px solid $blue;
 }

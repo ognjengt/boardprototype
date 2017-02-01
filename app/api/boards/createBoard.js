@@ -1,7 +1,8 @@
 $(document).ready(function() {
+  var idCounter = 0;
   $('#addBoardForm').submit(function(event) {
     event.preventDefault();
-    var data={//ovaj data se uzima iz prave forme za dodavanje kad se ona napravi
+    var data={
       type: $('#boardType').val(),
       title: $('#boardTitle').val(),
       description: $('#boardDescription').val(),
@@ -11,8 +12,12 @@ $(document).ready(function() {
       pinned: false,
       dateCreated: new Date()
     };
+    createBoard(data);
+    clearFields();
 
-    createBoard(data); //pravi board
+    if($('#noBoardsMsg').is(':visible')) {//ako postoji poruka da nema boardova, skloni je
+      $('#noBoardsMsg').hide();
+    }
 
     $.ajax({
     type: 'POST',
@@ -22,7 +27,7 @@ $(document).ready(function() {
     url: '/boards/addBoard',
     complete: function(data) {
       console.log(data.responseJSON);
-      clearFields();
+      $('#createdBoard'+idCounter).css("opacity","1");
     }
 
   });
@@ -30,10 +35,13 @@ $(document).ready(function() {
     });
 
   function createBoard(data) {
+    idCounter++;
     var grid = document.createElement('div');
     grid.className = 'col-sm-6 col-md-4 col-lg-3';
     var board = document.createElement('div');
     board.className = 'board board-'+data.type;
+    board.id = "createdBoard"+idCounter;
+    board.style.opacity = "0.5";
     var title = document.createElement('h4');
     var bold = document.createElement('b');
     //bold.innerText = data.title;

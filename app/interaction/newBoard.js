@@ -18,8 +18,8 @@ $(document).ready(function() {
   $('.chosen').on('click',function() {
     selectedType = $(this).children('h4').text().trim();
     console.log(selectedType);
-    $('#choosingType').hide();
-    $('#boardDetails').show();
+    $('#choosingType').fadeOut(100);
+    $('#boardDetails').delay(150).fadeIn();
     $('#boardType').val(selectedType); // postavio getovani value u hidden field
     $('#boardDetailsHeader').text(selectedType+" board details");
     $('#chooseTypeDescription').text(detailsText);

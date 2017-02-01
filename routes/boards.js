@@ -46,8 +46,8 @@ router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
 });*/ //ovo je takodje ostalo zbog /user/ognjen boards, ovo ubaciti kada bude tamo hteo da ide na pocetnu, pa kada ode na /user redirektuje na ovo
 
 router.get('/getBoards', function(req, res, next) {
-  res.send(req.user.boards);
-}); //ovo proveri, da ovo je test samo...
+  Board.getAllBoards(req.user._id,res);
+}); //uzima sve boardove od tog usera mozda kasnije bude trebalo
 
 /*router.get('/:username', middleware.ensureAuthenticated, function(req, res, next) {
   res.redirect('/user/'+req.user.username+'/boards');

@@ -66,6 +66,14 @@
             <div class="main-content">
               <div class="row board-row" id="allBoards">
 
+                <!-- <div class="col-sm-6 col-md-4 col-lg-3">
+                  <div class="board board-Idea loading">
+                    <h4><b>Proba</b></h4>
+                    <div class="type-title"><h5><b>titl</b></h5></div>
+                    <p>desc</p>
+                  </div>
+                </div> TEST LOADINGA -->
+
                 <% if(hasBoards) {%>
                   <% boards.forEach(function(board) {%>
                     <div class="col-sm-6 col-md-4 col-lg-3">
@@ -77,7 +85,9 @@
                     </div>
                   <% }); %>
                 <%} else {%>
-                  <h2>Nema boardova</h2>
+                  <div id="noBoardsMsg">
+                    <h2>Nema boardova</h2>
+                  </div>
                 <%}%>
               </div>
 

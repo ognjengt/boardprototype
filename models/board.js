@@ -32,3 +32,13 @@ module.exports.createBoard = function(userId,newBoard,res) {
     res.end();
   });
 }
+
+module.exports.getAllBoards = function(userId,res) {
+  Board.find({userId: userId}, function(err,boards) {
+    if (err) {
+      throw err;
+    }
+    res.send(boards);
+    res.end();
+  })
+}
