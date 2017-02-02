@@ -8,7 +8,7 @@ $(document).ready(function() {
   });
 
   $('.form-header').on('click',function() {//TODO ovde promeniti samo staviti X-button
-    closePopup();
+    //closePopup();
   });
 
   $('#btnSubmitNewBoard').on('click',function() {
