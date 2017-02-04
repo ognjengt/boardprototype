@@ -1,5 +1,6 @@
 $(document).ready(function() {
   var idCounter = 0;
+  var numBoards = parseInt(document.getElementById('numberOfBoards').innerText);
   $('#addBoardForm').submit(function(event) {
     event.preventDefault();
     var data={
@@ -27,7 +28,8 @@ $(document).ready(function() {
     url: '/boards/addBoard',
     complete: function(data) {
       console.log(data.responseJSON);
-      $('#createdBoard'+idCounter).css("opacity","1");
+      $('#createdBoard'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
+      updateBoardNumber();
     }
 
   });
@@ -39,9 +41,8 @@ $(document).ready(function() {
     var grid = document.createElement('div');
     grid.className = 'col-sm-6 col-md-4 col-lg-3';
     var board = document.createElement('div');
-    board.className = 'board board-'+data.type;
+    board.className = 'board board-'+data.type+' loading'; //dodaj loading klasu
     board.id = "createdBoard"+idCounter;
-    board.style.opacity = "0.5";
     var title = document.createElement('h4');
     var bold = document.createElement('b');
     //bold.innerText = data.title;
@@ -73,6 +74,11 @@ $(document).ready(function() {
     $('#boardGoal').val("");
     $('#boardTeam').val("Personal board");
     $('#boardWorkspace').val("No workspace");
+  }
+
+  function updateBoardNumber() {
+    numBoards++;
+    $('#numberOfBoards').text(numBoards);
   }
 
 })

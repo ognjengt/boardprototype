@@ -16,7 +16,7 @@ router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
       // nadji sve boardove od tog usera
       Board.find({userId: req.user._id}, function(err,boards) {
         res.render('boards/index', {
-          boards: boards,
+          boards: boards.reverse(),
           hasBoards: boardsExist,
           boardCount: req.user.boards.length
         });

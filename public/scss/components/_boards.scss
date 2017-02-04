@@ -3,11 +3,17 @@
     margin-top: 25px;
   }
 }
+.loading{
+  opacity: 0.5;
+}
 .group-title{
   color: $groupTitleGray;
 }
 .type-title{
   color: $groupTitleGray;
+}
+a{
+    text-decoration: none !important;
 }
 .board{
   width: 100%;
@@ -24,9 +30,11 @@
   overflow: hidden;
   border: 1px solid $boardBorder;
   //border-bottom: none;
+  text-decoration: none !important;
 
   h4{
     font-size: 1em;
+    color: $boardHeader;
   }
 
   p{
@@ -48,6 +56,9 @@
 .board-Brainstorm{
   border-left: 4px solid $green;
 }
+.board-Todo{
+  border-left: 4px solid $yellow;
+}
 // Hoveri
 .board:hover{
   //transform: scale(1.03);
@@ -57,23 +68,35 @@
   p{
     color: #fff;
   }
+  h4{
+    color: #fff;
+  }
 }
 .board:active{
   transform: scale(0.95);
 }
 .board-Project:hover{
+  border: 1px solid $blue;
   border-left: 20px solid $blue;
   background: $blue;
   color: #fff;
 }
 .board-Idea:hover{
+  border: 1px solid $red;
   border-left: 20px solid $red;
   background: $red;
   color: #fff;
 }
 .board-Brainstorm:hover{
+  border: 1px solid $green;
   border-left: 20px solid $green;
   background: $green;
+  color: #fff;
+}
+.board-Todo:hover{
+  border: 1px solid $yellow;
+  border-left: 20px solid $yellow;
+  background: $yellow;
   color: #fff;
 }
 /*.hvr-sweep-to-right:before{ videti mozda da se ubaci
