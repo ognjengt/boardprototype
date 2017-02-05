@@ -3,6 +3,7 @@ $(document).ready(function() {
   var numBoards = parseInt(document.getElementById('numberOfBoards').innerText);
   $('#addBoardForm').submit(function(event) {
     event.preventDefault();
+    if(!validate($('#boardTitle'))) return;
     var data={
       type: $('#boardType').val(),
       title: $('#boardTitle').val(),
@@ -64,7 +65,7 @@ $(document).ready(function() {
     board.appendChild(type);
     board.appendChild(description);
     grid.appendChild(board);
-    $('#allBoards').append(grid);
+    $('#allBoards').prepend(grid);
   }
 
   function clearFields() {
@@ -79,6 +80,20 @@ $(document).ready(function() {
   function updateBoardNumber() {
     numBoards++;
     $('#numberOfBoards').text(numBoards);
+  }
+
+  function validate(object) {
+    if(object.val() == "" || object.val() == null) {
+      object.css("border-color","#e74c3c");
+      object.addClass("animated shake");
+      setTimeout(function() {
+        object.removeClass("animated shake");
+      },1000);
+      return false;
+    }
+    object.css("border-color","none");
+    object.removeClass("animated shake");
+    return true;
   }
 
 })

@@ -15,6 +15,7 @@ $(document).ready(function() {
   });
 
   $('#btnSubmitNewBoard').on('click',function() {
+    if(!validate($('#boardTitle'))) return;
     closePopup();
   });
 
@@ -38,7 +39,14 @@ $(document).ready(function() {
     e.preventDefault();
     closePopup();
     clearFields();
-  })
+  });
+
+  $('#boardTitle').on('focus',function() {
+    $(this).css("border-color","#0080FF");
+  });
+  $('#boardTitle').on('blur',function() {
+    $(this).css("border-color","#CCCCCC");
+  });
 
   function openPopup() {
     $('#addPopup').velocity("fadeIn");
@@ -52,6 +60,7 @@ $(document).ready(function() {
     $('#choosingType').velocity({opacity:1});
     $('#boardDetails').hide();
     $('#chooseTypeDescription').html(typeText);
+    $('#boardTitle').css("border-color","#ccc");
   }
 
   function clearFields() {
@@ -61,6 +70,20 @@ $(document).ready(function() {
     $('#boardGoal').val("");
     $('#boardTeam').val("Personal board");
     $('#boardWorkspace').val("No workspace");
+  }
+
+  function validate(object) {
+    if(object.val() == "" || object.val() == null) {
+      object.css("border-color","#e74c3c");
+      object.addClass("animated shake");
+      setTimeout(function() {
+        object.removeClass("animated shake");
+      },1000);
+      return false;
+    }
+    object.css("border-color","#ccc");
+    object.removeClass("animated shake");
+    return true;
   }
 
 });
