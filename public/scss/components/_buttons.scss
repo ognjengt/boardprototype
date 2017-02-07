@@ -32,15 +32,16 @@
   width: 100%;
   margin-top: 20px;
   height: 50px;
-  background: linear-gradient(#fcfcfc, #f2f2f2) !important;
+  background: $cancelGradient !important;
   color: $gray;
   border: 1px solid $boardBorder !important;
   transition: 0.1s ease;
   opacity: 1;
 }
 
-.button-cancel:hover{
+.button-cancel:hover{ //TODO ovo videti da li da ostane samo crven hover teksta
   color: $red !important;
+  //background: $cancelGradientHover !important;
 }
 .shorten{
   width: 45%;

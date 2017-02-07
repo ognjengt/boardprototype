@@ -81,6 +81,10 @@ $(document).ready(function() {
       },1000);
       return false;
     }
+    if (object.val().length > 100) {
+      return false;
+    }
+    console.log(object.val().length); //novo dotato
     object.css("border-color","#ccc");
     object.removeClass("animated shake");
     return true;
