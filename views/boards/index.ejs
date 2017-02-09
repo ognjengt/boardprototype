@@ -28,11 +28,12 @@
 
           <nav>
             <ul>
-              <a href="#"><li class="active">ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
+              <a href="/boards"><li class="active">ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
               <a href="#"><li>ico Workspaces</li></a>
               <a href="#"><li>ico Teams</li></a>
               <a href="#"><li>ico Archive</li></a>
               <a href="#"><li>ico Statistics</li></a>
+              <a href="/boards/test" id="testRoute"><li>Test</li></a>
             </ul>
           </nav>
 
@@ -137,7 +138,7 @@
 
                         <div class="form-group">
                           <label>Title</label>
-                          <input autocomplete="off" type="text" class="form-control" placeholder="For example ovde u zavisnosti od boarda" name="title" pattern=".{1,100}" title="Title can only contain up to 100 characters" id="boardTitle">
+                          <input autocomplete="off" type="text" class="form-control" placeholder="For example ovde u zavisnosti od boarda" name="title" pattern=".{1,50}" title="Title can only contain up to 50 characters" id="boardTitle">
                         </div>
 
                         <div class="form-group">
@@ -204,5 +205,15 @@
     <script src="../../api/boards/createBoard.js" charset="utf-8"></script>
     <script src="../../interaction/newBoard.js" charset="utf-8"></script>
     <script src="../../js/velocity.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#testRoute').click(function() {
+          var route = $(this).attr('href');
+          console.log(route);
+          $('#pageContent').load(route);
+          return false;
+        })
+      })
+    </script>
   </body>
 </html>

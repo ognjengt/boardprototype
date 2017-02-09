@@ -49,6 +49,10 @@ router.get('/getBoards', function(req, res, next) {
   Board.getAllBoards(req.user._id,res);
 }); //uzima sve boardove od tog usera mozda kasnije bude trebalo
 
+router.get('/test',function(req, res, next) {
+  res.render('boards/test');
+})
+
 /*router.get('/:username', middleware.ensureAuthenticated, function(req, res, next) {
   res.redirect('/user/'+req.user.username+'/boards');
 });*/ //nepotrebno posto ide samo /boards
