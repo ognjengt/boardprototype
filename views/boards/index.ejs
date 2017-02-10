@@ -1,219 +1,140 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Stormboards | Welcome</title>
-    <link rel='stylesheet' href='../../css/app.css' />
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/fonts.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/animate.min.css">
-  </head>
-  <body>
+<div id="pageContent">
+<h1>My Boards</h1>
+<h4 class="subtitle">All boards that you are currently working on.</h4>
+<div class="container-fluid">
+  <div class="top col-md-12">
+      <button class="btn button-blue button-small" id="btnAddNewBoard"><b>New Board</b></button>
+  </div>
+  <div class="group-title">
+    <h5><b>All boards</b></h5>
+  </div>
 
 
-    <div class="container-fluid app">
-      <div class="sidebar-column">
-        <div id="sidebar">
-          <div class="userInfo">
-            <%if(user.picture) {%>
-            <img class="profileImg" src="img/<%=user.picture%>"></img>
-            <%} else {%>
-              <img class="profileImg" src="img/no-avatar.png"></img>
-            <%}%>
-            <h4><%=user.fullName%></h4>
-            <p><%=user.email%></p>
+  <div class="main-content">
+    <div class="row board-row" id="allBoards">
 
-          </div>
-
-          <nav>
-            <ul>
-              <a href="/boards"><li class="active">ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
-              <a href="#"><li>ico Workspaces</li></a>
-              <a href="#"><li>ico Teams</li></a>
-              <a href="#"><li>ico Archive</li></a>
-              <a href="#"><li>ico Statistics</li></a>
-              <a href="/boards/test" id="testRoute"><li>Test</li></a>
-            </ul>
-          </nav>
-
-          <div class="bottom">
-            <ul>
-              <a href="#"><li>ico Account</li></a>
-              <a href="#"><li>ico Settings</li></a>
-              <a href="/logout"><li>ico Logout</li></a>
-            </ul>
-            <div class="footerLogo">
-              Stormboards
-            </div>
-          </div>
-
+        <!-- <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="board board-Todo loading">
+          <h4><b>Proba</b></h4>
+          <div class="type-title"><h5><b>titl</b></h5></div>
+          <p>desc</p>
         </div>
-      </div>
-      <div class="workspace-column">
-        <div id="workspace">
-          <div id="pageContent">
-          <h1>My Boards</h1>
-          <h4 class="subtitle">All boards that you are currently working on.</h4>
-          <div class="container-fluid">
-            <div class="top col-md-12">
-                <button class="btn button-blue button-small" id="btnAddNewBoard"><b>New Board</b></button>
-            </div>
-            <div class="group-title">
-              <h5><b>All boards</b></h5>
-            </div>
+      </div> LOADING TEST-->
 
-
-            <div class="main-content">
-              <div class="row board-row" id="allBoards">
-
-                  <!-- <div class="col-sm-6 col-md-4 col-lg-3">
-                  <div class="board board-Todo loading">
-                    <h4><b>Proba</b></h4>
-                    <div class="type-title"><h5><b>titl</b></h5></div>
-                    <p>desc</p>
-                  </div>
-                </div> LOADING TEST-->
-
-                <% if(hasBoards) {%>
-                  <% boards.forEach(function(board) {%>
-                    <a href="#">
-                      <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="board board-<%=board.boardType%>">
-                          <h4><b><%= board.title%></b></h4>
-                          <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
-                          <p><%= board.description%></p>
-                        </div>
-                      </div>
-                    </a>
-                  <% }); %>
-                <%} else {%>
-                  <div id="noBoardsMsg">
-                    <h2>Nema boardova</h2>
-                  </div>
-                <%}%>
-              </div>
-
-
-            </div>
-          </div>
-
-        </div>
-          <div id="addPopup">
-            <div class="overlay">
-            <div class="addFormBody">
-              <div class="container-fluid">
-                <div class="col-md-12 col-lg-12 col-md-offset-0 col-lg-offset-0">
-                  <div class="form-header">
-                    <h1>Create new board</h1>
-                    <h4 id="chooseTypeDescription">Choose board type that suits your needs.<br> Whether you are planing a trip, starting a new project, or need to come up with a new idea for your business. </h4>
-                  </div>
-                  <div id="choosingType">
-                      <div class="col-sm-6 col-md-3">
-                        <div class="board board-Project chosen">
-                          <h4><b>Project</b></h4>
-                        </div>
-                      </div>
-                      <div class="col-sm-6 col-md-3">
-                        <div class="board board-Idea chosen">
-                          <h4><b>Idea</b></h4>
-                        </div>
-                      </div>
-                      <div class="col-sm-6 col-md-3">
-                        <div class="board board-Brainstorm chosen">
-                          <h4><b>Brainstorm</b></h4>
-                        </div>
-                      </div>
-
-                  </div>
-
-                  <div id="boardDetails">
-                    <!-- <div class="line"></div> -->
-                    <h4><b id="boardDetailsHeader"></b></h4>
-                    <div class="col-md-10">
-                      <form id="addBoardForm" action="/boards/addBoard" method="post">
-                        <div class="form-group">
-                          <input type="hidden" type="text" class="form-control" name="type" id="boardType">
-                        </div>
-
-                        <div class="form-group">
-                          <label>Title</label>
-                          <input autocomplete="off" type="text" class="form-control" placeholder="For example ovde u zavisnosti od boarda" name="title" pattern=".{1,50}" title="Title can only contain up to 50 characters" id="boardTitle">
-                        </div>
-
-                        <div class="form-group">
-                          <label>Description</label>
-                          <textarea autocomplete="off" class="form-control" placeholder="What is this board about?" name="description" id="boardDescription" rows="6"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Goal</label>
-                          <input type="text" autocomplete="off" class="form-control" placeholder="What do you want to accomplish with this board? (Leave blank if unnecessary)" name="goal" id="boardGoal">
-                        </div>
-
-
-                        <div class="col-md-6">
-                          <label>Team</label>
-                          <select type="text" class="form-control" placeholder="Team" name="team" id="boardTeam"><!--TODO ovde populatovati timove foreach tim bacaj opciju sa timom kojem user pripada-->
-                            <option>Personal board</option>
-                            <option>Team1</option>
-                          </select>
-                        </div>
-
-
-                        <div class="col-md-6">
-                          <label>Workspace</label>
-                          <select type="text" class="form-control" placeholder="Workspace" name="workspace" id="boardWorkspace"><!--TODO ovde populatovati workspaceove foreach tim bacaj opciju sa timom kojem user pripada-->
-                           <option>No workspace</option>
-                           <option>WS1</option>
-                          </select>
-                        </div>
-
-
-
-                          <div class="col-md-offset-6">
-                            <button class="btn button-signin shorten" type="submit" name="button" id="btnSubmitNewBoard"><b>Create Board</b></button>
-
-                            <button class="btn button-cancel shorten" name="button" id="btnCancelInput"><b>Cancel</b></button>
-                          </div>
-
-
-
-
-                      </form>
-                    </div>
-                  </div>
-
-                </div>
-
+      <% if(hasBoards) {%>
+        <% boards.forEach(function(board) {%>
+          <a href="#">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="board board-<%=board.boardType%>">
+                <h4><b><%= board.title%></b></h4>
+                <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
+                <p><%= board.description%></p>
               </div>
             </div>
-
-          </div> <!--kraj overlaya-->
-
-        </div> <!--kraj popupa-->
-      </div><!--kraj workspacea-->
-      <!--Popup bio ovde-->
-
-      </div><!--kraj workspace columna-->
-
+          </a>
+        <% }); %>
+      <%} else {%>
+        <div id="noBoardsMsg">
+          <h2>Nema boardova</h2>
+        </div>
+      <%}%>
     </div>
 
 
-    <script src="../../js/jquery.min.js" charset="utf-8"></script>
-    <script src="../../js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="../../api/boards/createBoard.js" charset="utf-8"></script>
-    <script src="../../interaction/newBoard.js" charset="utf-8"></script>
-    <script src="../../js/velocity.js" charset="utf-8"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#testRoute').click(function() {
-          var route = $(this).attr('href');
-          console.log(route);
-          $('#pageContent').load(route);
-          return false;
-        })
-      })
-    </script>
-  </body>
-</html>
+  </div>
+</div>
+
+</div>
+<div id="addPopup">
+  <div class="overlay">
+  <div class="addFormBody">
+    <div class="container-fluid">
+      <div class="col-md-12 col-lg-12 col-md-offset-0 col-lg-offset-0">
+        <div class="form-header">
+          <h1>Create new board</h1>
+          <h4 id="chooseTypeDescription">Choose board type that suits your needs.<br> Whether you are planing a trip, starting a new project, or need to come up with a new idea for your business. </h4>
+        </div>
+        <div id="choosingType">
+            <div class="col-sm-6 col-md-3">
+              <div class="board board-Project chosen">
+                <h4><b>Project</b></h4>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="board board-Idea chosen">
+                <h4><b>Idea</b></h4>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="board board-Brainstorm chosen">
+                <h4><b>Brainstorm</b></h4>
+              </div>
+            </div>
+
+        </div>
+
+        <div id="boardDetails">
+          <!-- <div class="line"></div> -->
+          <h4><b id="boardDetailsHeader"></b></h4>
+          <div class="col-md-10">
+            <form id="addBoardForm" action="/boards/addBoard" method="post">
+              <div class="form-group">
+                <input type="hidden" type="text" class="form-control" name="type" id="boardType">
+              </div>
+
+              <div class="form-group">
+                <label>Title</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="For example ovde u zavisnosti od boarda" name="title" pattern=".{1,70}" title="Title can only contain up to 70 characters" id="boardTitle">
+              </div>
+
+              <div class="form-group">
+                <label>Description</label>
+                <textarea autocomplete="off" class="form-control" placeholder="What is this board about?" name="description" id="boardDescription" rows="6"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Goal</label>
+                <input type="text" autocomplete="off" class="form-control" placeholder="What do you want to accomplish with this board? (Leave blank if unnecessary)" name="goal" id="boardGoal">
+              </div>
+
+
+              <div class="col-md-6">
+                <label>Team</label>
+                <select type="text" class="form-control" placeholder="Team" name="team" id="boardTeam"><!--TODO ovde populatovati timove foreach tim bacaj opciju sa timom kojem user pripada-->
+                  <option>Personal board</option>
+                  <option>Team1</option>
+                </select>
+              </div>
+
+
+              <div class="col-md-6">
+                <label>Workspace</label>
+                <select type="text" class="form-control" placeholder="Workspace" name="workspace" id="boardWorkspace"><!--TODO ovde populatovati workspaceove foreach tim bacaj opciju sa timom kojem user pripada-->
+                 <option>No workspace</option>
+                 <option>WS1</option>
+                </select>
+              </div>
+
+
+
+                <div class="col-md-offset-6">
+                  <button class="btn button-signin shorten" type="submit" name="button" id="btnSubmitNewBoard"><b>Create Board</b></button>
+
+                  <button class="btn button-cancel shorten" name="button" id="btnCancelInput"><b>Cancel</b></button>
+                </div>
+
+
+
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div> <!--kraj overlaya-->
+
+</div> <!--kraj popupa-->

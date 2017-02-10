@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stormboards | Welcome</title>
+    <link rel='stylesheet' href='../../css/app.css' />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/animate.min.css">
+  </head>
+  <body>
+
+
+    <div class="container-fluid app">
+      <div class="sidebar-column">
+        <div id="sidebar">
+          <div class="userInfo">
+            <%if(user.picture) {%>
+            <img class="profileImg" src="img/<%=user.picture%>"></img>
+            <%} else {%>
+              <img class="profileImg" src="img/no-avatar.png"></img>
+            <%}%>
+            <h4><%=user.fullName%></h4>
+            <p><%=user.email%></p>
+
+          </div>
+
+          <nav>
+            <ul>
+              <a href="/boards/allBoards"><li class="active">ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
+              <a href="#"><li>ico Workspaces</li></a>
+              <a href="#"><li>ico Teams</li></a>
+              <a href="#"><li>ico Archive</li></a>
+              <a href="#"><li>ico Statistics</li></a>
+              <a href="/boards/test" id="testRoute"><li>Test</li></a>
+              <a href="/boards/test2" id="testRoute2"><li>Test2</li></a>
+            </ul>
+          </nav>
+
+          <div class="bottom">
+            <ul>
+              <a href="#"><li>ico Account</li></a>
+              <a href="#"><li>ico Settings</li></a>
+              <a href="/logout"><li>ico Logout</li></a>
+            </ul>
+            <div class="footerLogo">
+              Stormboards
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="workspace-column">
+        <div id="workspace">
+
+      </div><!--kraj workspacea-->
+      <!--Popup bio ovde-->
+
+      </div><!--kraj workspace columna-->
+
+    </div>
+
+
+    <script src="../../js/jquery.min.js" charset="utf-8"></script>
+    <script src="../../js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../../api/boards/createBoard.js" charset="utf-8"></script>
+    <script src="../../interaction/newBoard.js" charset="utf-8"></script>
+    <script src="../../js/velocity.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#workspace').load('/boards/allBoards',function() {
+          getScripts("boards");
+        });
+
+        $('nav ul a').click(function() {
+          var route = $(this).attr('href');
+          $('#workspace').load(route,function() {
+            getScripts("boards");
+          });
+          return false;
+        });
+
+        function getScripts(page) { // TODO u zavisnosti od prosledjene stranice loadovati odredjene skripte
+          if(page === "boards") {
+            $.getScript('../../interaction/newBoard.js');
+            $.getScript('../../api/boards/createBoard.js');
+            $.getScript('../../js/velocity.js');
+          }
+        }
+
+      });
+    </script>
+  </body>
+</html>
