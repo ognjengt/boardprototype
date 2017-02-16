@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="../../css/animate.min.css">
   </head>
   <body>
@@ -28,13 +27,13 @@
 
           <nav>
             <ul>
-              <a href="/boards/allBoards"><li class="active">ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
-              <a href="#"><li>ico Workspaces</li></a>
+              <a href="/boards"><li class="active">ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
+              <a href="/workspaces"><li>ico Workspaces</li></a>
               <a href="#"><li>ico Teams</li></a>
               <a href="#"><li>ico Archive</li></a>
               <a href="#"><li>ico Statistics</li></a>
-              <a href="/boards/test" id="testRoute"><li>Test</li></a>
-              <a href="/boards/test2" id="testRoute2"><li>Test2</li></a>
+              <a href="/test"><li>Test</li></a>
+              <a href="/test2"><li>Test2</li></a>
             </ul>
           </nav>
 
@@ -53,6 +52,9 @@
       </div>
       <div class="workspace-column">
         <div id="workspace">
+          <div id="workspace-content">
+
+          </div>
 
       </div><!--kraj workspacea-->
       <!--Popup bio ovde-->
@@ -67,29 +69,7 @@
     <script src="../../api/boards/createBoard.js" charset="utf-8"></script>
     <script src="../../interaction/newBoard.js" charset="utf-8"></script>
     <script src="../../js/velocity.js" charset="utf-8"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#workspace').load('/boards/allBoards',function() {
-          getScripts("boards");
-        });
-
-        $('nav ul a').click(function() {
-          var route = $(this).attr('href');
-          $('#workspace').load(route,function() {
-            getScripts("boards");
-          });
-          return false;
-        });
-
-        function getScripts(page) { // TODO u zavisnosti od prosledjene stranice loadovati odredjene skripte
-          if(page === "boards") {
-            $.getScript('../../interaction/newBoard.js');
-            $.getScript('../../api/boards/createBoard.js');
-            $.getScript('../../js/velocity.js');
-          }
-        }
-
-      });
-    </script>
+    <script src="../../js/page.js" charset="utf-8"></script>
+    <script src="../../js/routing.js" charset="utf-8"></script>
   </body>
 </html>

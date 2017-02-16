@@ -41,3 +41,11 @@ body{
 .main-content{
   margin-top: -20px !important;
 }
+#loader{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 2;
+}
+// TODO napraviti loader
