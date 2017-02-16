@@ -33,7 +33,7 @@ module.exports.createBoard = function(userId,newBoard,res) {
   });
 }
 
-module.exports.getAllBoards = function(userId,res) { //ovo je cist api, samo da mi posalje nazad sve boardove
+module.exports.getAllBoards = function(userId,res) {
   Board.find({userId: userId}, function(err,boards) {
     if (err) {
       throw err;
@@ -41,8 +41,4 @@ module.exports.getAllBoards = function(userId,res) { //ovo je cist api, samo da 
     res.send(boards);
     res.end();
   })
-}
-
-module.exports.getAllBoardsAndRender = function(userId,res,callback) { // ovo je getAllBoards sa callback funkcijom koju cu proslediti
-  Board.find({userId: userId}, callback);
 }

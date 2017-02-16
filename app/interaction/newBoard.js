@@ -81,7 +81,7 @@ $(document).ready(function() {
       },1000);
       return false;
     }
-    if (object.val().length > 70) {
+    if (object.val().length > 50) {
       return false;
     }
     console.log(object.val().length); //novo dotato
