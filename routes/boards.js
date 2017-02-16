@@ -10,26 +10,10 @@ var Board = require('../models/board');
 
 /* GET home page. */
 router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
-    var boardsExist=false;
-    if(req.user.boards[0]) {
-      boardsExist = true;
       // nadji sve boardove od tog usera
-      Board.find({userId: req.user._id}, function(err,boards) {
-        res.render('boards/index', {
-          boards: boards.reverse(),
-          hasBoards: boardsExist,
+        res.render('main/layout', {
           boardCount: req.user.boards.length
         });
-      })
-    }
-    else {
-      //da ne bi dzabe pozivao upit iz db-a nego samo baci da nema
-      res.render('boards/index', {
-        boards: [],
-        hasBoards: boardsExist,
-        boardCount: 0
-      });
-    }
   /*
   else res.render('error', {
     message: 'You do not have permission to access this page.',
@@ -49,9 +33,48 @@ router.get('/getBoards', function(req, res, next) {
   Board.getAllBoards(req.user._id,res);
 }); //uzima sve boardove od tog usera mozda kasnije bude trebalo
 
-router.get('/test',function(req, res, next) {
-  res.render('boards/test');
+router.get('/allBoards',function(req, res, next) {
+  var boardsExist=false;
+  if(req.user.boards[0]) {
+    boardsExist = true;
+    // nadji sve boardove od tog usera
+    Board.find({userId: req.user._id}, function(err,boards) {
+      res.render('boards/index', {
+        boards: boards.reverse(),
+        hasBoards: boardsExist,
+        boardCount: req.user.boards.length
+      });
+    })
+  }
+  else {
+    //da ne bi dzabe pozivao upit iz db-a nego samo baci da nema
+    res.render('boards/index', {
+      boards: [],
+      hasBoards: boardsExist,
+      boardCount: 0
+    });
+  }
 })
+
+router.get('/test',function(req, res, next) { //okej ovako bi getovao Workspaceove, timove itd, znaci da mi renderuje stranicu i da uzme iz baze ove podatke
+  Board.getAllBoardsAndRender(req.user._id,res,function(err,boards) {
+    if (err) {
+      throw err;
+    }
+    res.render('boards/test', {
+      boards: boards
+    });
+    res.end();
+  });
+
+});
+
+router.get('/test2',function(req, res, next) {
+  res.render('boards/test2', {
+    testUser: req.user.username,
+    testNaslov: 'NASLOVVVVVVVVVVVVVVVVVV'
+  });
+});
 
 /*router.get('/:username', middleware.ensureAuthenticated, function(req, res, next) {
   res.redirect('/user/'+req.user.username+'/boards');
