@@ -22,12 +22,15 @@ $(document).ready(function() {
 
     if (!userVal) {
       e.preventDefault();
+      return false;
     }
     else {
       if (!passVal) {
         e.preventDefault();
+        return false;
       }
     }
+    loggingIn($(this));
   });
 
   function validate(object) {
@@ -44,5 +47,10 @@ $(document).ready(function() {
       object.removeClass("animated shake");
       return true;
     }
+  }
+
+  function loggingIn(selector) {
+    selector.css('opacity','0.5');
+    selector.text("Signing in...");
   }
 });

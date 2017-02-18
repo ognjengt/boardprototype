@@ -50,23 +50,30 @@ $(document).ready(function() {
 
     if (!emailVal) {
       e.preventDefault();
+      return false;
     }
     if (!fullNameVal) {
       e.preventDefault();
+      return false;
     }
     if (!userVal) {
       e.preventDefault();
+      return false;
     }
     if (!passVal1) {
       e.preventDefault();
+      return false;
     }
     if (!passVal2) {
       e.preventDefault();
+      return false;
     }
     if ($password1.val() != $password2.val()) {
       e.preventDefault();
       $('#matchPasswords').css("display","block");
+      return false;
     }
+    registering($(this));
   });
 
   function validate(object) {
@@ -83,5 +90,10 @@ $(document).ready(function() {
       object.removeClass("animated shake");
       return true;
     }
+  }
+
+  function registering(selector) {
+    selector.css('opacity','0.5');
+    selector.text("Registering...");
   }
 });
