@@ -15,7 +15,7 @@ $(document).ready(function() {
   });
 
   $('#btnSubmitNewBoard').on('click',function() {
-    if(!validate($('#boardTitle'))) return;
+    if(!validate($('#boardTitle'))) return false;
     closePopup();
   });
 

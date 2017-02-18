@@ -1,5 +1,7 @@
 $(document).ready(function() {
-  $('#workspace-content').hide();
+  var $workspaceContent = $('#workspace-content'); //caching
+
+  $workspaceContent.hide();
   var processing = false;
 
   page('/boards',boards);
@@ -7,7 +9,7 @@ $(document).ready(function() {
   $('nav ul a').click(function(e) {
      if($(this).children('li').hasClass('active')){
        e.preventDefault();
-       return;
+       return false;
      }
     // nadji trenutni aktivan i zameni ga
      $('nav ul a').find('li.active').removeClass('active');
@@ -15,7 +17,7 @@ $(document).ready(function() {
 
     if(processing) {
       e.preventDefault();
-      return;
+      return false;
     }
     processing = true;
     var route = $(this).attr('href');
@@ -45,7 +47,7 @@ $(document).ready(function() {
   // Load content
   function loadContent(url,scriptType) {
     //setTimeout(function(){ //odkomentarisati kada treba za testove
-      $('#workspace-content').load(url,function() {
+      $workspaceContent.load(url,function() {
         getScripts(scriptType);
         hideLoader();
         showContent();
@@ -57,7 +59,7 @@ $(document).ready(function() {
 
   // Prikazivanje loadera itd...
   function showContent() {
-    $('#workspace-content').velocity("fadeIn",{duration:300});
+    $workspaceContent.velocity("fadeIn",{duration:300});
   }
   function showLoader() {
     $('#workspace').prepend('<div id="loader">Loading ...</div>');

@@ -3,7 +3,7 @@ $(document).ready(function() {
   var numBoards = parseInt(document.getElementById('numberOfBoards').innerText);
   $('#addBoardForm').submit(function(event) {
     event.preventDefault();
-    if(!validate($('#boardTitle'))) return;
+    if(!validate($('#boardTitle'))) return false;
     var data={
       type: $('#boardType').val(),
       title: $('#boardTitle').val(),
