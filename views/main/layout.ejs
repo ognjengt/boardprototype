@@ -15,11 +15,7 @@
       <div class="sidebar-column">
         <div id="sidebar">
           <div class="userInfo">
-            <%if(user.picture) {%>
             <img class="profileImg" src="img/<%=user.picture%>"></img>
-            <%} else {%>
-              <img class="profileImg" src="img/no-avatar.png"></img>
-            <%}%>
             <h4><%=user.fullName%></h4>
             <p><%=user.email%></p>
 
