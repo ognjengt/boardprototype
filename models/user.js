@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
-mongoose.connect('mongodb://localhost/stormboard');
+mongoose.connect('mongodb://admin:admin@ds023510.mlab.com:23510/boardprototype');
 
 var db = mongoose.connection;
 
