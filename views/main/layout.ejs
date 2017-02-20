@@ -14,36 +14,45 @@
     <div class="container-fluid app">
       <div class="sidebar-column">
         <div id="sidebar">
-          <div class="userInfo">
-            <img class="profileImg" src="img/<%=user.picture%>"></img>
-            <h4><%=user.fullName%></h4>
-            <p><%=user.email%></p>
-
+          <div id="toggleSidebar">
+            collapse
           </div>
+          <div id="spreaded">
+            <div class="userInfo">
+              <img class="profileImg" src="img/<%=user.picture%>"></img>
+              <h4><%=user.fullName%></h4>
+              <p><%=user.email%></p>
 
-          <nav>
-            <ul>
-              <a href="/boards"><li class="active">ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
-              <a href="/workspaces"><li>ico Workspaces</li></a>
-              <a href="#"><li>ico Teams</li></a>
-              <a href="#"><li>ico Archive</li></a>
-              <a href="#"><li>ico Statistics</li></a>
-              <a href="/test"><li>Test</li></a>
-              <a href="/test2"><li>Test2</li></a>
-            </ul>
-          </nav>
+            </div>
 
-          <div class="bottom">
-            <ul>
-              <a href="#"><li>ico Account</li></a>
-              <a href="#"><li>ico Settings</li></a>
-              <a href="/logout"><li>ico Logout</li></a>
-            </ul>
-            <div class="footerLogo">
-              Stormboards
+            <nav>
+              <ul>
+                <a href="/boards"><li>ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
+                <a href="/workspaces"><li>ico Workspaces</li></a>
+                <a href="#"><li>ico Teams</li></a>
+                <a href="#"><li>ico Archive</li></a>
+                <a href="#"><li>ico Statistics</li></a>
+                <a href="/test"><li>Test</li></a>
+                <a href="/test2"><li>Test2</li></a>
+              </ul>
+            </nav>
+
+            <div class="bottom">
+              <ul>
+                <a href="#"><li>ico Account</li></a>
+                <a href="#"><li>ico Settings</li></a>
+                <a href="/logout"><li>ico Logout</li></a>
+              </ul>
+              <div class="footerLogo">
+                Stormboards
+              </div>
             </div>
           </div>
 
+          <div id="collapsed">
+            <p>collapsed</p>
+            <!--TODO ovde izgenerisati html kako ce izgledati colapsovan sidebar-->
+          </div>
         </div>
       </div>
       <div class="workspace-column">
@@ -67,5 +76,6 @@
     <script src="../../js/velocity.js" charset="utf-8"></script>
     <script src="../../js/page.js" charset="utf-8"></script>
     <script src="../../js/routing.js" charset="utf-8"></script>
+    <script src="../../interaction/sidebarCollapse.js" charset="utf-8"></script>
   </body>
 </html>

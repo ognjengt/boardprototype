@@ -23,6 +23,7 @@ body{
   min-height: 100vh;
   max-height: auto;
   padding: 20px 100px;
+  transition: 0.2s ease-in-out;
 
   #pageContent{
     .subtitle{

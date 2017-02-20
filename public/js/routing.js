@@ -1,5 +1,7 @@
 $(document).ready(function() {
   var $workspaceContent = $('#workspace-content'); //caching
+  var firstLoad = true;
+  var request;
 
   $workspaceContent.hide();
   var processing = false;
@@ -12,8 +14,10 @@ $(document).ready(function() {
        return false;
      }
     // nadji trenutni aktivan i zameni ga
-     $('nav ul a').find('li.active').removeClass('active');
-     $(this).children('li').addClass('active');
+    if(!processing) {
+      changeActiveLink($(this));
+    }
+
 
     if(processing) {
       e.preventDefault();
@@ -32,34 +36,42 @@ $(document).ready(function() {
   function boards() {
       showLoader();
       loadContent('/boards/allBoards',"boards"); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
+      if(firstLoad) { //TODO ovaj firstload prebaciti u svaki , sada menjace se nece biti function test, nego workspaces pa na svaki samo da se zna na loadu sta da se aktivira sa strane
+        changeActiveLink($('nav ul a:nth-child(1)'));
+        firstLoad = false;
+      }
   }
 
   function test() {
       showLoader();
-      loadContent('/boards/test',"boards");
+      loadContent('/boards/test',"test");
   }
 
   function test2() {
       showLoader();
-      loadContent('/boards/test2',"boards");
+      loadContent('/boards/test2',"test2");
   }
 
   // Load content
-  function loadContent(url,scriptType) {
+  function loadContent(url,page) {
     //setTimeout(function(){ //odkomentarisati kada treba za testove
-      $workspaceContent.load(url,function() {
-        getScripts(scriptType);
-        hideLoader();
-        showContent();
-        processing = false;
-      });
+    request = $.ajax({
+          url: url,
+          success: function(data) {
+            $workspaceContent.html(data);
+            getScripts(page);
+            hideLoader();
+            showContent();
+            processing = false;
+          }
+        });
     //},1000)
 
   }
 
   // Prikazivanje loadera itd...
   function showContent() {
-    $workspaceContent.velocity("fadeIn",{duration:300});
+    $workspaceContent.show();
   }
   function showLoader() {
     $('#workspace').prepend('<div id="loader">Loading ...</div>');
@@ -81,6 +93,11 @@ $(document).ready(function() {
       $.getScript('../../api/boards/createBoard.js');
       //$.getScript('../../js/velocity.js');
     }
+  }
+
+  function changeActiveLink(element) {
+    $('nav ul a').find('li.active').removeClass('active');
+    element.children('li').addClass('active');
   }
 
   page(); //initialize the router

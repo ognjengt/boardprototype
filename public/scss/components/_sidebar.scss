@@ -6,6 +6,7 @@
   text-align: left;
   position: fixed;
   box-shadow: 1px 2px 100px -20px rgba(0, 0, 0, 0.5); //custom 1px 2px 100px -20px rgba(0, 0, 0, 0.75) Igrati se sa 3 i 4 parametrom
+  transition: 0.2s ease-in-out;
 
   .userInfo{
     width: 100%;
@@ -111,6 +112,18 @@
       padding: 10px 30px;
       margin: 0;
     }
+  }
+
+  #toggleSidebar{
+    width: 100%;
+    height: 20px;
+    background: $red;
+    cursor: pointer;
+  }
+
+  //Collapsed
+  #collapsed{
+    display: none;
   }
 }
 
