@@ -35,7 +35,7 @@ $(document).ready(function() {
   // Funkcije za page ruter
   function boards() {
       showLoader();
-      loadContent('/boards/allBoards',"boards"); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
+      loadContent('/boards/getAllUserBoards',"boards"); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
       if(firstLoad) { //TODO ovaj firstload prebaciti u svaki , sada menjace se nece biti function test, nego workspaces pa na svaki samo da se zna na loadu sta da se aktivira sa strane
         changeActiveLink($('nav ul a:nth-child(1)'));
         firstLoad = false;

@@ -33,7 +33,7 @@ router.get('/getBoards', function(req, res, next) {
   Board.getAllBoards(req.user._id,res);
 }); //uzima sve boardove od tog usera mozda kasnije bude trebalo
 
-router.get('/allBoards',function(req, res, next) {
+router.get('/getAllUserBoards',function(req, res, next) {
   var boardsExist=false;
   if(req.user.boards[0]) {
     boardsExist = true;

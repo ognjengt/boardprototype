@@ -33,7 +33,7 @@ module.exports.createBoard = function(userId,newBoard,res) {
   });
 }
 
-module.exports.getAllBoards = function(userId,res) { //ovo je cist api, samo da mi posalje nazad sve boardove
+module.exports.getAllBoards = function(userId,res) { //ovo je cist api, samo da mi posalje nazad sve boardove u jsonu
   Board.find({userId: userId}, function(err,boards) {
     if (err) {
       throw err;
