@@ -52,14 +52,14 @@
             padding-bottom: 8px;
             cursor: pointer;
             transition: 0.2s ease;
-            font-family: 'Proxima Nova Lt';
+            font-family: 'Lato', sans-serif;
             font-weight: bold;
             font-style: normal;
             //@include custom-radius(0,4px,4px,0);
 
             span{
               font-size: 0.9em;
-              font-family: 'Proxima Nova Lt';
+              font-family: 'Lato', sans-serif;
               font-weight: bold;
               font-style: normal;
             }
@@ -95,7 +95,7 @@
             cursor: pointer;
             transition: 0.2s ease;
             //opacity: 0.7;
-            font-family: 'Proxima Nova Lt';
+            font-family: 'Lato', sans-serif;
             font-weight: bold;
             font-style: normal;
         }
