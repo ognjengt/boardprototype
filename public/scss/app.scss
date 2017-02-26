@@ -25,7 +25,7 @@ body{
   max-height: auto;
   padding: 20px 100px;
   transition: 0.2s ease-in-out;
-  padding-top: 70px;
+  padding-top: 80px;
   color: $pageTitle;
 
   // #workspace-content{
@@ -37,7 +37,7 @@ body{
 
   #pageContent{
     .subtitle{
-      color: $groupTitleGray;
+      color: $subtitle;
     }
   }
 }
