@@ -10,47 +10,55 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pe-icon-7-stroke.css">
     <link rel="stylesheet" href="../../css/animate.min.css">
   </head>
   <body>
 
 
     <div class="container-fluid app">
+      <div id="topbar">
+
+        <div class="col-sm-3">
+          <div class="topbar-left">
+            <h3><i class="pe-7s-menu" id="toggleSidebar"></i> Stormboards</h3>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="topbar-middle">
+            <input type="text" autocomplete="off" class="form-control" placeholder="Search for boards, workspaces, cards...">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="topbar-right">
+            <b><%=user.fullName%></b> <span><img src=""></span>
+          </div>
+        </div>
+      </div>
+
       <div class="sidebar-column">
         <div id="sidebar">
-          <div id="toggleSidebar">
-            collapse
-          </div>
           <div id="spreaded">
-            <div class="userInfo">
-              <img class="profileImg" src="img/<%=user.picture%>"></img>
-              <h4><%=user.fullName%></h4>
-              <p><%=user.email%></p>
-
-            </div>
 
             <nav>
               <ul>
-                <a href="/boards"><li>ico Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
-                <a href="/workspaces"><li>ico Workspaces</li></a>
-                <a href="#"><li>ico Teams</li></a>
-                <a href="#"><li>ico Archive</li></a>
-                <a href="#"><li>ico Statistics</li></a>
+                <a href="/boards"><li><i class="pe-7s-photo-gallery"></i> Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>
+                <a href="/workspaces"><li><i class="pe-7s-albums"></i> Workspaces</li></a>
+                <a href="#"><li><i class="pe-7s-users"></i> Teams</li></a>
+                <a href="#"><li><i class="pe-7s-trash"></i> Archive</li></a>
+                <a href="#"><li><i class="pe-7s-graph1"></i> Statistics</li></a>
                 <a href="/test"><li>Test</li></a>
                 <a href="/test2"><li>Test2</li></a>
               </ul>
             </nav>
 
-            <div class="bottom">
+<!--             <div class="bottom">
               <ul>
                 <a href="#"><li>ico Account</li></a>
                 <a href="#"><li>ico Settings</li></a>
                 <a href="/logout"><li>ico Logout</li></a>
               </ul>
-              <div class="footerLogo">
-                Stormboards
-              </div>
-            </div>
+            </div> -->
           </div>
 
           <div id="collapsed">

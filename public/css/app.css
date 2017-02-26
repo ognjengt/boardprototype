@@ -35,7 +35,7 @@
   margin-top: 20px;
   height: 50px;
   background: linear-gradient(#fcfcfc, #f2f2f2) !important;
-  color: #272727;
+  color: #6e6e6e;
   border: 1px solid #D5D5D5 !important;
   transition: 0.1s ease;
   opacity: 1; }
@@ -62,66 +62,78 @@
 #sidebar {
   height: 100vh;
   width: 250px;
-  background: linear-gradient(180deg, #1F222D, #15171e);
+  background: #fff;
+  padding-top: 70px;
   color: #fff;
   text-align: left;
   position: fixed;
-  box-shadow: 1px 2px 100px -20px rgba(0, 0, 0, 0.5);
-  transition: 0.2s ease-in-out; }
-  #sidebar .userInfo {
-    width: 100%;
-    height: 300px;
-    padding: 50px 15px;
-    text-align: center;
-    color: #fdfdfd;
-    background: #15171e;
-    transition: 0.2s ease;
-    cursor: pointer; }
-    #sidebar .userInfo .profileImg {
-      width: 120px;
-      height: 120px;
-      background: #fff;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      -ms-border-radius: 50%;
-      border-radius: 50%;
-      margin-bottom: 5px; }
-    #sidebar .userInfo p {
-      font-size: 0.93em;
-      opacity: 0.5; }
-  #sidebar .userInfo:hover {
-    background: #232733; }
+  -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.04);
+  -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.04);
+  box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.04);
+  transition: 0.2s ease-in-out;
+  /*  .userInfo{
+      width: 100%;
+      height: 300px;
+      padding: 50px 15px;
+      text-align: center;
+      color: $applicationBackground;
+      background: darken($sidebarBg, 5);
+      transition: 0.2s ease;
+      cursor: pointer;
+  
+      .profileImg{
+        width: 120px;
+        height: 120px;
+        background: #fff;
+        @include border-radius(50%);
+        margin-bottom: 5px;
+      }
+  
+      p{
+        font-size: 0.93em;
+        opacity: 0.5;
+        //ovde eventualno ubaciti konkretnu boju umesto opacityja
+      }
+    }
+    .userInfo:hover{
+      background: lighten($sidebarBg, 2);
+    }*/ }
   #sidebar nav ul {
     list-style-type: none;
     margin-top: 20px;
     padding: 0; }
     #sidebar nav ul a {
-      color: #6A7583;
+      color: #B1B1B1;
       text-decoration: none; }
       #sidebar nav ul a li {
-        padding-top: 8px;
+        padding-top: 13px;
         padding-left: 30px;
-        padding-bottom: 8px;
+        padding-bottom: 13px;
         cursor: pointer;
         transition: 0.2s ease;
-        font-family: 'Lato', sans-serif;
+        font-family: 'Proxima Nova Lt';
         font-weight: bold;
         font-style: normal; }
         #sidebar nav ul a li span {
           font-size: 0.9em;
-          font-family: 'Lato', sans-serif;
+          font-family: 'Proxima Nova Lt';
           font-weight: bold;
           font-style: normal; }
     #sidebar nav ul li:hover {
-      background: #34394b;
+      background: #f6f6f6;
       padding-left: 35px;
-      color: #b7b7b7; }
+      color: #6e6e6e; }
   #sidebar .bottom {
     position: absolute;
     bottom: 0;
     width: 100%;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    /*    .footerLogo{
+          background: darken($sidebarBg,7);
+          padding: 10px 30px;
+          margin: 0;
+        }*/ }
     #sidebar .bottom ul {
       list-style-type: none;
       padding: 0; }
@@ -134,17 +146,13 @@
           padding-bottom: 6px;
           cursor: pointer;
           transition: 0.2s ease;
-          font-family: 'Lato', sans-serif;
+          font-family: 'Proxima Nova Lt';
           font-weight: bold;
           font-style: normal; }
       #sidebar .bottom ul li:hover {
-        background: #34394b;
+        background: white;
         padding-left: 35px;
-        color: #b7b7b7; }
-    #sidebar .bottom .footerLogo {
-      background: #101218;
-      padding: 10px 30px;
-      margin: 0; }
+        color: #6e6e6e; }
   #sidebar #toggleSidebar {
     width: 100%;
     height: 20px;
@@ -154,10 +162,61 @@
     display: none; }
 
 .active {
-  background: #34394b;
+  background: #f6f6f6;
   padding-left: 35px;
-  color: #b7b7b7;
-  border-left: 4px solid #de3b44; }
+  color: #6e6e6e;
+  border-left: 4px solid #0080FF; }
+
+#topbar {
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  position: fixed;
+  z-index: 5 !important;
+  border-bottom: 1px solid #eae9e9; }
+  #topbar .col-sm-4, #topbar .col-sm-3, #topbar .col-sm-5 {
+    margin: 0;
+    padding: 0; }
+  #topbar ul {
+    list-style-type: none;
+    display: inline-block; }
+    #topbar ul li {
+      display: inline-block; }
+  #topbar .topbar-left, #topbar .topbar-middle, #topbar .topbar-right {
+    height: 70px;
+    color: #B1B1B1; }
+  #topbar .topbar-left {
+    padding: 1px 30px;
+    color: #B1B1B1 !important; }
+    #topbar .topbar-left i {
+      margin-right: 10px;
+      color: #6e6e6e;
+      cursor: pointer;
+      font-size: 1.15em; }
+  #topbar .topbar-middle {
+    padding: 15px 0px; }
+    #topbar .topbar-middle input {
+      border: 1px solid #eae9e9;
+      border-left: 4px solid #B1B1B1;
+      box-shadow: none;
+      height: 40px; }
+    #topbar .topbar-middle input:focus {
+      border-left: 4px solid #0080FF; }
+    #topbar .topbar-middle ::-webkit-input-placeholder {
+      /* WebKit browsers */
+      color: #c8c8c8; }
+    #topbar .topbar-middle :-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      color: #c8c8c8; }
+    #topbar .topbar-middle ::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: #c8c8c8; }
+    #topbar .topbar-middle :-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      color: #c8c8c8; }
+  #topbar .topbar-right {
+    padding: 25px 20px;
+    text-align: right; }
 
 .container-fluid {
   padding: 0 !important;
@@ -363,21 +422,24 @@ a {
   font-size: 1.015em; }
 
 body {
-  background: #fdfdfd !important; }
+  background: #f9f9f9 !important; }
 
 #workspace {
   width: 100%;
-  background: #fdfdfd;
+  background: #f9f9f9;
   min-height: 100vh;
   max-height: auto;
   padding: 20px 100px;
-  transition: 0.2s ease-in-out; }
+  transition: 0.2s ease-in-out;
+  padding-top: 70px;
+  color: #868686; }
   #workspace #pageContent .subtitle {
     color: #878787; }
 
 .sidebar-column {
   width: 12%;
-  float: left; }
+  float: left;
+  z-index: 2 !important; }
 
 .workspace-column {
   width: 88%;

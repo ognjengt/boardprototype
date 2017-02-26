@@ -2,8 +2,8 @@
 $loginbackground: '../img/bg.jpg';
 $brainstormBoardBg: '../img/photography.png';
 $applicationBackgroundPattern: '../img/geometry.png';
-$applicationBackground: #fdfdfd;
-$sidebarBg: #1F222D; //F6F7FB 1F222D
+$applicationBackground: #f9f9f9;
+$sidebarBg: #fff; //F6F7FB 1F222D boja sidebara
 // Colors
 $green: #15cd72;
 $red: #de3b44;
@@ -11,13 +11,18 @@ $blue: #0080FF;
 $yellow: #f1c40f;
 $black: #343F44;
 $lightblue: #2796F8;
-$gray: #272727;
+$gray: #6e6e6e; // potrebno za ikonice itd
+$lightgray: #B1B1B1; //potrebno u topbaru
+$lightergray: #eae9e9; //potrebno u top baru i jos nekim elementima
 $groupTitleGray: #878787;
 $groupTitleGrayHover: #dbdbdb;
-$sidebarOptionHover: #b7b7b7;
+$sidebarOptionHover: #6e6e6e; // sidebar option na hover
 $boardBorder: #D5D5D5;
 $labelColor: #494949;
 $boardHeader: #333333;
+$activeMenuItem: #f6f6f6; // koristi se
+$pageTitle: #868686;
+
 // Gradienti
 $greenGradient: linear-gradient(180deg, #15cd72,#14bb68);
 $redGradient: linear-gradient(180deg, #f06d73,#de3b44);

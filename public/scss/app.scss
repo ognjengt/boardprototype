@@ -2,6 +2,7 @@
 @import "mixins";
 @import "components/buttons";
 @import "components/sidebar";
+@import "components/topbar";
 @import "bootstrap-fixes/fixes";
 @import "components/top";
 @import "components/boards";
@@ -24,6 +25,8 @@ body{
   max-height: auto;
   padding: 20px 100px;
   transition: 0.2s ease-in-out;
+  padding-top: 70px;
+  color: $pageTitle;
 
   // #workspace-content{
   //   background: #fff;
@@ -41,6 +44,7 @@ body{
 .sidebar-column{
   width: 12%;
   float: left;
+  z-index: 2 !important;
 }
 .workspace-column{
   width: 88%;
