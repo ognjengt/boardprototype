@@ -40,23 +40,28 @@
 		input{
 			border: 1px solid $lightergray;
 			border-left: 4px solid $lightgray;
+			font-size: 1.1em;
 			box-shadow: none;
+			width: 50%;
 			height: 40px;
+			transition: 0.2s ease-in-out;
 		}
 		input:focus{
+			border: 1px solid $blue;
 			border-left: 4px solid $blue;
+			width: 100%;
 		}
 		::-webkit-input-placeholder { /* WebKit browsers */
-    		color:    #c8c8c8;
+    		color:    lighten($lightgray,20);
 		}
 		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-		    color:    #c8c8c8;
+		    color:    lighten($lightgray,20);
 		}
 		::-moz-placeholder { /* Mozilla Firefox 19+ */
-		    color:    #c8c8c8;
+		    color:    lighten($lightgray,20);
 		}
 		:-ms-input-placeholder { /* Internet Explorer 10+ */
-		    color:    #c8c8c8;
+		    color:    lighten($lightgray,20);
 		}
 	}
 	.topbar-right{
