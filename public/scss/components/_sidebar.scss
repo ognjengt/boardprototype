@@ -9,7 +9,7 @@
   //box-shadow: 1px 2px 100px -20px rgba(0, 0, 0, 0.5); //custom 1px 2px 100px -20px rgba(0, 0, 0, 0.75) Igrati se sa 3 i 4 parametrom
   //@include custom-shadow(5px,0px,25px,0px,0.04);
   transition: 0.2s ease-in-out;
-  border-right: 1px solid $lightergray;
+  //border-right: 1px solid $lightergray;
 
 /*  .userInfo{
     width: 100%;
@@ -46,13 +46,13 @@
       padding: 0;
 
         a{
-          color: $lightgray;
+          color: #858585;
           text-decoration: none;
 
           li{
-            padding-top: 15px;
+            padding-top: 9px;
             padding-left: 30px;
-            padding-bottom: 15px;
+            padding-bottom: 9px;
             cursor: pointer;
             transition: 0.2s ease;
             font-family: 'Proxima Nova Alt Lt';
@@ -69,7 +69,7 @@
         }
       }
       li:hover{
-        background: lighten($blue,45);
+        background: lighten($sidebarBg,10);
         padding-left: 35px;
         color: $sidebarOptionHover;
       }
@@ -131,8 +131,8 @@
 }
 
 .active{
-  background: lighten($blue,45);
+  background: lighten($sidebarBg,10);
   padding-left: 35px;
-  color: $blue;
-  border-left: 4px solid $blue;
+  color: #fff;
+  //border-left: 4px solid #fff;
 }
