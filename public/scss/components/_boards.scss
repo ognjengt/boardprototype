@@ -61,7 +61,8 @@ a{
 }
 // Hoveri
 .board:hover{
-  //transform: scale(1.03);
+  transform: translateY(-5%);
+  @include custom-shadow(1px,5px,50px,-20px,0.5);
   .type-title{
     color: $groupTitleGrayHover;
   }
@@ -76,20 +77,20 @@ a{
   transform: scale(0.95);
 }
 .board-Project:hover{
-  border: 1px solid $blue;
-  border-left: 20px solid $blue;
+  //border: 1px solid $blue;
+  //border-left: 20px solid $blue;
   background: $blue;
   color: #fff;
 }
 .board-Idea:hover{
-  border: 1px solid $red;
-  border-left: 20px solid $red;
+  //border: 1px solid $red;
+  //border-left: 20px solid $red;
   background: $red;
   color: #fff;
 }
 .board-Brainstorm:hover{
-  border: 1px solid $green;
-  border-left: 20px solid $green;
+  //border: 1px solid $green;
+  //border-left: 20px solid $green;
   background: $green;
   color: #fff;
 }

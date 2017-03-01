@@ -319,31 +319,30 @@ a {
 .board-Todo {
   border-left: 4px solid #f1c40f; }
 
-.board:hover .type-title {
-  color: #dbdbdb; }
-.board:hover p {
-  color: #fff; }
-.board:hover h4 {
-  color: #fff; }
+.board:hover {
+  transform: translateY(-5%);
+  -webkit-box-shadow: 1px 5px 50px -20px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 5px 50px -20px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 5px 50px -20px rgba(0, 0, 0, 0.5); }
+  .board:hover .type-title {
+    color: #dbdbdb; }
+  .board:hover p {
+    color: #fff; }
+  .board:hover h4 {
+    color: #fff; }
 
 .board:active {
   transform: scale(0.95); }
 
 .board-Project:hover {
-  border: 1px solid #0080FF;
-  border-left: 20px solid #0080FF;
   background: #0080FF;
   color: #fff; }
 
 .board-Idea:hover {
-  border: 1px solid #de3b44;
-  border-left: 20px solid #de3b44;
   background: #de3b44;
   color: #fff; }
 
 .board-Brainstorm:hover {
-  border: 1px solid #15cd72;
-  border-left: 20px solid #15cd72;
   background: #15cd72;
   color: #fff; }
 
