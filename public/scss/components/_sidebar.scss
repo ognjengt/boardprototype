@@ -1,7 +1,7 @@
 #sidebar{
   height: 100vh;
   width: 250px;
-  background: $sidebarBg;
+  background: $sidebarGradient;
   padding-top: 80px;
   color: #fff;
   text-align: left;
@@ -11,7 +11,7 @@
   transition: 0.2s ease-in-out;
   //border-right: 1px solid $lightergray;
 
-/*  .userInfo{
+   .userInfo{
     width: 100%;
     height: 300px;
     padding: 50px 15px;
@@ -37,7 +37,7 @@
   }
   .userInfo:hover{
     background: lighten($sidebarBg, 2);
-  }*/
+  }
 
   nav{
     ul{
@@ -46,7 +46,7 @@
       padding: 0;
 
         a{
-          color: #858585;
+          color: #6A7583;
           text-decoration: none;
 
           li{
@@ -69,7 +69,7 @@
         }
       }
       li:hover{
-        background: lighten($sidebarBg,10);
+        background: lighten($sidebarBg, 10);
         padding-left: 35px;
         color: $sidebarOptionHover;
       }
@@ -131,8 +131,8 @@
 }
 
 .active{
-  background: lighten($sidebarBg,10);
+  background: lighten($sidebarBg, 10);
   padding-left: 35px;
-  color: #fff;
-  //border-left: 4px solid #fff;
+  color: $sidebarOptionHover;
+  border-left: 4px solid $blue;
 }

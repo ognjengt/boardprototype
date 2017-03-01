@@ -44,7 +44,12 @@
       <div class="sidebar-column">
         <div id="sidebar">
           <div id="spreaded">
+            <div class="userInfo">
+              <img class="profileImg" src="img/<%=user.picture%>"></img>
+              <h4><%=user.fullName%></h4>
+              <p><%=user.email%></p>
 
+            </div>
             <nav>
               <ul>
                 <a href="/boards"><li><i class="pe-7s-photo-gallery"></i> Boards ( <span id="numberOfBoards"><%=boardCount%></span> )</li></a>

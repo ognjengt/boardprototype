@@ -27,11 +27,11 @@
 	}
 	.topbar-left{
 		padding: 1px 30px;
-		//background: darken($sidebarBg,5);
+		//background: lighten($red,5);
 		color: $lightgray !important;
 		i{
 			margin-right: 10px;
-			color: $gray;
+			color: $lightgray;
 			cursor: pointer;
 			font-size: 1.15em;
 		}

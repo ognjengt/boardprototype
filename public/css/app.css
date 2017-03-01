@@ -62,39 +62,12 @@
 #sidebar {
   height: 100vh;
   width: 250px;
-  background: #202730;
+  background: linear-gradient(180deg, #1F222D, #15171e);
   padding-top: 80px;
   color: #fff;
   text-align: left;
   position: fixed;
   transition: 0.2s ease-in-out;
-  /*  .userInfo{
-      width: 100%;
-      height: 300px;
-      padding: 50px 15px;
-      text-align: center;
-      color: $applicationBackground;
-      background: darken($sidebarBg, 5);
-      transition: 0.2s ease;
-      cursor: pointer;
-  
-      .profileImg{
-        width: 120px;
-        height: 120px;
-        background: #fff;
-        @include border-radius(50%);
-        margin-bottom: 5px;
-      }
-  
-      p{
-        font-size: 0.93em;
-        opacity: 0.5;
-        //ovde eventualno ubaciti konkretnu boju umesto opacityja
-      }
-    }
-    .userInfo:hover{
-      background: lighten($sidebarBg, 2);
-    }*/
   /*.bottom{
     position: absolute;
     bottom: 0;
@@ -135,12 +108,35 @@
       margin: 0;
     }
   }*/ }
+  #sidebar .userInfo {
+    width: 100%;
+    height: 300px;
+    padding: 50px 15px;
+    text-align: center;
+    color: #fdfdfd;
+    background: #15171e;
+    transition: 0.2s ease;
+    cursor: pointer; }
+    #sidebar .userInfo .profileImg {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%;
+      margin-bottom: 5px; }
+    #sidebar .userInfo p {
+      font-size: 0.93em;
+      opacity: 0.5; }
+  #sidebar .userInfo:hover {
+    background: #232733; }
   #sidebar nav ul {
     list-style-type: none;
     margin-top: 20px;
     padding: 0; }
     #sidebar nav ul a {
-      color: #858585;
+      color: #6A7583;
       text-decoration: none; }
       #sidebar nav ul a li {
         padding-top: 9px;
@@ -157,9 +153,9 @@
           font-weight: bold;
           font-style: normal; }
     #sidebar nav ul li:hover {
-      background: #34404f;
+      background: #34394b;
       padding-left: 35px;
-      color: #6e6e6e; }
+      color: #b7b7b7; }
   #sidebar #toggleSidebar {
     width: 100%;
     height: 20px;
@@ -169,9 +165,10 @@
     display: none; }
 
 .active {
-  background: #34404f;
+  background: #34394b;
   padding-left: 35px;
-  color: #fff; }
+  color: #b7b7b7;
+  border-left: 4px solid #0080FF; }
 
 #topbar {
   width: 100%;
@@ -201,7 +198,7 @@
     color: #606060 !important; }
     #topbar .topbar-left i {
       margin-right: 10px;
-      color: #6e6e6e;
+      color: #606060;
       cursor: pointer;
       font-size: 1.15em; }
   #topbar .topbar-middle {
