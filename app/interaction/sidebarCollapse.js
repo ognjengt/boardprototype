@@ -8,7 +8,7 @@ $(document).ready(function() {
 
   var collapsed = false;
   $toggleSidebar.on('click',function() {
-    if($sidebar.width() == 250) {
+    if($sidebar.width() == 249) {
       collapsed = true;
       $spreaded.velocity("fadeOut",{duration:100});
       $collapsed.delay(200).velocity("fadeIn",{duration:100});
