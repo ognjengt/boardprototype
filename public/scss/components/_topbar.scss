@@ -1,7 +1,7 @@
 #topbar{
 	width: 100%;
 	height: 70px;
-	background: #fff;
+	background: #f7f7f7;
 	position: fixed;
 	z-index: 5 !important;
 	@include custom-shadow(5px,0px,25px,0px,0.04);
@@ -23,24 +23,26 @@
 	.topbar-left, .topbar-middle, .topbar-right{
 		//padding: 25px 35px 0px 0px;
 		height: 70px;
-		color: $lightgray;
+		color: #2C2D30;
 	}
 	.topbar-left{
 		padding: 1px 30px;
-		//background: lighten($red,5);
-		color: $lightgray !important;
+		background: lighten(#1F222D,5);
+		color: #fff;
+		transition: 0.2s ease-in-out;
+		border-right: 1px solid $lightergray;
 		i{
 			margin-right: 10px;
-			color: $lightgray;
 			cursor: pointer;
 			font-size: 1.15em;
 		}
 	}
 	.topbar-middle{
 		padding:15px 0px;
+		transition: 0.2s ease-in-out;
 		input{
-			border: 1px solid $lightergray;
-			border-left: 4px solid $lightgray;
+			border: 2px solid $lightergray;
+			border-left: 4px solid $lightergray;
 			font-size: 1.1em;
 			box-shadow: none;
 			width: 50%;
@@ -48,7 +50,7 @@
 			transition: 0.2s ease-in-out;
 		}
 		input:focus{
-			border: 1px solid $blue;
+			border: 2px solid $blue;
 			border-left: 4px solid $blue;
 			width: 100%;
 		}

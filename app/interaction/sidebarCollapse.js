@@ -14,6 +14,9 @@ $(document).ready(function() {
       $collapsed.delay(200).velocity("fadeIn",{duration:100});
       $sidebar.css("width","80px");
       $workspace.css("margin-left","-120px");
+      $('#logotop').fadeOut();
+      $('.topbar-left').css("width","80px");
+      $('.topbar-middle').css("margin-left","-80px");
     }
     else {
       collapsed = false;
@@ -21,6 +24,9 @@ $(document).ready(function() {
       $spreaded.delay(200).velocity("fadeIn",{duration:100});
       $sidebar.css("width","250px");
       $workspace.css("margin-left","0");
+      $('#logotop').fadeIn();
+      $('.topbar-left').css("width","250px");
+      $('.topbar-middle').css("margin-left","0px");
     }
 
   })
