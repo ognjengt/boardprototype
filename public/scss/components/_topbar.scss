@@ -1,17 +1,22 @@
 #topbar{
 	width: 100%;
 	height: 70px;
-	background: #f7f7f7;
+	background: $topbarBg;
 	position: fixed;
 	z-index: 5 !important;
 	@include custom-shadow(5px,0px,25px,0px,0.04);
-	border-bottom: 1px solid #ECEEF1; //eae9e9
-	.col-sm-4,.col-sm-3,.col-sm-5{
+	border-bottom: 1px solid $topbarBorderBottom; //eae9e9
+	.col-sm-4{
 		margin: 0;
 		padding: 0;
 	}
-	.col-sm-3{
-		width: 250px
+	.left-holder{
+		width: 250px;
+		float: left;
+	}
+	.right-holder{
+		float: left;
+		width: calc(100% - 250px);
 	}
 	ul{
 		list-style-type: none;
@@ -21,24 +26,31 @@
 		}
 	}
 	.topbar-left, .topbar-middle, .topbar-right{
-		//padding: 25px 35px 0px 0px;
 		height: 70px;
-		color: #2C2D30;
+		color: $lightgray;
 	}
 	.topbar-left{
-		padding: 1px 30px;
-		background: lighten(#1F222D,5);
+		padding: 1px 25px;
+		background: lighten($topbarLeftBg,5);
+		vertical-align: middle;
 		color: #fff;
 		transition: 0.2s ease-in-out;
 		border-right: 1px solid $lightergray;
+		line-height: 20px;
 		i{
 			margin-right: 10px;
 			cursor: pointer;
 			font-size: 1.15em;
 		}
+		#logotop{
+			vertical-align: middle;
+		}
+		#toggleSidebar{
+			vertical-align: middle;
+		}
 	}
 	.topbar-middle{
-		padding:15px 0px;
+		padding: 15px 10px;
 		transition: 0.2s ease-in-out;
 		input{
 			border: 2px solid $lightergray;
@@ -48,11 +60,13 @@
 			width: 50%;
 			height: 40px;
 			transition: 0.2s ease-in-out;
+			padding-left: 15px;
+			position: relative;
 		}
 		input:focus{
 			border: 2px solid $blue;
 			border-left: 4px solid $blue;
-			width: 100%;
+			width: 80%;
 		}
 		::-webkit-input-placeholder { /* WebKit browsers */
     		color:    lighten($lightgray,20);
@@ -68,22 +82,38 @@
 		}
 	}
 	.topbar-right{
+		text-align: right;
 		.user-profile-main{
+			//border-left: 1px solid $lightergray;
+			cursor: pointer;
+			vertical-align: middle;
+			transition: 0.2s ease-in-out;
+			padding: 15px 15px;
+			height: 70px;
 			.user-picture{
 				width: 40px;
 				height: 40px;
-				background: #000;
-				margin-top: -7px;
-				margin-left: 10px;
+				//margin-left: 10px;
 				@include border-radius(50%);
 				@include custom-shadow(0px, 3px, 5px, 0px, 0.17);
 			}
 			i{
 				font-size: 1.3em;
+				font-weight: bold;
+				vertical-align: middle;
 			}
 		}
-		padding: 20px 40px;
-		text-align: right;
-
+		.user-profile-main:hover{
+			background: darken($topbarBg,5);
+			color: #000;
+		}
+	}
+	.nav-icon{
+		font-size: 1.7em;
+		font-weight: bold;
+	}
+	.plus-icon, .help-icon{
+		vertical-align: middle;
+		padding-left: 5px;
 	}
 }

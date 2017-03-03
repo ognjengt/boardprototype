@@ -46,7 +46,7 @@
       padding: 0;
 
         a{
-          color: #6A7583;
+          color: $sidebarTextColor;
           text-decoration: none;
 
           li{
@@ -55,14 +55,14 @@
             padding-bottom: 8px;
             cursor: pointer;
             transition: 0.2s ease;
-            font-family: 'Proxima Nova Alt Lt';
+            font-family: 'Proxima Nova Lt';
             font-weight: bold;
             font-style: normal;
             //@include custom-radius(0,4px,4px,0);
 
             span{
               font-size: 0.9em;
-              font-family: 'Proxima Nova Alt Lt';
+              font-family: 'Proxima Nova Lt';
               font-weight: bold;
               font-style: normal;
             }

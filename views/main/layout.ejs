@@ -19,23 +19,29 @@
     <div class="container-fluid app">
       <div id="topbar">
 
-        <div class="col-sm-3">
+        <div class="left-holder">
           <div class="topbar-left">
             <h3><i class="pe-7s-menu" id="toggleSidebar"></i> <span id="logotop">Stormboards</span></h3>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="topbar-middle">
-            <input type="text" autocomplete="off" class="form-control" placeholder="Search for boards, workspaces, cards...">
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="topbar-right">
-
-            <div class="user-profile-main">
-              <b><%=user.fullName%></b> <span><img class="user-picture" src="img/<%=user.picture%>"></img> <i class="pe-7s-angle-down"></i></span>
+        <div class="right-holder">
+          <div class="col-sm-8">
+            <div class="topbar-middle">
+              <input type="text" autocomplete="off" class="form-control" placeholder="Search for boards, workspaces, cards..."></input>
             </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="topbar-right">
+              <ul>
+                <li><i class="pe-7s-help1 nav-icon help-icon"></i></li>
+                <li><i class="pe-7s-plus nav-icon plus-icon"></i></li>
+                <li><div class="user-profile-main">
+                   <span><img class="user-picture" src="img/<%=user.picture%>"></img> <b><%=user.fullName%></b> <i class="pe-7s-angle-down"></i>
+                </div></li>
+              </ul>
 
+
+            </div>
           </div>
         </div>
 
