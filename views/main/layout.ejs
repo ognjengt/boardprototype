@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="../../css/pe-icon-7-stroke.css">
     <link rel="stylesheet" href="../../css/animate.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-select.min.css">
   </head>
   <body>
 
 
     <div class="container-fluid app">
       <div id="topbar">
-
         <div class="left-holder">
           <div class="topbar-left">
             <h3><i class="pe-7s-menu" id="toggleSidebar"></i> <span id="logotop">Stormboards</span></h3>
@@ -36,7 +36,7 @@
                 <li><i class="pe-7s-help1 nav-icon help-icon"></i></li>
                 <li><i class="pe-7s-plus nav-icon plus-icon"></i></li>
                 <li>
-                  <div class="user-profile-main">
+                  <div class="btn user-profile-btn user-profile-main">
 
                    <span><img class="user-picture" src="img/<%=user.picture%>"></img> <b><%=user.fullName%></b> <i class="pe-7s-angle-down"></i>
                 </div>
@@ -110,6 +110,7 @@
 
     <script src="../../js/jquery.min.js" charset="utf-8"></script>
     <script src="../../js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../../js/bootstrap-select.min.js" charset="utf-8"></script>
     <script src="../../api/boards/createBoard.js" charset="utf-8"></script>
     <script src="../../interaction/newBoard.js" charset="utf-8"></script>
     <script src="../../js/velocity.js" charset="utf-8"></script>

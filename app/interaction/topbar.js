@@ -1,18 +1,24 @@
 $(document).ready(function() {
   var $userOptions = $('.user-options');
-  $('.user-profile-main').click(function() {
-      $userOptions.fadeToggle('fast');
-      visible = true;
-
+  var $userProfileMain = $('.user-profile-main');
+  var visible = false;
+  $userProfileMain.click(function() {
+      if(!visible)  {
+        $userOptions.show();
+        visible = true;
+      }
+      else {
+        $userOptions.hide();
+        visible = false;
+      }
   });
 
     $(document).mouseup(function (e)
     {
-
-      if (!$userOptions.is(e.target) // if the target of the click isn't the container...
-          && $userOptions.has(e.target).length === 0) // ... nor a descendant of the container
+      if (!$userProfileMain.is(e.target) && $userProfileMain.has(e.target).length === 0) //&& $userOptions.has(e.target).length == 0 ovo dodati ako neces da gasi kad se klikne na neki link
       {
-          $userOptions.fadeOut('fast');
+          $userOptions.hide();
+          visible = false;
       }
   });
 });

@@ -18,6 +18,9 @@
 body{
   background: $applicationBackground !important;
 }
+.btn:focus{
+  outline: none !important;
+}
 #workspace{
   width: 100%;
   background: $applicationBackground;

@@ -28,3 +28,8 @@
   -moz-box-shadow: $first $second $third $fourth rgba(0,0,0,$opacity);
   box-shadow: $first $second $third $fourth rgba(0,0,0,$opacity);
 }
+@mixin custom-color-shadow($first,$second,$third,$fourth,$color1,$color2,$color3,$opacity) {
+  -webkit-box-shadow: $first $second $third $fourth rgba($color1,$color2,$color3,$opacity);
+  -moz-box-shadow: $first $second $third $fourth rgba($color1,$color2,$color3,$opacity);
+  box-shadow: $first $second $third $fourth rgba($color1,$color2,$color3,$opacity);
+}

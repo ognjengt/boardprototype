@@ -59,3 +59,30 @@
   @extend .button-small;
   margin-left: 37px;
 }
+
+// changeViewButtons
+.button-change-view{
+  margin-top: 20px;
+  width: 37px;
+  height: 37px;
+  font-size: 1.4em !important;
+  padding: 0 !important;
+  padding-top: 5px !important;
+}
+
+.button-active-view{
+  background: $blue;
+  color: #fff;
+  @include custom-color-shadow(0px,2px,6px,0px,0,128,255,0.30);
+}
+.button-active-view:hover,.button-active-view:focus{
+  color: #fff !important;
+}
+
+.button-non-active-view{
+  background: #fff;
+  border: 1px solid $lightergray !important;
+  @include custom-shadow(0px, 2px, 6px, 0px, 0.10);
+}
+
+// Filter button

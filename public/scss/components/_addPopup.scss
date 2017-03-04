@@ -73,6 +73,7 @@
         }
         input:focus{
           border-left: 3px solid $blue;
+          border-color: $blue;
         }
         textarea{
           resize: none;
@@ -81,6 +82,7 @@
         }
         textarea:focus{
           border-left: 3px solid $blue;
+          border-color: $blue;
         }
         .col-md-6{
           margin: 0;
@@ -90,6 +92,14 @@
           width: 100%;
           cursor: pointer;
           height: 50px;
+
+          option{
+            height: 50px;
+          }
+        }
+        select:focus{
+          border-left: 3px solid $blue;
+          border-color: $blue;
         }
 
         #boardTeam{

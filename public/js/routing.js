@@ -34,6 +34,7 @@ $(document).ready(function() {
 
   // Funkcije za page ruter
   function boards() {
+      changeActiveLink($('nav ul a:nth-child(1)'));
       showLoader();
       loadContent('/boards/getAllUserBoards',"boards"); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
       if(firstLoad) { //TODO ovaj firstload prebaciti u svaki , sada menjace se nece biti function test, nego workspaces pa na svaki samo da se zna na loadu sta da se aktivira sa strane
@@ -43,11 +44,13 @@ $(document).ready(function() {
   }
 
   function test() {
+      changeActiveLink($('nav ul a:nth-child(6)'));
       showLoader();
       loadContent('/boards/test',"test");
   }
 
   function test2() {
+      changeActiveLink($('nav ul a:nth-child(7)'));
       showLoader();
       loadContent('/boards/test2',"test2");
   }
@@ -89,8 +92,10 @@ $(document).ready(function() {
   // Getovanje skripti
   function getScripts(page) { // TODO u zavisnosti od prosledjene stranice loadovati odredjene skripte
     if(page === "boards") {
+      $.getScript('../../interaction/bootstrap-select-activate.js');
       $.getScript('../../interaction/newBoard.js');
       $.getScript('../../api/boards/createBoard.js');
+      $('.selectpicker').selectpicker('render');
       //$.getScript('../../js/velocity.js');
     }
   }

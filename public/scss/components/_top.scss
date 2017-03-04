@@ -1,3 +1,19 @@
 .top{
   margin-bottom: 25px;
+
+  .col-md-3,.col-md-offset-6{
+    margin: 0;
+    padding: 0;
+  }
+  .custom-picker{
+    width: 100px !important;
+  }
+  .btn-default{
+    background: #fff;
+    transition: 0.1s ease;
+  }
+  .btn-default:hover{
+    background: #fff;
+    border: 1px solid $blue;
+  }
 }

@@ -84,6 +84,16 @@
 	}
 	.topbar-right{
 		text-align: right;
+		.user-profile-btn{
+			background: $topbarBg;
+			border-bottom: 1px solid $lightergray;
+			@include border-radius(0px);
+		}
+		.btn:active{
+			box-shadow: none;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+		}
 		.user-profile-main{
 			//border-left: 1px solid $lightergray;
 			margin-right: 20px;
@@ -115,19 +125,19 @@
 		.user-options {
 			display: none;
 			position: absolute;
-			top: 75px;
+			top: 71px;
 			right: 20px;
 			width: 250px;
 			background: #fff;
 			border: 1px solid #ccc;
 			@include custom-shadow(0px, 3px, 5px, 0px, 0.17);
-			@include border-radius(4px);
+			@include custom-radius(0px,0px,4px,4px);
 
 			ul{
 				text-align: left;
 				display: block;
-				padding: 20px;
-				padding-left: 30px;
+				padding: 0;
+				padding-top: 10px;
 				a{
 					color: $lightgray;
 					li{
@@ -136,9 +146,9 @@
 						text-align: left;
 						padding-top: 7px;
 						padding-bottom: 7px;
-						padding-left: 2px;
+						padding-left: 30px;
 						font-size: 1em;
-						@include border-radius(4px);
+						//@include border-radius(4px);
 						cursor: pointer;
 						transition: 0.2s ease;
 
@@ -150,7 +160,7 @@
 					li:hover{
 						background: $blue;
 						color: #fff;
-						padding-left: 10px;
+						padding-left: 35px;
 					}
 				}
 
