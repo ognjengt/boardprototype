@@ -9,41 +9,42 @@
   //box-shadow: 1px 2px 100px -20px rgba(0, 0, 0, 0.5); //custom 1px 2px 100px -20px rgba(0, 0, 0, 0.75) Igrati se sa 3 i 4 parametrom
   @include custom-shadow(5px,0px,25px,0px,0.04);
   transition: 0.2s ease-in-out;
-  border-right: 1px solid $lightergray;
+  //border-right: 1px solid $lightergray;
 
-   .userInfo{
-    width: 100%;
-    height: 300px;
-    padding: 50px 15px;
-    text-align: center;
-    color: $applicationBackground;
-    background: darken($sidebarBg, 5);
-    transition: 0.2s ease;
-    cursor: pointer;
-
-    .profileImg{
-      width: 120px;
-      height: 120px;
-      background: #fff;
-      @include border-radius(50%);
-      margin-bottom: 5px;
-    }
-
-    p{
-      font-size: 0.93em;
-      opacity: 0.5;
-      //ovde eventualno ubaciti konkretnu boju umesto opacityja
-    }
-  }
-  .userInfo:hover{
-    background: lighten($sidebarBg, 2);
-  }
+  //  .userInfo{
+  //   width: 100%;
+  //   height: 300px;
+  //   padding: 50px 15px;
+  //   text-align: center;
+  //   color: $applicationBackground;
+  //   background: darken($sidebarBg, 5);
+  //   transition: 0.2s ease;
+  //   cursor: pointer;
+  //
+  //   .profileImg{
+  //     width: 120px;
+  //     height: 120px;
+  //     background: #fff;
+  //     @include border-radius(50%);
+  //     margin-bottom: 5px;
+  //   }
+  //
+  //   p{
+  //     font-size: 0.93em;
+  //     opacity: 0.5;
+  //     //ovde eventualno ubaciti konkretnu boju umesto opacityja
+  //   }
+  // }
+  // .userInfo:hover{
+  //   background: lighten($sidebarBg, 2);
+  // }
 
   nav{
     ul{
       list-style-type: none;
       margin-top: 20px;
       padding: 0;
+      //padding-left: 5px; //ovo za onaj squishy efekat
 
         a{
           color: $sidebarTextColor;
@@ -58,13 +59,18 @@
             font-family: 'Proxima Nova Lt';
             font-weight: bold;
             font-style: normal;
-            //@include custom-radius(0,4px,4px,0);
+            vertical-align: middle;
+            //width: 95%; //ovo za onaj squishy efekat
+            //@include border-radius(4px); //ovo za onaj squishy efekat
 
             span{
               font-size: 0.9em;
               font-family: 'Proxima Nova Lt';
               font-weight: bold;
               font-style: normal;
+            }
+            i{
+              vertical-align: middle;
             }
         }
       }

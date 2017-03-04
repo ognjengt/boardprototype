@@ -35,12 +35,23 @@
               <ul>
                 <li><i class="pe-7s-help1 nav-icon help-icon"></i></li>
                 <li><i class="pe-7s-plus nav-icon plus-icon"></i></li>
-                <li><div class="user-profile-main">
+                <li>
+                  <div class="user-profile-main">
+
                    <span><img class="user-picture" src="img/<%=user.picture%>"></img> <b><%=user.fullName%></b> <i class="pe-7s-angle-down"></i>
-                </div></li>
+                </div>
+              </li>
               </ul>
 
-
+              <div class="user-options">
+                <ul>
+                  <a href="#"><li><i class="pe-7s-user"></i> Profile</li></a>
+                  <a href="#"><li><i class="pe-7s-tools"></i> Settings</li></a>
+                  <a href="#"><li> <i class="pe-7s-keypad"></i> Shortcuts</li></a>
+                  <a href="#"><li><i class="pe-7s-help1"></i> Help</li></a>
+                  <a href="/logout"><li><i class="pe-7s-power"></i> Sign Out</li></a>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -105,5 +116,6 @@
     <script src="../../js/page.js" charset="utf-8"></script>
     <script src="../../js/routing.js" charset="utf-8"></script>
     <script src="../../interaction/sidebarCollapse.js" charset="utf-8"></script>
+    <script src="../../interaction/topbar.js" charset="utf-8"></script>
   </body>
 </html>

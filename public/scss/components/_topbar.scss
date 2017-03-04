@@ -35,7 +35,8 @@
 		vertical-align: middle;
 		color: #fff;
 		transition: 0.2s ease-in-out;
-		border-right: 1px solid $lightergray;
+		width: 250px;
+		//border-right: 1px solid $lightergray;
 		line-height: 20px;
 		i{
 			margin-right: 10px;
@@ -85,11 +86,14 @@
 		text-align: right;
 		.user-profile-main{
 			//border-left: 1px solid $lightergray;
+			margin-right: 20px;
+			position: relative;
 			cursor: pointer;
 			vertical-align: middle;
-			transition: 0.2s ease-in-out;
+			transition: 0.17s ease;
 			padding: 15px 15px;
 			height: 70px;
+			font-size: 0.87em;
 			.user-picture{
 				width: 40px;
 				height: 40px;
@@ -104,13 +108,62 @@
 			}
 		}
 		.user-profile-main:hover{
-			background: darken($topbarBg,5);
+			background: darken($topbarBg,5); //ili $blue
 			color: #000;
+		}
+
+		.user-options {
+			display: none;
+			position: absolute;
+			top: 75px;
+			right: 20px;
+			width: 250px;
+			background: #fff;
+			border: 1px solid #ccc;
+			@include custom-shadow(0px, 3px, 5px, 0px, 0.17);
+			@include border-radius(4px);
+
+			ul{
+				text-align: left;
+				display: block;
+				padding: 20px;
+				padding-left: 30px;
+				a{
+					color: $lightgray;
+					li{
+						list-style-type: none;
+						display: block;
+						text-align: left;
+						padding-top: 7px;
+						padding-bottom: 7px;
+						padding-left: 2px;
+						font-size: 1em;
+						@include border-radius(4px);
+						cursor: pointer;
+						transition: 0.2s ease;
+
+						i{
+							vertical-align: middle;
+							font-size: 1.6em;
+						}
+					}
+					li:hover{
+						background: $blue;
+						color: #fff;
+						padding-left: 10px;
+					}
+				}
+
+			}
 		}
 	}
 	.nav-icon{
-		font-size: 1.7em;
+		font-size: 1.5em;
 		font-weight: bold;
+	}
+	.dropdown-menu-icon{
+		font-size: 1.3em;
+		vertical-align: middle;
 	}
 	.plus-icon, .help-icon{
 		vertical-align: middle;

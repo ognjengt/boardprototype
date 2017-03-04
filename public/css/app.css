@@ -71,7 +71,6 @@
   -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.04);
   box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.04);
   transition: 0.2s ease-in-out;
-  border-right: 1px solid #eae9e9;
   /*.bottom{
     position: absolute;
     bottom: 0;
@@ -112,29 +111,6 @@
       margin: 0;
     }
   }*/ }
-  #sidebar .userInfo {
-    width: 100%;
-    height: 300px;
-    padding: 50px 15px;
-    text-align: center;
-    color: #fdfdfd;
-    background: #15171e;
-    transition: 0.2s ease;
-    cursor: pointer; }
-    #sidebar .userInfo .profileImg {
-      width: 120px;
-      height: 120px;
-      background: #fff;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      -ms-border-radius: 50%;
-      border-radius: 50%;
-      margin-bottom: 5px; }
-    #sidebar .userInfo p {
-      font-size: 0.93em;
-      opacity: 0.5; }
-  #sidebar .userInfo:hover {
-    background: #232733; }
   #sidebar nav ul {
     list-style-type: none;
     margin-top: 20px;
@@ -150,12 +126,15 @@
         transition: 0.2s ease;
         font-family: 'Proxima Nova Lt';
         font-weight: bold;
-        font-style: normal; }
+        font-style: normal;
+        vertical-align: middle; }
         #sidebar nav ul a li span {
           font-size: 0.9em;
           font-family: 'Proxima Nova Lt';
           font-weight: bold;
           font-style: normal; }
+        #sidebar nav ul a li i {
+          vertical-align: middle; }
     #sidebar nav ul li:hover {
       background: #34394b;
       padding-left: 35px;
@@ -207,7 +186,7 @@
     vertical-align: middle;
     color: #fff;
     transition: 0.2s ease-in-out;
-    border-right: 1px solid #eae9e9;
+    width: 250px;
     line-height: 20px; }
     #topbar .topbar-left i {
       margin-right: 10px;
@@ -249,11 +228,14 @@
   #topbar .topbar-right {
     text-align: right; }
     #topbar .topbar-right .user-profile-main {
+      margin-right: 20px;
+      position: relative;
       cursor: pointer;
       vertical-align: middle;
-      transition: 0.2s ease-in-out;
+      transition: 0.17s ease;
       padding: 15px 15px;
-      height: 70px; }
+      height: 70px;
+      font-size: 0.87em; }
       #topbar .topbar-right .user-profile-main .user-picture {
         width: 40px;
         height: 40px;
@@ -271,9 +253,55 @@
     #topbar .topbar-right .user-profile-main:hover {
       background: #eaeaea;
       color: #000; }
+    #topbar .topbar-right .user-options {
+      display: none;
+      position: absolute;
+      top: 75px;
+      right: 20px;
+      width: 250px;
+      background: #fff;
+      border: 1px solid #ccc;
+      -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+      -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+      box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      border-radius: 4px; }
+      #topbar .topbar-right .user-options ul {
+        text-align: left;
+        display: block;
+        padding: 20px;
+        padding-left: 30px; }
+        #topbar .topbar-right .user-options ul a {
+          color: #606060; }
+          #topbar .topbar-right .user-options ul a li {
+            list-style-type: none;
+            display: block;
+            text-align: left;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            padding-left: 2px;
+            font-size: 1em;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s ease; }
+            #topbar .topbar-right .user-options ul a li i {
+              vertical-align: middle;
+              font-size: 1.6em; }
+          #topbar .topbar-right .user-options ul a li:hover {
+            background: #0080FF;
+            color: #fff;
+            padding-left: 10px; }
   #topbar .nav-icon {
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: bold; }
+  #topbar .dropdown-menu-icon {
+    font-size: 1.3em;
+    vertical-align: middle; }
   #topbar .plus-icon, #topbar .help-icon {
     vertical-align: middle;
     padding-left: 5px; }
