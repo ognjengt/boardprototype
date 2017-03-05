@@ -11,9 +11,40 @@
   .btn-default{
     background: #fff;
     transition: 0.1s ease;
+    border: 1px solid $lightergray;
+    @include custom-shadow(0px, 2px, 6px, 0px, 0.10);
+    margin-top: 20px;
+    height: 37px;
   }
-  .btn-default:hover{
-    background: #fff;
-    border: 1px solid $blue;
+  .btn-default:hover,.btn-default:active{
+    background: #fff !important;
+    border: 1px solid $lightergray !important;
+    outline: none !important;
+  }
+  .btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default, .btn-default:visited,.btn-default.focus, .btn-default:focus {
+    background: #fff !important;
+    border: 1px solid $lightergray !important;
+  }
+
+  // .dropdown-menu{
+  //   width: 100%;
+  // }
+  .dropdown-menu>li>a{
+    height: 32px;
+    padding-top: 6px;
+    transition: 0.2s ease;
+  }
+  .dropdown-menu>li>a:hover{
+    background: $blue;
+    color: #fff;
+    padding-left: 27px;
+  }
+
+  .bluedot{
+    width: 10px;
+    height: 10px;
+    background: $blue;
+    color: $blue;
+    @include border-radius(50%);
   }
 }
