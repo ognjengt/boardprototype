@@ -27,6 +27,7 @@ $(document).ready(function() {
     var route = $(this).attr('href');
     switch(route) {
       case "/boards": page('/boards',boards); break;
+      case "/workspaces": page('/workspaces',workspaces); break;
       case "/test":   page('/test',test); break;
       case "/test2":  page('/test2',test2); break;
     }
@@ -41,6 +42,12 @@ $(document).ready(function() {
         changeActiveLink($('nav ul a:nth-child(1)'));
         firstLoad = false;
       }
+  }
+
+  function workspaces() {
+    changeActiveLink($('nav ul a:nth-child(2)'));
+    showLoader();
+    loadContent('/workspaces',"boards");
   }
 
   function test() {
