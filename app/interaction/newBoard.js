@@ -10,8 +10,8 @@ $(document).ready(function() {
     openPopup();
   });
 
-  $('.form-header').on('click',function() {//TODO ovde promeniti samo staviti X-button
-    //closePopup();
+  $('#btn-close-dialog').on('click',function() {
+    closePopup();
   });
 
   $('#btnSubmitNewBoard').on('click',function() {
@@ -67,7 +67,6 @@ $(document).ready(function() {
     $('#boardType').val("");
     $('#boardTitle').val("");
     $('#boardDescription').val("");
-    $('#boardGoal').val("");
     $('#boardTeam').val("Personal board");
     $('#boardWorkspace').val("No workspace");
   }

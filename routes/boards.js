@@ -86,7 +86,6 @@ router.post('/addBoard',function(req, res, next) {
     title: req.body.title,
     boardType: req.body.type,
     description: req.body.description,
-    goal: req.body.goal,
     teams: req.body.team,//TODO ovo napraviti kada se ubace workspaceovi i timovi
     workspaces: req.body.workspace, //ovo isto
     pinned: req.body.pinned,

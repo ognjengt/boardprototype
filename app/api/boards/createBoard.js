@@ -8,7 +8,6 @@ $(document).ready(function() {
       type: $('#boardType').val(),
       title: $('#boardTitle').val(),
       description: $('#boardDescription').val(),
-      goal: $('#boardGoal').val(),
       team: $('#boardTeam').val(),
       workspace: $('#boardWorkspace').val(),
       pinned: false,
@@ -72,7 +71,6 @@ $(document).ready(function() {
     $('#boardType').val("");
     $('#boardTitle').val("");
     $('#boardDescription').val("");
-    $('#boardGoal').val("");
     $('#boardTeam').val("Personal board");
     $('#boardWorkspace').val("No workspace");
   }

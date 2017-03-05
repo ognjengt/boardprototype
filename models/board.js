@@ -5,7 +5,6 @@ var User = require('../models/user');
 var BoardSchema = mongoose.Schema({
   title: String,
   description: String,
-  goal: String,
   boardType: String,//type je kljucna rec
   pinned: Boolean,
   dateCreated: Date,//TODO dodati workspaces i teams

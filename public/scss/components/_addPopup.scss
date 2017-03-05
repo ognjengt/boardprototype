@@ -4,8 +4,17 @@
     width: 100%;
     min-height: 100%;
     max-height: auto;
-    //background: #fff;
+    position: relative;
 
+    #btn-close-dialog{
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 4em;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+    }
     .addFormBody{
       width: 100%;
       min-height: 100%;
