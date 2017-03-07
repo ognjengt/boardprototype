@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var idCounter = 0;
-  var numBoards = parseInt(document.getElementById('numberOfBoards').innerText);
+  // var numBoards = parseInt(document.getElementById('numberOfBoards').innerText); obrisati ako stvarno ne treba
   $('#addBoardForm').submit(function(event) {
     event.preventDefault();
     if(!validate($('#boardTitle'))) return false;
@@ -75,10 +75,10 @@ $(document).ready(function() {
     $('#boardWorkspace').val("No workspace");
   }
 
-  function updateBoardNumber() {
-    numBoards++;
-    $('#numberOfBoards').text(numBoards);
-  }
+  // function updateBoardNumber() { funkcija za povecavanje broja boardova u sidebaru
+  //   numBoards++;
+  //   $('#numberOfBoards').text(numBoards);
+  // }
 
   function validate(object) {
     if(object.val() == "" || object.val() == null) {

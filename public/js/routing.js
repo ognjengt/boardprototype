@@ -18,13 +18,14 @@ $(document).ready(function() {
       changeActiveLink($(this));
     }
 
-
     if(processing) {
       e.preventDefault();
       return false;
     }
+
     processing = true;
     var route = $(this).attr('href');
+
     switch(route) {
       case "/boards": page('/boards',boards); break;
       case "/workspaces": page('/workspaces',workspaces); break;
@@ -37,7 +38,7 @@ $(document).ready(function() {
   function boards() {
       changeActiveLink($('nav ul a:nth-child(1)'));
       showLoader();
-      loadContent('/boards/getAllUserBoards',"boards"); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
+      loadContent('/boards/sparender',"boards"); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
       if(firstLoad) { //TODO ovaj firstload prebaciti u svaki , sada menjace se nece biti function test, nego workspaces pa na svaki samo da se zna na loadu sta da se aktivira sa strane
         changeActiveLink($('nav ul a:nth-child(1)'));
         firstLoad = false;
@@ -47,7 +48,7 @@ $(document).ready(function() {
   function workspaces() {
     changeActiveLink($('nav ul a:nth-child(2)'));
     showLoader();
-    loadContent('/workspaces',"boards");
+    loadContent('/workspaces/sparender',"workspaces");
   }
 
   function test() {
@@ -104,6 +105,9 @@ $(document).ready(function() {
       $.getScript('../../api/boards/createBoard.js');
       $('.selectpicker').selectpicker('render');
       //$.getScript('../../js/velocity.js');
+    }
+    else if(page === "workspaces") {
+      // skripte za workspaces
     }
   }
 
