@@ -222,7 +222,7 @@
     #topbar .topbar-left #toggleSidebar {
       vertical-align: middle; }
   #topbar .topbar-middle {
-    padding: 15px 10px;
+    padding: 15px 20px;
     transition: 0.2s ease-in-out; }
     #topbar .topbar-middle input {
       border: 2px solid #eae9e9;
@@ -431,7 +431,7 @@ a {
   border: 1px solid #D5D5D5;
   text-decoration: none !important; }
   .board h4 {
-    font-size: 1em;
+    font-size: 0.99em;
     color: #333333; }
   .board p {
     font-size: 0.82em;
@@ -489,6 +489,50 @@ a {
 /*.hvr-sweep-to-right:before{ videti mozda da se ubaci
   background: $blue !important;
 }*/
+.workspace-row .col-sm-12, .workspace-row .col-md-6, .workspace-row .col-lg-4 {
+  margin-top: 60px; }
+
+.workspace {
+  width: 90%;
+  height: 250px;
+  background: #fff;
+  border: 1px solid #D5D5D5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  word-wrap: break-word;
+  position: relative;
+  text-decoration: none;
+  z-index: 2; }
+  .workspace h4 {
+    font-size: 0.98em;
+    color: #333333; }
+  .workspace p {
+    font-size: 0.82em;
+    color: #878787; }
+  .workspace .workspace-back {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #000;
+    -ms-transform: rotate(-5deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-5deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-5deg);
+    z-index: 1; }
+    .workspace .workspace-back .transparent-triangle {
+      width: 100%;
+      height: 0;
+      border-style: solid;
+      border-width: 40px 0 0 40px;
+      border-color: transparent transparent transparent #ffffff; }
+
 #addPopup {
   display: none; }
   #addPopup .overlay {

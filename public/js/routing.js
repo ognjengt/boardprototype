@@ -7,6 +7,7 @@ $(document).ready(function() {
   var processing = false;
 
   page('/boards',boards);
+  page('/workspaces',workspaces);
 
   $('nav ul a').click(function(e) {
      if($(this).children('li').hasClass('active')){

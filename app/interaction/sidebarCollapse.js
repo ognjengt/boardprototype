@@ -16,7 +16,7 @@ $(document).ready(function() {
       $workspace.css("margin-left","-120px");
       $('#logotop').hide();
       $('.topbar-left').css("width","80px");
-      $('.topbar-middle').css("margin-left","-80px");
+      $('.topbar-middle').css("margin-left","-120px");
     }
     else {
       collapsed = false;
@@ -26,7 +26,7 @@ $(document).ready(function() {
       $workspace.css("margin-left","0");
       $('#logotop').velocity("fadeIn",{delay:200,duration:50});
       $('.topbar-left').css("width","250px");
-      $('.topbar-middle').css("margin-left","0px");
+      $('.topbar-middle').css("margin-left","0");
     }
 
   })
