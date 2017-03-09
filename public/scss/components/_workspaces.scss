@@ -28,21 +28,12 @@
   }
   .workspace-back{
     position: absolute;
-    top: -20px;
+    top: -21px;
     left: 0;
-    width: 100%;
-    height: 40px;
-    background: #000;
-    -ms-transform: rotate(-5deg); /* IE 9 */
-    -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
-    transform: rotate(-5deg);
-    z-index: 1;
-    .transparent-triangle{
-      width: 100%;
-      height: 0;
-      border-style: solid;
-      border-width: 40px 0 0 40px;
-      border-color: transparent transparent transparent #ffffff;
-    }
+    width: 0;
+    height: 0;
+    // border-style: solid;
+    // border-width: 0 0px 20px 400px;
+    // border-color: transparent transparent #007bff transparent;
   }
 }
