@@ -47,6 +47,12 @@ $(document).ready(function() {
     var board = document.createElement('div');
     board.className = 'board board-'+data.type+' loading'; //dodaj loading klasu
     board.id = "createdBoard"+idCounter;
+    //dodavanje dugmeta za more
+    var moreButton = document.createElement('div');
+    moreButton.className = 'more';
+    var moreIcon = document.createElement('i');
+    moreIcon.className = 'pe-7s-more'; // TODO ovde ubaciti pravu ikonicu kad nadjemo
+    //naslov
     var title = document.createElement('h4');
     var bold = document.createElement('b');
     //bold.innerText = data.title;
@@ -64,6 +70,8 @@ $(document).ready(function() {
     var description = document.createElement('p');
     description.textContent = data.description;
 
+    moreButton.appendChild(moreIcon);
+    board.appendChild(moreButton);
     board.appendChild(title);
     board.appendChild(type);
     board.appendChild(description);
