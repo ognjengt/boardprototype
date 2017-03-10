@@ -1,5 +1,5 @@
 <div id="pageContent">
-<h2>My Boards</h2>
+<h2>Boards</h2>
 <h4 class="subtitle">All boards that you are currently working on.</h4>
 <div class="container-fluid">
   <div class="top col-md-12">
@@ -40,9 +40,10 @@
 
       <% if(hasBoards) {%>
         <% boards.forEach(function(board) {%>
-          <a href="#">
+          <a href="<%=board._id%>">
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div class="board board-<%=board.boardType%>">
+                <div class="more"><i class="pe-7s-more"></i></div>
                 <h4><b><%= board.title%></b></h4>
                 <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
                 <p><%= board.description%></p>

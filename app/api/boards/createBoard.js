@@ -29,7 +29,7 @@ $(document).ready(function() {
     complete: function(data) {
       console.log(data.responseJSON);
       $('#createdBoard'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
-      updateBoardNumber();
+      $('#linkToBoard'+idCounter).attr("href",data.responseJSON._id);
     }
 
   });
@@ -38,6 +38,10 @@ $(document).ready(function() {
 
   function createBoard(data) {
     idCounter++;
+    //link creationg
+    var fullBoard = document.createElement('a');
+    fullBoard.id = "linkToBoard"+idCounter;
+    //board creating
     var grid = document.createElement('div');
     grid.className = 'col-sm-6 col-md-4 col-lg-3';
     var board = document.createElement('div');
@@ -64,7 +68,8 @@ $(document).ready(function() {
     board.appendChild(type);
     board.appendChild(description);
     grid.appendChild(board);
-    $('#allBoards').prepend(grid);
+    fullBoard.appendChild(grid)
+    $('#allBoards').prepend(fullBoard);
   }
 
   function clearFields() {

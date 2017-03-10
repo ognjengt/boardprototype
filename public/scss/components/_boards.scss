@@ -11,6 +11,7 @@
 }
 .type-title{
   color: $groupTitleGray;
+  font-size: 0.82em;
 }
 a{
     text-decoration: none !important;
@@ -31,15 +32,23 @@ a{
   border: 1px solid $boardBorder;
   //border-bottom: none;
   text-decoration: none !important;
+  position: relative;
 
   h4{
-    font-size: 0.99em;
+    font-size: 0.98em;
     color: $boardHeader;
   }
 
   p{
     font-size: 0.82em;
     color: $groupTitleGray;
+  }
+  .more{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 1.3em;
+    display: none;
   }
 }
 .loading{
@@ -63,13 +72,16 @@ a{
 .board:hover{
   //transform: translateY(-5%)
   .type-title{
-    color: $groupTitleGrayHover;
+    color: #fff;
   }
   p{
     color: #fff;
   }
   h4{
     color: #fff;
+  }
+  .more{
+    display: block;
   }
 }
 .board:active{
