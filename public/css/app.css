@@ -434,22 +434,25 @@ a {
   position: relative; }
   .board h4 {
     font-size: 0.98em;
-    color: #333333; }
+    color: #333333;
+    padding-right: 30px; }
   .board p {
     font-size: 0.82em;
     color: #878787; }
   .board .more {
     position: absolute;
-    top: 30px;
+    top: 32px;
     right: 10px;
     font-size: 1.3em;
-    display: none; }
+    display: none;
+    background: transparent; }
   .board .pin {
     position: absolute;
     top: 5px;
     right: 10px;
     font-size: 1.3em;
-    display: none; }
+    display: none;
+    background: transparent; }
 
 .loading {
   opacity: 0.5; }
