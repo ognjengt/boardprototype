@@ -47,6 +47,11 @@ $(document).ready(function() {
     var board = document.createElement('div');
     board.className = 'board board-'+data.type+' loading'; //dodaj loading klasu
     board.id = "createdBoard"+idCounter;
+    //dodavanje dugmeta za pin
+    var pinButton = document.createElement('div');
+    pinButton.className = 'pin';
+    var pinIcon = document.createElement('i');
+    pinIcon.className = 'pe-7s-pin'; // TODO ovde ubaciti pravu ikonicu kad nadjemo
     //dodavanje dugmeta za more
     var moreButton = document.createElement('div');
     moreButton.className = 'more';
@@ -70,7 +75,9 @@ $(document).ready(function() {
     var description = document.createElement('p');
     description.textContent = data.description;
 
+    pinButton.appendChild(pinIcon);
     moreButton.appendChild(moreIcon);
+    board.appendChild(pinButton);
     board.appendChild(moreButton);
     board.appendChild(title);
     board.appendChild(type);

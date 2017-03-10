@@ -440,6 +440,12 @@ a {
     color: #878787; }
   .board .more {
     position: absolute;
+    top: 30px;
+    right: 10px;
+    font-size: 1.3em;
+    display: none; }
+  .board .pin {
+    position: absolute;
     top: 5px;
     right: 10px;
     font-size: 1.3em;
@@ -467,6 +473,8 @@ a {
 .board:hover h4 {
   color: #fff; }
 .board:hover .more {
+  display: block; }
+.board:hover .pin {
   display: block; }
 
 .board:active {

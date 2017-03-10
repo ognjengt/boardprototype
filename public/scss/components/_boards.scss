@@ -45,6 +45,13 @@ a{
   }
   .more{
     position: absolute;
+    top: 30px;
+    right: 10px;
+    font-size: 1.3em;
+    display: none;
+  }
+  .pin{
+    position: absolute;
     top: 5px;
     right: 10px;
     font-size: 1.3em;
@@ -81,6 +88,9 @@ a{
     color: #fff;
   }
   .more{
+    display: block;
+  }
+  .pin{
     display: block;
   }
 }
