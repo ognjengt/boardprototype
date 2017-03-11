@@ -48,7 +48,7 @@ a{
     position: absolute;
     top: 32px;
     right: 10px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     display: none;
     background: transparent;
   }
@@ -56,9 +56,12 @@ a{
     position: absolute;
     top: 5px;
     right: 10px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     display: none;
     background: transparent;
+  }
+  .more:hover, .pin:hover{
+    color: #000;
   }
 }
 .loading{
@@ -81,6 +84,7 @@ a{
 // Hoveri
 .board:hover{
   //transform: translateY(-5%)
+  -webkit-transform: translateZ(0);
   .type-title{
     color: #fff;
   }
@@ -105,24 +109,28 @@ a{
   border-left: 20px solid $blue;
   background: $blue;
   color: #fff;
+  -webkit-transform: translateZ(0);
 }
 .board-Idea:hover{
   border: 1px solid $red;
   border-left: 20px solid $red;
   background: $red;
   color: #fff;
+  -webkit-transform: translateZ(0);
 }
 .board-Brainstorm:hover{
   border: 1px solid $green;
   border-left: 20px solid $green;
   background: $green;
   color: #fff;
+  -webkit-transform: translateZ(0);
 }
 .board-Todo:hover{
   border: 1px solid $yellow;
   border-left: 20px solid $yellow;
   background: $yellow;
   color: #fff;
+  -webkit-transform: translateZ(0);
 }
 /*.hvr-sweep-to-right:before{ videti mozda da se ubaci
   background: $blue !important;

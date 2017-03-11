@@ -443,16 +443,18 @@ a {
     position: absolute;
     top: 32px;
     right: 10px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     display: none;
     background: transparent; }
   .board .pin {
     position: absolute;
     top: 5px;
     right: 10px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     display: none;
     background: transparent; }
+  .board .more:hover, .board .pin:hover {
+    color: #000; }
 
 .loading {
   opacity: 0.5; }
@@ -469,16 +471,18 @@ a {
 .board-Todo {
   border-left: 4px solid #f1c40f; }
 
-.board:hover .type-title {
-  color: #fff; }
-.board:hover p {
-  color: #fff; }
-.board:hover h4 {
-  color: #fff; }
-.board:hover .more {
-  display: block; }
-.board:hover .pin {
-  display: block; }
+.board:hover {
+  -webkit-transform: translateZ(0); }
+  .board:hover .type-title {
+    color: #fff; }
+  .board:hover p {
+    color: #fff; }
+  .board:hover h4 {
+    color: #fff; }
+  .board:hover .more {
+    display: block; }
+  .board:hover .pin {
+    display: block; }
 
 .board:active {
   transform: scale(0.95); }
@@ -487,25 +491,29 @@ a {
   border: 1px solid #0080FF;
   border-left: 20px solid #0080FF;
   background: #0080FF;
-  color: #fff; }
+  color: #fff;
+  -webkit-transform: translateZ(0); }
 
 .board-Idea:hover {
   border: 1px solid #de3b44;
   border-left: 20px solid #de3b44;
   background: #de3b44;
-  color: #fff; }
+  color: #fff;
+  -webkit-transform: translateZ(0); }
 
 .board-Brainstorm:hover {
   border: 1px solid #15cd72;
   border-left: 20px solid #15cd72;
   background: #15cd72;
-  color: #fff; }
+  color: #fff;
+  -webkit-transform: translateZ(0); }
 
 .board-Todo:hover {
   border: 1px solid #f1c40f;
   border-left: 20px solid #f1c40f;
   background: #f1c40f;
-  color: #fff; }
+  color: #fff;
+  -webkit-transform: translateZ(0); }
 
 /*.hvr-sweep-to-right:before{ videti mozda da se ubaci
   background: $blue !important;
