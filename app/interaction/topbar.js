@@ -1,16 +1,35 @@
 $(document).ready(function() {
+  // For user options dropdown
   var $userOptions = $('.user-options');
   var $userProfileMain = $('.user-profile-main');
-  var visible = false;
+
+  // For adding new board,ws,team dialog
+  var $addNewDialog = $('.addNewDialog-dropdown');
+  var $btnAddNew = $('#btnAddNew-dropdown');
+
+  var UserOptionsVisible = false;
+  var AddNewDialogVisible = false;
+
   $userProfileMain.click(function() {
-      if(!visible)  {
+      if(!UserOptionsVisible)  {
         $userOptions.show();
-        visible = true;
+        UserOptionsVisible = true;
       }
       else {
         $userOptions.hide();
-        visible = false;
+        UserOptionsVisible = false;
       }
+  });
+
+  $btnAddNew.click(function() {
+    if(!AddNewDialogVisible) {
+      $addNewDialog.show();
+      AddNewDialogVisible = true;
+    }
+    else{
+      $addNewDialog.hide();
+      AddNewDialogVisible = false;
+    }
   });
 
     $(document).mouseup(function (e)
@@ -18,7 +37,14 @@ $(document).ready(function() {
       if (!$userProfileMain.is(e.target) && $userProfileMain.has(e.target).length === 0) //&& $userOptions.has(e.target).length == 0 ovo dodati ako neces da gasi kad se klikne na neki link
       {
           $userOptions.hide();
-          visible = false;
+          UserOptionsVisible = false;
+      }
+
+      // za gasenje addnew dialoga gde god da se klikne
+      if (!$btnAddNew.is(e.target) && $btnAddNew.has(e.target).length === 0) //&& $userOptions.has(e.target).length == 0 ovo dodati ako neces da gasi kad se klikne na neki link
+      {
+          $addNewDialog.hide();
+          AddNewDialogVisible = false;
       }
   });
 });

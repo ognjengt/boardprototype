@@ -117,7 +117,7 @@
 				vertical-align: middle;
 			}
 		}
-		.user-profile-main:hover{
+		.user-profile-btn:hover{
 			background: darken($topbarBg,5); //ili $blue
 			color: #000;
 		}
@@ -166,6 +166,53 @@
 
 			}
 		}
+
+		.addNewDialog-dropdown{
+			display: none;
+			position: absolute;
+			top: 71px;
+			right: 20px;
+			width: 300px;
+			background: #fff;
+			border: 1px solid #ccc;
+			@include custom-shadow(0px, 3px, 5px, 0px, 0.17);
+			@include custom-radius(0px,0px,4px,4px);
+
+			ul{
+				text-align: left;
+				display: block;
+				padding: 0;
+				padding-top: 10px;
+				a{
+					color: $lightgray;
+					li{
+						list-style-type: none;
+						display: block;
+						text-align: left;
+						padding-top: 6px;
+						padding-bottom: 6px;
+						padding-left: 15px;
+						font-size: 1em;
+						//@include border-radius(4px);
+						cursor: pointer;
+						transition: 0.2s ease;
+
+						.description{
+							font-size: 0.87em;
+							color: #999;
+						}
+					}
+					li:hover{
+						background: $blue;
+						color: #fff;
+						padding-left: 20px;
+						.description{
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
 	}
 	.nav-icon{
 		font-size: 1.5em;
@@ -178,5 +225,11 @@
 	.plus-icon, .help-icon{
 		vertical-align: middle;
 		padding-left: 5px;
+	}
+	#btnAddNew-dropdown{
+		height: 70px;
+		padding-top: 25px;
+		padding-left: 10px;
+		transition: 0.17s ease;
 	}
 }
