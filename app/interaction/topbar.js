@@ -46,5 +46,6 @@ $(document).ready(function() {
           $addNewDialog.hide();
           AddNewDialogVisible = false;
       }
+
   });
 });

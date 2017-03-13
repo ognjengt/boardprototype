@@ -16,6 +16,7 @@
   position: relative;
   text-decoration: none;
   z-index: 2;
+  transition: 0.17s ease-in-out;
 
 
   h4{
@@ -27,15 +28,39 @@
     font-size: 0.82em;
     color: $groupTitleGray;
   }
-  .workspace-back{
+  .workspace-back1,.workspace-back2{
     position: absolute;
-    top: -20px;
+    top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 85%;
-    height: 20px;
+    width: 90%;
+    height: 12px;
     background: #fff;
     border: 1px solid $boardBorder;
     @include custom-radius(4px,4px,0,0);
   }
+  // .bookmark{
+  //   position: absolute;
+  //   top: -12px;
+  //   width: 33%;
+  //   height: 12px;
+  //   //border: 1px solid $boardBorder;
+  //   @include custom-radius(4px,4px,0,0);
+  // }
+  // .bookmark-green{
+  //   background: $green;
+  // }
+  // .bookmark-red{
+  //   background: $red;
+  //   left: 35%;
+  // }
+  // .bookmark-blue{
+  //   left: 55%;
+  //   background: $blue;
+  // }
+  .workspace-back2{
+    top: -23px;
+    width: 80%;
+  }
+
 }
