@@ -6,8 +6,8 @@ var Board = require('../models/board');
 var WorkspaceSchema = mongoose.Schema({
   title: String,
   description: String,
-  dateCreated: Date,//TODO dodati workspaces i teams
-  boards: {
+  dateCreated: Date,
+  boards: { //ovo namestiti kako valja
     id: {
       type: mongoose.Schema.Types.ObjectId,
       index: true
