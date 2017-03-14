@@ -482,7 +482,6 @@ a {
   cursor: pointer;
   transition: 0.17s ease;
   word-wrap: break-word;
-  overflow: hidden;
   border: 1px solid #D5D5D5;
   text-decoration: none !important;
   position: relative; }
@@ -509,6 +508,47 @@ a {
     background: transparent; }
   .board .more:hover, .board .pin:hover {
     color: #000; }
+  .board .more-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: -20px;
+    width: 200px;
+    height: 150px;
+    background: #fff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    color: #606060;
+    z-index: 100; }
+    .board .more-dropdown ul {
+      text-align: left;
+      display: block;
+      padding: 0;
+      padding-top: 10px; }
+      .board .more-dropdown ul hr {
+        padding: 0;
+        margin: 0;
+        padding-bottom: 4px; }
+      .board .more-dropdown ul li {
+        list-style-type: none;
+        display: block;
+        text-align: left;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 15px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: 0.2s ease; }
+      .board .more-dropdown ul li:hover {
+        background: #0080FF;
+        color: #fff;
+        padding-left: 20px; }
 
 .loading {
   opacity: 0.5; }

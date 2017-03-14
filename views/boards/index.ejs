@@ -42,12 +42,22 @@
         <% boards.forEach(function(board) {%>
           <a href="<%=board._id%>">
             <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="board board-<%=board.boardType%>">
+              <div class="board board-<%=board.boardType%>" id="<%=board._id%>">
                 <div class="pin"><i class="pe-7s-pin"></i></div>
                 <div class="more"><i class="pe-7s-more"></i></div>
                 <h4><b><%= board.title%></b></h4>
                 <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
                 <p><%= board.description%></p>
+
+                <div class="more-dropdown" id="dropdown-<%=board._id%>">
+                  <ul>
+                    <li>Edit</li>
+                    <li>Add to workspace</li>
+                    <li>Add to team</li>
+                    <hr>
+                    <li>Delete</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </a>

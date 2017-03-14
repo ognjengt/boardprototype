@@ -30,6 +30,7 @@ $(document).ready(function() {
       console.log(data.responseJSON);
       $('#createdBoard'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
       $('#linkToBoard'+idCounter).attr("href",data.responseJSON._id);
+      $('#createdBoard'+idCounter).attr("id",data.responseJSON._id);
     }
 
   });

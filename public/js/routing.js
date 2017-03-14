@@ -103,6 +103,7 @@ $(document).ready(function() {
     if(page === "boards") {
       $.getScript('../../interaction/bootstrap-select-activate.js');
       $.getScript('../../interaction/newBoard.js');
+      $.getScript('../../interaction/boards.js');
       $.getScript('../../api/boards/createBoard.js');
       $('.selectpicker').selectpicker('render');
       //$.getScript('../../js/velocity.js');
