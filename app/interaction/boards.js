@@ -2,10 +2,16 @@ $(document).ready(function() {
   var $moreButton = $('.more');
   var currentIdActive = 0;
   $moreButton.click(function(e) {
-    $('#dropdown-'+currentIdActive).hide();
     e.preventDefault();
-    $('#dropdown-'+this.parentNode.id).toggle();
-    currentIdActive = this.parentNode.id;
+    if($('#dropdown-'+this.parentNode.id).is(':visible')) {
+      $('#dropdown-'+currentIdActive).hide();
+    }
+    else {
+      $('#dropdown-'+currentIdActive).hide();
+      $('#dropdown-'+this.parentNode.id).show();
+      currentIdActive = this.parentNode.id;
+    }
+
   });
 
   $('.more-dropdown').click(function(e) {

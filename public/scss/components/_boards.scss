@@ -47,18 +47,22 @@ a{
   .more{
     position: absolute;
     top: 32px;
-    right: 10px;
+    right: 0;
+    width: 40px;
     font-size: 1.2em;
     display: none;
     background: transparent;
+    text-align: center;
   }
   .pin{
     position: absolute;
     top: 5px;
-    right: 10px;
+    right: 0;
+    width: 40px;
     font-size: 1.2em;
     display: none;
     background: transparent;
+    text-align: center;
   }
   .more:hover, .pin:hover{
     color: #000;

@@ -499,17 +499,21 @@ a {
   .board .more {
     position: absolute;
     top: 32px;
-    right: 10px;
+    right: 0;
+    width: 40px;
     font-size: 1.2em;
     display: none;
-    background: transparent; }
+    background: transparent;
+    text-align: center; }
   .board .pin {
     position: absolute;
     top: 5px;
-    right: 10px;
+    right: 0;
+    width: 40px;
     font-size: 1.2em;
     display: none;
-    background: transparent; }
+    background: transparent;
+    text-align: center; }
   .board .more:hover, .board .pin:hover {
     color: #000; }
   .board .more-dropdown {
