@@ -138,6 +138,11 @@
 				display: block;
 				padding: 0;
 				padding-top: 10px;
+				hr{
+					padding: 0;
+					margin: 0;
+					padding-top: 6px;
+				}
 				a{
 					color: $lightgray;
 					li{

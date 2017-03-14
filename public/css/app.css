@@ -317,6 +317,10 @@
         display: block;
         padding: 0;
         padding-top: 10px; }
+        #topbar .topbar-right .user-options ul hr {
+          padding: 0;
+          margin: 0;
+          padding-top: 6px; }
         #topbar .topbar-right .user-options ul a {
           color: #606060; }
           #topbar .topbar-right .user-options ul a li {
