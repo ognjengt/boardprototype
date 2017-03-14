@@ -80,7 +80,7 @@ a{
     @include custom-shadow(0px, 3px, 5px, 0px, 0.17);
     @include border-radius(4px);
     color: $lightgray;
-    z-index: 100;
+    z-index: 11;
 
     ul{
       text-align: left;
@@ -160,24 +160,28 @@ a{
   border-left: 20px solid $blue;
   background: $blue;
   color: #fff;
+  z-index: 10;
 }
 .board-Idea:hover{
   border: 1px solid $red;
   border-left: 20px solid $red;
   background: $red;
   color: #fff;
+  z-index: 10;
 }
 .board-Brainstorm:hover{
   border: 1px solid $green;
   border-left: 20px solid $green;
   background: $green;
   color: #fff;
+  z-index: 10;
 }
 .board-Todo:hover{
   border: 1px solid $yellow;
   border-left: 20px solid $yellow;
   background: $yellow;
   color: #fff;
+  z-index: 10;
 }
 /*.hvr-sweep-to-right:before{ videti mozda da se ubaci
   background: $blue !important;

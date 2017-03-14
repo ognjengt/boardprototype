@@ -11,7 +11,6 @@ $(document).ready(function() {
       $('#dropdown-'+this.parentNode.id).show();
       currentIdActive = this.parentNode.id;
     }
-
   });
 
   $('.more-dropdown').click(function(e) {
@@ -25,6 +24,6 @@ $(document).ready(function() {
         $('#dropdown-'+currentIdActive).hide();
     }
 
-});
+  });
 
 });

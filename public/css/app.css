@@ -176,7 +176,7 @@
   background: #34394b;
   padding-left: 35px;
   color: #b7b7b7;
-  border-left: 4px solid #de3b44; }
+  border-left: 4px solid #0080FF; }
 
 #topbar {
   width: 100%;
@@ -533,7 +533,7 @@ a {
     -ms-border-radius: 4px;
     border-radius: 4px;
     color: #606060;
-    z-index: 100; }
+    z-index: 11; }
     .board .more-dropdown ul {
       text-align: left;
       display: block;
@@ -593,25 +593,29 @@ a {
   border: 1px solid #0080FF;
   border-left: 20px solid #0080FF;
   background: #0080FF;
-  color: #fff; }
+  color: #fff;
+  z-index: 10; }
 
 .board-Idea:hover {
   border: 1px solid #de3b44;
   border-left: 20px solid #de3b44;
   background: #de3b44;
-  color: #fff; }
+  color: #fff;
+  z-index: 10; }
 
 .board-Brainstorm:hover {
   border: 1px solid #15cd72;
   border-left: 20px solid #15cd72;
   background: #15cd72;
-  color: #fff; }
+  color: #fff;
+  z-index: 10; }
 
 .board-Todo:hover {
   border: 1px solid #f1c40f;
   border-left: 20px solid #f1c40f;
   background: #f1c40f;
-  color: #fff; }
+  color: #fff;
+  z-index: 10; }
 
 /*.hvr-sweep-to-right:before{ videti mozda da se ubaci
   background: $blue !important;
