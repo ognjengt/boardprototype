@@ -38,6 +38,7 @@ $(document).ready(function() {
   // Funkcije za page ruter
   function boards() {
       changeActiveLink($('nav ul a:nth-child(1)'));
+      changeCollapsedActive(1);
       showLoader();
       loadContent('/boards/sparender',"boards"); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
       if(firstLoad) { //TODO ovaj firstload prebaciti u svaki , sada menjace se nece biti function test, nego workspaces pa na svaki samo da se zna na loadu sta da se aktivira sa strane
@@ -48,18 +49,21 @@ $(document).ready(function() {
 
   function workspaces() {
     changeActiveLink($('nav ul a:nth-child(2)'));
+    changeCollapsedActive(2);
     showLoader();
     loadContent('/workspaces/sparender',"workspaces");
   }
 
   function test() {
       changeActiveLink($('nav ul a:nth-child(6)'));
+      changeCollapsedActive(6);
       showLoader();
       loadContent('/boards/test',"test");
   }
 
   function test2() {
       changeActiveLink($('nav ul a:nth-child(7)'));
+      changeCollapsedActive(7);
       showLoader();
       loadContent('/boards/test2',"test2");
   }
@@ -114,8 +118,13 @@ $(document).ready(function() {
   }
 
   function changeActiveLink(element) {
+    //for spreaded
     $('nav ul a').find('li.active').removeClass('active');
     element.children('li').addClass('active');
+  }
+  function changeCollapsedActive(elementIndex) {
+    $('#collapsed ul a').find('li.active-small').removeClass('active-small');
+    $('#collapsed ul a:nth-child('+elementIndex+')').children('li').addClass('active-small');
   }
 
   page(); //initialize the router
