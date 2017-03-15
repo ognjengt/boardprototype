@@ -46,7 +46,7 @@ $(document).ready(function() {
     if(data.description.length > 73)
       data.description = truncateText(data.description,0,73);
 
-    var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<div class='title-wrapper'><h4><b>"+data.title+"</b></h4></div>"+"<div class='type-wrapper'><div class='type-title'><h5><b>"+data.type+"</b></h5></div></div>"+"<div class='description-wrapper'><p class='description'>"+data.description+"</p></div>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li>Edit</li><li>Add to workspace</li><li>Add to team</li><hr><li>Delete</li></ul></div></div></div></a>";
+    var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<div class='title-wrapper'><h4><b>"+data.title+"</b></h4></div>"+"<div class='type-wrapper'><div class='type-title'><h5><b>"+data.type+"</b></h5></div></div>"+"<div class='description-wrapper'><p class='description'>"+data.description+"</p></div>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li><i class='pe-7s-pen'></i> Edit</li><li><i class='pe-7s-albums'></i> Add to workspace</li><li><i class='pe-7s-users'></i> Add to team</li><hr><li><i class='pe-7s-trash'></i> Delete</li></ul></div></div></div></a>";
 
     $('#allBoards').prepend(snippet);
     // idCounter++;
@@ -98,25 +98,13 @@ $(document).ready(function() {
     // fullBoard.appendChild(grid)
     // $('#allBoards').prepend(fullBoard);
   }
- // ove 2 metode ce se brisati posto postoje jos u 2 fajla kada se sve bude sazimalo u 1.
+ // ova metoda se brise posto postoji jos jedna ista takva u newBoard.js
   function clearFields() {
     $('#boardType').val("");
     $('#boardTitle').val("");
     $('#boardDescription').val("");
     $('#boardTeam').val("Personal board");
     $('#boardWorkspace').val("No workspace");
-  }
-
-  function handleMoreDropdown(e, element) {
-    e.preventDefault();
-    if($('#dropdown-'+element.parentNode.id).is(':visible')) {
-      $('#dropdown-'+currentIdActive).hide();
-    }
-    else {
-      $('#dropdown-'+currentIdActive).hide();
-      $('#dropdown-'+element.parentNode.id).show();
-      currentIdActive = element.parentNode.id;
-    }
   }
 
   function truncateText(element,startIdx,endIdx) {

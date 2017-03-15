@@ -525,7 +525,7 @@ a {
     background: transparent;
     text-align: center; }
   .board .more:hover, .board .pin:hover {
-    color: #000; }
+    color: #cccccc; }
   .board .more-dropdown {
     display: none;
     position: absolute;
@@ -552,7 +552,7 @@ a {
       .board .more-dropdown ul hr {
         padding: 0;
         margin: 0;
-        padding-bottom: 4px; }
+        padding-bottom: 5px; }
       .board .more-dropdown ul li {
         list-style-type: none;
         display: block;
@@ -560,7 +560,7 @@ a {
         padding-top: 4px;
         padding-bottom: 4px;
         padding-left: 15px;
-        font-size: 1em;
+        font-size: 0.96em;
         cursor: pointer;
         transition: 0.2s ease; }
       .board .more-dropdown ul li:hover {
