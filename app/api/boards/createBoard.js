@@ -131,7 +131,7 @@ $(document).ready(function() {
   // }
 
   function validate(object) {
-    if(object.val() == "" || object.val() == null || object.val().length >70) {
+    if(object.val() == "" || object.val() == null) {
       object.css("border-color","#e74c3c");
       object.addClass("animated shake");
       setTimeout(function() {
