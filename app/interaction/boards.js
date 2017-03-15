@@ -13,13 +13,13 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  // $(document).on('mouseup',function (e)
-  // {
-  //   if (!$moreButton.is(e.target) && $moreButton.has(e.target).length === 0)
-  //   {
-  //       $('#dropdown-'+currentIdActive).hide();
-  //   }
-  // });
+  $(document).on('mouseup',function (e)
+  {
+    if (!$moreButton.is(e.target) && $moreButton.has(e.target).length === 0)
+    {
+        $('#dropdown-'+currentIdActive).hide();
+    }
+  });
 
   function handleMoreDropdown(e, element) {
     e.preventDefault();
