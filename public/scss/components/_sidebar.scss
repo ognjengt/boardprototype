@@ -51,9 +51,9 @@
           text-decoration: none;
 
           li{
-            padding-top: 8px;
+            padding-top: 12px;
             padding-left: 30px;
-            padding-bottom: 8px;
+            padding-bottom: 12px;
             cursor: pointer;
             transition: 0.2s ease;
             font-family: 'Proxima Nova Lt';
@@ -133,12 +133,42 @@
   //Collapsed
   #collapsed{
     display: none;
+
+    ul{
+      text-align: center;
+      display: block;
+      padding: 0;
+      padding-top: 10px;
+
+      a{
+        color: $sidebarTextColor;
+        text-decoration: none;
+
+        li{
+          padding-top: 30px;
+          padding-bottom: 30px;
+          cursor: pointer;
+          transition: 0.2s ease;
+          vertical-align: middle;
+          font-size: 1.6em;
+        }
+        li:hover{
+          background: lighten($sidebarBg, 10);
+          color: $sidebarOptionHover;
+        }
+      }
+    }
   }
 }
 
 .active{
   background: lighten($sidebarBg, 10);
   padding-left: 35px;
+  color: $sidebarOptionHover;
+  border-left: 4px solid $blue;
+}
+.active-small{
+  background: lighten($sidebarBg, 10);
   color: $sidebarOptionHover;
   border-left: 4px solid $blue;
 }

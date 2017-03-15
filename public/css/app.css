@@ -144,9 +144,9 @@
       color: #6A7583;
       text-decoration: none; }
       #sidebar nav ul a li {
-        padding-top: 8px;
+        padding-top: 12px;
         padding-left: 30px;
-        padding-bottom: 8px;
+        padding-bottom: 12px;
         cursor: pointer;
         transition: 0.2s ease;
         font-family: 'Proxima Nova Lt';
@@ -171,10 +171,33 @@
     cursor: pointer; }
   #sidebar #collapsed {
     display: none; }
+    #sidebar #collapsed ul {
+      text-align: center;
+      display: block;
+      padding: 0;
+      padding-top: 10px; }
+      #sidebar #collapsed ul a {
+        color: #6A7583;
+        text-decoration: none; }
+        #sidebar #collapsed ul a li {
+          padding-top: 30px;
+          padding-bottom: 30px;
+          cursor: pointer;
+          transition: 0.2s ease;
+          vertical-align: middle;
+          font-size: 1.6em; }
+        #sidebar #collapsed ul a li:hover {
+          background: #34394b;
+          color: #b7b7b7; }
 
 .active {
   background: #34394b;
   padding-left: 35px;
+  color: #b7b7b7;
+  border-left: 4px solid #0080FF; }
+
+.active-small {
+  background: #34394b;
   color: #b7b7b7;
   border-left: 4px solid #0080FF; }
 
@@ -490,7 +513,7 @@ a {
   text-decoration: none !important;
   position: relative; }
   .board h4 {
-    font-size: 0.98em;
+    font-size: 0.96em;
     color: #333333;
     padding-right: 30px; }
   .board .title-wrapper {
