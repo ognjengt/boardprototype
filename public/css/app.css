@@ -493,9 +493,10 @@ a {
     font-size: 0.98em;
     color: #333333;
     padding-right: 30px; }
-  .board p {
+  .board p.description {
     font-size: 0.82em;
-    color: #878787; }
+    color: #878787;
+    padding-right: 30px; }
   .board .more {
     position: absolute;
     top: 32px;

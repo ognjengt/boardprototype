@@ -36,6 +36,10 @@ router.get('/sparender',function(req, res, next) {
     boardsExist = true;
     // nadji sve boardove od tog usera
     Board.find({userId: req.user._id}, function(err,boards) {
+      boards.forEach(function(board) {
+        if(board.description.length > 73)
+        board.description = middleware.truncateText(board.description,0,73);
+      });
       res.render('boards/index', {
         boards: boards.reverse(),
         hasBoards: boardsExist

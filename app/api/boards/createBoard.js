@@ -40,7 +40,10 @@ $(document).ready(function() {
 
   function createBoard(data) {
     idCounter++;
-    var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<h4><b>"+data.title+"</b></h4>"+"<div class='type-title'><h5><b>"+data.type+"</b></h5></div>"+"<p>"+data.description+"</p>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li>Edit</li><li>Add to workspace</li><li>Add to team</li><hr><li>Delete</li></ul></div></div></div></a>";
+    if(data.description.length > 73)
+      data.description = truncateText(data.description,0,73);
+      
+    var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<h4><b>"+data.title+"</b></h4>"+"<div class='type-title'><h5><b>"+data.type+"</b></h5></div>"+"<p class='description'>"+data.description+"</p>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li>Edit</li><li>Add to workspace</li><li>Add to team</li><hr><li>Delete</li></ul></div></div></div></a>";
 
     $('#allBoards').prepend(snippet);
     // idCounter++;
@@ -111,6 +114,12 @@ $(document).ready(function() {
       $('#dropdown-'+element.parentNode.id).show();
       currentIdActive = element.parentNode.id;
     }
+  }
+
+  function truncateText(element,startIdx,endIdx) {
+    var truncated = element.substring(startIdx,endIdx);
+    truncated += '...';
+    return truncated;
   }
 
   // function updateBoardNumber() { funkcija za povecavanje broja boardova u sidebaru

@@ -13,7 +13,7 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $(document).mouseup(function (e)
+  $(document).on('mouseup','document',function (e)
   {
     if (!$moreButton.is(e.target) && $moreButton.has(e.target).length === 0)
     {

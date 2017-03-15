@@ -40,9 +40,10 @@ a{
     padding-right: 30px;
   }
 
-  p{
+  p.description{
     font-size: 0.82em;
     color: $groupTitleGray;
+    padding-right: 30px;
   }
   .more{
     position: absolute;
