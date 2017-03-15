@@ -31,6 +31,7 @@ $(document).ready(function() {
       $('#createdBoard'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
       $('#linkToBoard'+idCounter).attr("href",data.responseJSON._id);
       $('#createdBoard'+idCounter).attr("id",data.responseJSON._id);
+      $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id);
     }
 
   });
@@ -39,61 +40,77 @@ $(document).ready(function() {
 
   function createBoard(data) {
     idCounter++;
-    //link creationg
-    var fullBoard = document.createElement('a');
-    fullBoard.id = "linkToBoard"+idCounter;
-    //board creating
-    var grid = document.createElement('div');
-    grid.className = 'col-sm-6 col-md-4 col-lg-3';
-    var board = document.createElement('div');
-    board.className = 'board board-'+data.type+' loading'; //dodaj loading klasu
-    board.id = "createdBoard"+idCounter;
-    //dodavanje dugmeta za pin
-    var pinButton = document.createElement('div');
-    pinButton.className = 'pin';
-    var pinIcon = document.createElement('i');
-    pinIcon.className = 'pe-7s-pin'; // TODO ovde ubaciti pravu ikonicu kad nadjemo
-    //dodavanje dugmeta za more
-    var moreButton = document.createElement('div');
-    moreButton.className = 'more';
-    var moreIcon = document.createElement('i');
-    moreIcon.className = 'pe-7s-more'; // TODO ovde ubaciti pravu ikonicu kad nadjemo
-    //naslov
-    var title = document.createElement('h4');
-    var bold = document.createElement('b');
-    //bold.innerText = data.title;
-    bold.textContent = data.title; // da bi radilo na mozili
-    title.appendChild(bold);
-    //type creationg
-    var type = document.createElement('div');
-    type.className = 'type-title';
-    var h5 = document.createElement('h5');
-    var bold2 = document.createElement('b');
-    bold2.textContent = data.type;
-    h5.appendChild(bold2);
-    type.appendChild(h5);
-    //description creation
-    var description = document.createElement('p');
-    description.textContent = data.description;
+    var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<h4><b>"+data.title+"</b></h4>"+"<div class='type-title'><h5><b>"+data.type+"</b></h5></div>"+"<p>"+data.description+"</p>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li>Edit</li><li>Add to workspace</li><li>Add to team</li><hr><li>Delete</li></ul></div></div></div></a>";
 
-    pinButton.appendChild(pinIcon);
-    moreButton.appendChild(moreIcon);
-    board.appendChild(pinButton);
-    board.appendChild(moreButton);
-    board.appendChild(title);
-    board.appendChild(type);
-    board.appendChild(description);
-    grid.appendChild(board);
-    fullBoard.appendChild(grid)
-    $('#allBoards').prepend(fullBoard);
+    $('#allBoards').prepend(snippet);
+    // idCounter++;
+    // //link creationg
+    // var fullBoard = document.createElement('a');
+    // fullBoard.id = "linkToBoard"+idCounter;
+    // //board creating
+    // var grid = document.createElement('div');
+    // grid.className = 'col-sm-6 col-md-4 col-lg-3';
+    // var board = document.createElement('div');
+    // board.className = 'board board-'+data.type+' loading'; //dodaj loading klasu
+    // board.id = "createdBoard"+idCounter;
+    // //dodavanje dugmeta za pin
+    // var pinButton = document.createElement('div');
+    // pinButton.className = 'pin';
+    // var pinIcon = document.createElement('i');
+    // pinIcon.className = 'pe-7s-pin'; // TODO ovde ubaciti pravu ikonicu kad nadjemo
+    // //dodavanje dugmeta za more
+    // var moreButton = document.createElement('div');
+    // moreButton.className = 'more';
+    // var moreIcon = document.createElement('i');
+    // moreIcon.className = 'pe-7s-more'; // TODO ovde ubaciti pravu ikonicu kad nadjemo
+    // //naslov
+    // var title = document.createElement('h4');
+    // var bold = document.createElement('b');
+    // //bold.innerText = data.title;
+    // bold.textContent = data.title; // da bi radilo na mozili
+    // title.appendChild(bold);
+    // //type creationg
+    // var type = document.createElement('div');
+    // type.className = 'type-title';
+    // var h5 = document.createElement('h5');
+    // var bold2 = document.createElement('b');
+    // bold2.textContent = data.type;
+    // h5.appendChild(bold2);
+    // type.appendChild(h5);
+    // //description creation
+    // var description = document.createElement('p');
+    // description.textContent = data.description;
+    //
+    // pinButton.appendChild(pinIcon);
+    // moreButton.appendChild(moreIcon);
+    // board.appendChild(pinButton);
+    // board.appendChild(moreButton);
+    // board.appendChild(title);
+    // board.appendChild(type);
+    // board.appendChild(description);
+    // grid.appendChild(board);
+    // fullBoard.appendChild(grid)
+    // $('#allBoards').prepend(fullBoard);
   }
-
+ // ove 2 metode ce se brisati posto postoje jos u 2 fajla kada se sve bude sazimalo u 1.
   function clearFields() {
     $('#boardType').val("");
     $('#boardTitle').val("");
     $('#boardDescription').val("");
     $('#boardTeam').val("Personal board");
     $('#boardWorkspace').val("No workspace");
+  }
+
+  function handleMoreDropdown(e, element) {
+    e.preventDefault();
+    if($('#dropdown-'+element.parentNode.id).is(':visible')) {
+      $('#dropdown-'+currentIdActive).hide();
+    }
+    else {
+      $('#dropdown-'+currentIdActive).hide();
+      $('#dropdown-'+element.parentNode.id).show();
+      currentIdActive = element.parentNode.id;
+    }
   }
 
   // function updateBoardNumber() { funkcija za povecavanje broja boardova u sidebaru
