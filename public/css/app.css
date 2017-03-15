@@ -474,7 +474,7 @@ a {
 .board {
   width: 100%;
   background: #fff;
-  height: 150px;
+  height: 160px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -493,10 +493,19 @@ a {
     font-size: 0.98em;
     color: #333333;
     padding-right: 30px; }
+  .board .title-wrapper {
+    max-height: 65px; }
+  .board .type-wrapper {
+    max-height: 10px; }
+  .board .description-wrapper {
+    padding-top: 5px;
+    max-height: 60px;
+    overflow: hidden; }
   .board p.description {
     font-size: 0.82em;
     color: #878787;
-    padding-right: 30px; }
+    padding-right: 30px;
+    overflow: hidden; }
   .board .more {
     position: absolute;
     top: 32px;

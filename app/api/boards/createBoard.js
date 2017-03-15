@@ -40,10 +40,13 @@ $(document).ready(function() {
 
   function createBoard(data) {
     idCounter++;
+    if(data.title.length > 40)
+      data.title = truncateText(data.title,0,40);
+
     if(data.description.length > 73)
       data.description = truncateText(data.description,0,73);
-      
-    var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<h4><b>"+data.title+"</b></h4>"+"<div class='type-title'><h5><b>"+data.type+"</b></h5></div>"+"<p class='description'>"+data.description+"</p>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li>Edit</li><li>Add to workspace</li><li>Add to team</li><hr><li>Delete</li></ul></div></div></div></a>";
+
+    var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<div class='title-wrapper'><h4><b>"+data.title+"</b></h4></div>"+"<div class='type-wrapper'><div class='type-title'><h5><b>"+data.type+"</b></h5></div></div>"+"<div class='description-wrapper'><p class='description'>"+data.description+"</p></div>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li>Edit</li><li>Add to workspace</li><li>Add to team</li><hr><li>Delete</li></ul></div></div></div></a>";
 
     $('#allBoards').prepend(snippet);
     // idCounter++;
@@ -128,7 +131,7 @@ $(document).ready(function() {
   // }
 
   function validate(object) {
-    if(object.val() == "" || object.val() == null) {
+    if(object.val() == "" || object.val() == null || object.val().length >70) {
       object.css("border-color","#e74c3c");
       object.addClass("animated shake");
       setTimeout(function() {

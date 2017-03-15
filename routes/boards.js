@@ -37,6 +37,9 @@ router.get('/sparender',function(req, res, next) {
     // nadji sve boardove od tog usera
     Board.find({userId: req.user._id}, function(err,boards) {
       boards.forEach(function(board) {
+        if(board.title.length > 40)
+        board.title = middleware.truncateText(board.title,0,40);
+
         if(board.description.length > 73)
         board.description = middleware.truncateText(board.description,0,73);
       });

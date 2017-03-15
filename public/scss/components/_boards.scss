@@ -19,7 +19,7 @@ a{
 .board{
   width: 100%;
   background: #fff;
-  height: 150px;
+  height: 160px;
   @include border-radius(4px);
   //@include box-shadow(5px);
   @include custom-shadow(1px,2px,50px,-20px,0.5);
@@ -39,11 +39,26 @@ a{
     color: $boardHeader;
     padding-right: 30px;
   }
+  .title-wrapper{
+    max-height: 65px;
+    //overflow: hidden;
+  }
+
+  .type-wrapper{
+    max-height: 10px;
+  }
+
+  .description-wrapper{
+    padding-top: 5px;
+    max-height: 60px;
+    overflow: hidden;
+  }
 
   p.description{
     font-size: 0.82em;
     color: $groupTitleGray;
     padding-right: 30px;
+    overflow: hidden;
   }
   .more{
     position: absolute;
