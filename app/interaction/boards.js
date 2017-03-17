@@ -3,7 +3,7 @@ $(document).ready(function() {
   var currentIdActive = -1;
 
   //Delete
-  var $deleteButton = $('#delete-board');
+  var $deleteButton = $('.delete-board');
 
   $('#workspace').on('click', '.more', function(e) {
     handleMoreDropdown(e,this);
