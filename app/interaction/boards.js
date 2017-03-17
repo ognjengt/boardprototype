@@ -1,9 +1,9 @@
 $(document).ready(function() {
   var $moreButton = $('.more');
   var currentIdActive = -1;
-  // $moreButton.click(function(e) {
-  //   handleMoreDropdown(e, this);
-  // });
+
+  //Delete
+  var $deleteButton = $('#delete-board');
 
   $('#workspace').on('click', '.more', function(e) {
     handleMoreDropdown(e,this);
@@ -24,7 +24,7 @@ $(document).ready(function() {
   function handleMoreDropdown(e, element) {
     e.preventDefault();
 
-    console.log(currentIdActive);
+    //console.log(currentIdActive);
     if($('#dropdown-'+element.parentNode.id).is(':visible')) {
       //console.log('Vec je visible i hajdujem '+element.parentNode.id);
       $('#dropdown-'+currentIdActive).hide();
@@ -35,6 +35,16 @@ $(document).ready(function() {
       $('#dropdown-'+element.parentNode.id).show();
       currentIdActive = element.parentNode.id;
     }
+  }
+
+  //Delete board
+  $deleteButton.on('click',function() {
+    DeleteBoard(this.parentNode.parentNode.id);
+  });
+
+  function DeleteBoard(id) {
+    var isolatedID = id.substring(9,id.length);
+    console.log(isolatedID);
   }
 
 });
