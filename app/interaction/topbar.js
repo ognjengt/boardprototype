@@ -7,6 +7,18 @@ $(document).ready(function() {
   var $addNewDialog = $('.addNewDialog-dropdown');
   var $btnAddNew = $('#btnAddNew-dropdown');
 
+  //Adding new
+  var $addNewBoard = $('#newBoardLink-dropdown');
+
+  $addNewBoard.on('click',function(e) {
+    openPopup();
+  });
+
+  function openPopup() {
+    $('#addPopup').velocity("fadeIn");
+    $('#pageContent').hide();
+  }
+
   $userProfileMain.click(function() {
       $userOptions.toggle();
   });

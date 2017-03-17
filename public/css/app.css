@@ -391,9 +391,9 @@
         display: block;
         padding: 0;
         padding-top: 10px; }
-        #topbar .topbar-right .addNewDialog-dropdown ul a {
+        #topbar .topbar-right .addNewDialog-dropdown ul div {
           color: #606060; }
-          #topbar .topbar-right .addNewDialog-dropdown ul a li {
+          #topbar .topbar-right .addNewDialog-dropdown ul div li {
             list-style-type: none;
             display: block;
             text-align: left;
@@ -403,14 +403,14 @@
             font-size: 1em;
             cursor: pointer;
             transition: 0.2s ease; }
-            #topbar .topbar-right .addNewDialog-dropdown ul a li .description {
+            #topbar .topbar-right .addNewDialog-dropdown ul div li .description {
               font-size: 0.87em;
               color: #999; }
-          #topbar .topbar-right .addNewDialog-dropdown ul a li:hover {
+          #topbar .topbar-right .addNewDialog-dropdown ul div li:hover {
             background: #0080FF;
             color: #fff;
             padding-left: 20px; }
-            #topbar .topbar-right .addNewDialog-dropdown ul a li:hover .description {
+            #topbar .topbar-right .addNewDialog-dropdown ul div li:hover .description {
               color: #fff; }
   #topbar .nav-icon {
     font-size: 1.5em;
