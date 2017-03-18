@@ -7,6 +7,7 @@ $(document).ready(function() {
   var $btnConfirmArchive = $('#btnConfirmArchive');
   var $btnCancelArchive = $('#btnCancelArchive');
   var $confirmArchivePopup = $('#confirmArchivePopup');
+  var idToArchive = 0;
 
   $('#workspace').on('click', '.more', function(e) {
     handleMoreDropdown(e,this);
@@ -42,17 +43,23 @@ $(document).ready(function() {
 
   //Delete board
   $archiveButton.on('click',function() {
-    ArchiveBoard(this.parentNode.parentNode.id);
+    openArchivePopup(this.parentNode.parentNode.id,this.parentNode.parentNode.parentNode);
   });
 
-  function ArchiveBoard(id,boardName) {
+  function openArchivePopup(id,boardName) {
     var isolatedID = id.substring(9,id.length);
-    console.log(isolatedID);
+    idToArchive = isolatedID;
+    $('#nameOfBoardToDelete').text("'"+boardName.childNodes[5].innerText+"'");
     $confirmArchivePopup.show();
   }
 
+  $btnConfirmArchive.on('click',function() {
+    console.log(idToArchive);
+    //ovde logika za archive boarda
+  });
+
   $btnCancelArchive.on('click', function() {
     $confirmArchivePopup.hide();
-  })
+  });
 
 });
