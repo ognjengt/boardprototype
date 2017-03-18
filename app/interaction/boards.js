@@ -2,8 +2,11 @@ $(document).ready(function() {
   var $moreButton = $('.more');
   var currentIdActive = -1;
 
-  //Delete
-  var $deleteButton = $('.delete-board');
+  //Archive
+  var $archiveButton = $('.archive-board');
+  var $btnConfirmArchive = $('#btnConfirmArchive');
+  var $btnCancelArchive = $('#btnCancelArchive');
+  var $confirmArchivePopup = $('#confirmArchivePopup');
 
   $('#workspace').on('click', '.more', function(e) {
     handleMoreDropdown(e,this);
@@ -38,13 +41,18 @@ $(document).ready(function() {
   }
 
   //Delete board
-  $deleteButton.on('click',function() {
-    DeleteBoard(this.parentNode.parentNode.id);
+  $archiveButton.on('click',function() {
+    ArchiveBoard(this.parentNode.parentNode.id);
   });
 
-  function DeleteBoard(id) {
+  function ArchiveBoard(id,boardName) {
     var isolatedID = id.substring(9,id.length);
     console.log(isolatedID);
+    $confirmArchivePopup.show();
   }
+
+  $btnCancelArchive.on('click', function() {
+    $confirmArchivePopup.hide();
+  })
 
 });
