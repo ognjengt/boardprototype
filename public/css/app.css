@@ -853,6 +853,28 @@ a {
       #confirmArchivePopup .overlay .confirmArchiveDialog .popup-buttons {
         padding: 5px 30px; }
 
+#success-modal {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 80px;
+  background: #b6f8d7;
+  border: 1px solid #15cd72;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
+  z-index: 12;
+  color: #109f58;
+  padding: 2px 10px; }
+  #success-modal h4 {
+    font-size: 1.3em; }
+
 @media (max-width: 1400px) {
   #workspace {
     padding-left: 160px !important;

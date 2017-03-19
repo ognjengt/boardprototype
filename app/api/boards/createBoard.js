@@ -32,6 +32,7 @@ $(document).ready(function() {
       $('#linkToBoard'+idCounter).attr("href",data.responseJSON._id);
       $('#createdBoard'+idCounter).attr("id",data.responseJSON._id);
       $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id);
+      
     }
 
   });

@@ -98,12 +98,4 @@ router.post('/addBoard',function(req, res, next) {
   Board.createBoard(req.user._id,newBoard,res);
 });
 
-router.delete('/delete/:id', function(req, res, next) { //TODO ovde obrisati board i iz board kolekcije i iz userovog boards arraya
-  Board.remove({id: req.params.id}, function(err) {
-    if (err) {
-      throw err;
-    }
-  });
-});
-
 module.exports = router;
