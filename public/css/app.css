@@ -854,6 +854,7 @@ a {
         padding: 5px 30px; }
 
 #success-modal {
+  display: none;
   position: absolute;
   top: 20px;
   left: 50%;

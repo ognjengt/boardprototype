@@ -8,6 +8,10 @@ $(document).ready(function() {
   var $btnCancelArchive = $('#btnCancelArchive');
   var $confirmArchivePopup = $('#confirmArchivePopup');
   var idToArchive = 0;
+  //Close modal
+  var $successModal = $('#success-modal');
+  var $modalCloseBtn = $('.btn-close-modal');
+
 
   $('#workspace').on('click', '.more', function(e) {
     handleMoreDropdown(e,this);
@@ -62,4 +66,7 @@ $(document).ready(function() {
     $confirmArchivePopup.hide();
   });
 
+  $modalCloseBtn.on('click',function() {
+    $successModal.velocity("fadeOut",{duration: 100});
+  })
 });
