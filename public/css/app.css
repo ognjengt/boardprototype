@@ -871,9 +871,26 @@ a {
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.17);
   z-index: 12;
   color: #109f58;
-  padding: 2px 10px; }
+  padding: 5px 10px; }
   #success-modal h4 {
-    font-size: 1.3em; }
+    font-size: 1.15em; }
+  #success-modal p {
+    font-size: 0.87em; }
+  #success-modal .left-part, #success-modal .right-part {
+    float: left; }
+    #success-modal .left-part i, #success-modal .right-part i {
+      padding-top: 13px;
+      font-size: 2.4em; }
+  #success-modal .right-part {
+    padding-left: 10px; }
+  #success-modal .btn-close-modal {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 2em;
+    cursor: pointer; }
+  #success-modal .btn-close-modal:hover {
+    color: #0c703f; }
 
 @media (max-width: 1400px) {
   #workspace {
