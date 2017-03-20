@@ -854,7 +854,7 @@ a {
       #confirmArchivePopup .overlay .confirmArchiveDialog .popup-buttons {
         padding: 5px 30px; }
 
-#success-modal {
+#success-modal, #processing-modal {
   display: none;
   position: absolute;
   top: 20px;
@@ -874,25 +874,32 @@ a {
   z-index: 12;
   color: #109f58;
   padding: 5px 10px; }
-  #success-modal h4 {
+  #success-modal h4, #processing-modal h4 {
     font-size: 1.15em; }
-  #success-modal p {
+  #success-modal p, #processing-modal p {
     font-size: 0.87em; }
-  #success-modal .left-part, #success-modal .right-part {
+  #success-modal .left-part, #success-modal .right-part, #processing-modal .left-part, #processing-modal .right-part {
     float: left; }
-    #success-modal .left-part i, #success-modal .right-part i {
+    #success-modal .left-part i, #success-modal .right-part i, #processing-modal .left-part i, #processing-modal .right-part i {
       padding-top: 13px;
       font-size: 2.4em; }
-  #success-modal .right-part {
+  #success-modal .right-part, #processing-modal .right-part {
     padding-left: 10px; }
-  #success-modal .btn-close-modal {
+  #success-modal .btn-close-modal, #processing-modal .btn-close-modal {
     position: absolute;
     top: 2px;
     right: 2px;
     font-size: 2em;
     cursor: pointer; }
-  #success-modal .btn-close-modal:hover {
+  #success-modal .btn-close-modal:hover, #processing-modal .btn-close-modal:hover {
     color: #0c703f; }
+
+#processing-modal {
+  background: #cce6ff;
+  border: 1px solid #0080FF;
+  color: #0080FF; }
+  #processing-modal .btn-close-modal:hover {
+    color: white; }
 
 @media (max-width: 1400px) {
   #workspace {

@@ -15,6 +15,7 @@ $(document).ready(function() {
     };
     createBoard(data);
     clearFields();
+    $('#processing-modal').velocity("fadeIn",{duration: 100});
 
     if($('#noBoardsMsg').is(':visible')) {//ako postoji poruka da nema boardova, skloni je
       $('#noBoardsMsg').hide();
@@ -32,6 +33,7 @@ $(document).ready(function() {
       $('#linkToBoard'+idCounter).attr("href",data.responseJSON._id);
       $('#createdBoard'+idCounter).attr("id",data.responseJSON._id);
       $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id);
+      $('#processing-modal').hide();
       $('#success-modal').velocity("fadeIn",{duration: 200});
       setTimeout(function() {
         $('#success-modal').velocity("fadeOut",{duration: 200});

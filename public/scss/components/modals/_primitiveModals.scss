@@ -1,4 +1,4 @@
-#success-modal{
+#success-modal, #processing-modal{
   display: none;
   position: absolute;
   top: 20px;
@@ -42,5 +42,15 @@
   }
   .btn-close-modal:hover{
     color: darken($green,20);
+  }
+}
+
+#processing-modal{
+  background: lighten($blue,40);
+  border: 1px solid $blue;
+  color: $blue;
+
+  .btn-close-modal:hover{
+    color: lighten($lightergray,10);
   }
 }
