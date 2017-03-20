@@ -53,7 +53,7 @@ $(document).ready(function() {
   function openArchivePopup(id,boardName) {
     var isolatedID = id.substring(9,id.length);
     idToArchive = isolatedID;
-    $('#nameOfBoardToDelete').text("'"+boardName.childNodes[5].innerText+"'");
+    $('#nameOfBoardToDelete').text("'"+boardName.childNodes[5].innerText+"'"); //TODO ispraviti, pravi jedan space pre poslednjeg '
     $confirmArchivePopup.show();
   }
 
