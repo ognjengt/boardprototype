@@ -216,12 +216,12 @@
   background: #34394b;
   padding-left: 35px;
   color: #b7b7b7;
-  border-left: 4px solid #0080FF; }
+  border-left: 4px solid #de3b44; }
 
 .active-small {
   background: #34394b;
   color: #b7b7b7;
-  border-left: 4px solid #0080FF; }
+  border-left: 4px solid #de3b44; }
 
 #topbar {
   width: 100%;
@@ -898,8 +898,6 @@ a {
   background: #cce6ff;
   border: 1px solid #0080FF;
   color: #0080FF; }
-  #processing-modal .btn-close-modal:hover {
-    color: white; }
 
 @media (max-width: 1400px) {
   #workspace {

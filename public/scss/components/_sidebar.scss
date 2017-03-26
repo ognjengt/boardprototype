@@ -165,10 +165,10 @@
   background: lighten($sidebarBg, 10);
   padding-left: 35px;
   color: $sidebarOptionHover;
-  border-left: 4px solid $blue;
+  border-left: 4px solid $red;
 }
 .active-small{
   background: lighten($sidebarBg, 10);
   color: $sidebarOptionHover;
-  border-left: 4px solid $blue;
+  border-left: 4px solid $red;
 }
