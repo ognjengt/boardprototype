@@ -87,66 +87,14 @@
 
       </div>
 
-      <div class="sidebar-column">
-        <div id="sidebar">
-          <div id="spreaded">
-            <!-- <div class="userInfo">
-              <img class="profileImg" src="img/<%=user.picture%>"></img>
-              <h4><%=user.fullName%></h4>
-              <p><%=user.email%></p>
+      <% include partials/_sidebar.ejs %>
 
-            </div> -->
-            <nav>
-              <ul>
-                <a href="/boards"><li><i class="pe-7s-photo-gallery"></i> Boards</li></a>
-                <a href="/workspaces"><li><i class="pe-7s-albums"></i> Workspaces</li></a>
-                <a href="#"><li><i class="pe-7s-users"></i> Teams</li></a>
-                <a href="#"><li><i class="pe-7s-graph1"></i> Statistics</li></a>
-                <a href="#"><li><i class="pe-7s-trash"></i> Archive</li></a>
-                <a href="/test"><li>Test</li></a>
-                <a href="/test2"><li>Test2</li></a>
-              </ul>
-            </nav>
-
-<!--             <div class="bottom">
-              <ul>
-                <a href="#"><li>ico Account</li></a>
-                <a href="#"><li>ico Settings</li></a>
-                <a href="/logout"><li>ico Logout</li></a>
-              </ul>
-            </div> -->
-          </div>
-
-          <div id="collapsed">
-            <ul>
-              <a href="/boards">
-                <li class="active-small"><i class="pe-7s-photo-gallery"></i></li>
-              </a>
-              <a href="/workspaces">
-                <li><i class="pe-7s-albums"></i></li>
-              </a>
-              <a href="#">
-                <li><i class="pe-7s-users"></i></li>
-              </a>
-              <a href="#">
-                <li><i class="pe-7s-graph1"></i></li>
-              </a>
-              <a href="#">
-                <li><i class="pe-7s-trash"></i></li>
-              </a>
-            </ul>
-          </div>
-        </div>
-      </div>
       <div class="workspace-column">
         <div id="workspace">
           <div id="workspace-content">
-
+            <!--Content renders here-->
           </div>
-
-      </div><!--kraj workspacea-->
-      <!--Popup bio ovde-->
-
+        </div><!--kraj workspacea-->
       </div><!--kraj workspace columna-->
 
     </div>

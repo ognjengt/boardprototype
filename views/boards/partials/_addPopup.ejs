@@ -1,0 +1,89 @@
+<div id="addPopup">
+  <div class="overlay">
+  <div id="btn-close-dialog">
+    <i class="pe-7s-close-circle"></i>
+  </div>
+  <div class="addFormBody">
+    <div class="container-fluid">
+      <div class="col-md-12 col-lg-12 col-md-offset-0 col-lg-offset-0">
+        <div class="form-header">
+          <h1>Create new board</h1>
+          <h4 id="chooseTypeDescription">Choose board type that suits your needs.<br> Whether you are planing a trip, starting a new project, or need to come up with a new idea for your business. </h4>
+        </div>
+        <div id="choosingType">
+            <div class="col-sm-6 col-md-3">
+              <div class="board board-Project chosen">
+                <h4><b>Project</b></h4>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="board board-Idea chosen">
+                <h4><b>Idea</b></h4>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="board board-Brainstorm chosen">
+                <h4><b>Brainstorm</b></h4>
+              </div>
+            </div>
+
+        </div>
+
+        <div id="boardDetails">
+          <!-- <div class="line"></div> -->
+          <h4><b id="boardDetailsHeader"></b></h4>
+          <div class="col-md-10">
+            <form id="addBoardForm" action="/boards/addBoard" method="post">
+              <div class="form-group">
+                <input type="hidden" type="text" class="form-control" name="type" id="boardType">
+              </div>
+
+              <div class="form-group">
+                <label>Title</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="For example ovde u zavisnosti od boarda" name="title" pattern=".{1,70}" title="Title can only contain up to 70 characters"
+                maxlength="70" id="boardTitle">
+              </div>
+
+              <div class="form-group">
+                <label>Description</label>
+                <textarea autocomplete="off" class="form-control" placeholder="What is this board about?" name="description" id="boardDescription" rows="6"></textarea>
+              </div>
+
+
+              <div class="col-md-6">
+                <label>Team</label>
+                <select type="text" class="form-control selectpicker" placeholder="Team" name="team" id="boardTeam"><!--TODO ovde populatovati timove foreach tim bacaj opciju sa timom kojem user pripada-->
+                  <option>Personal board</option>
+                  <option>Team1</option>
+                </select>
+              </div>
+
+
+              <div class="col-md-6">
+                <label>Workspace</label>
+                <select type="text" class="form-control selectpicker" placeholder="Workspace" name="workspace" id="boardWorkspace"><!--TODO ovde populatovati workspaceove foreach tim bacaj opciju sa timom kojem user pripada-->
+                 <option>No workspace</option>
+                 <option>WS1</option>
+                </select>
+              </div>
+
+
+
+                <div class="col-md-offset-6">
+                  <button class="btn button-signin shorten" type="submit" name="button" id="btnSubmitNewBoard"><b>Create Board</b></button>
+
+                  <button class="btn button-cancel shorten" name="button" id="btnCancelInput"><b>Cancel</b></button>
+                </div>
+                
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div> <!--kraj overlaya-->
+
+</div> <!--kraj popupa-->

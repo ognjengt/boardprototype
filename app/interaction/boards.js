@@ -11,6 +11,9 @@ $(document).ready(function() {
   //Close modal
   var $successModal = $('#success-modal');
   var $modalCloseBtn = $('.btn-close-modal');
+  //Edit board
+  var $editButton = $('.edit-board');
+  var idToEdit = 0;
 
 
   $('#workspace').on('click', '.more', function(e) {
@@ -45,17 +48,10 @@ $(document).ready(function() {
     }
   }
 
-  //Delete board
+  //Archive board
   $archiveButton.on('click',function() {
     openArchivePopup(this.parentNode.parentNode.id,this.parentNode.parentNode.parentNode);
   });
-
-  function openArchivePopup(id,boardName) {
-    var isolatedID = id.substring(9,id.length);
-    idToArchive = isolatedID;
-    $('#nameOfBoardToDelete').text("'"+boardName.childNodes[5].innerText+"'"); //TODO ispraviti, pravi jedan space pre poslednjeg '
-    $confirmArchivePopup.show();
-  }
 
   $btnConfirmArchive.on('click',function() {
     console.log(idToArchive);
@@ -70,5 +66,27 @@ $(document).ready(function() {
     $successModal.velocity("fadeOut",{duration: 200});
   });
 
+  $editButton.on('click',function() { //TODO uzeti iz baze od ovog boarda workspace i tim, mozda cak i description i type, da se ne bakcem sa htmlom ovde 
+    openEditPopup(this.parentNode.parentNode.id);
+  });
+
+
+// Functions
+  function openArchivePopup(id,boardName) {
+    idToArchive = isolateID(id);
+    $('#nameOfBoardToDelete').text("'"+boardName.childNodes[5].innerText+"'"); //TODO ispraviti, pravi jedan space pre poslednjeg '
+    $confirmArchivePopup.show();
+  }
+  function openEditPopup(id) {
+    idToEdit = isolateID(id);
+    console.log(idToEdit);
+  }
+
+  function isolateID(id) {
+    var isolatedID = id.substring(9,id.length);
+    return isolatedID;
+  }
+
+  
   
 });
