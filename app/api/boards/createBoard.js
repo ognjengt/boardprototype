@@ -15,7 +15,7 @@ $(document).ready(function() {
     };
     createBoard(data);
     clearFields();
-    $('#processing-modal').velocity("fadeIn",{duration: 100});
+    showInformationModal("processing", "Creating board...", "Just a second.");
 
     if($('#noBoardsMsg').is(':visible')) {//ako postoji poruka da nema boardova, skloni je
       $('#noBoardsMsg').hide();
@@ -34,9 +34,9 @@ $(document).ready(function() {
       $('#createdBoard'+idCounter).attr("id",data.responseJSON._id);
       $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id);
       $('#processing-modal').hide();
-      $('#success-modal').velocity("fadeIn",{duration: 200});
+      showInformationModal("success","Completed.","Succesfully created new board.");
       setTimeout(function() {
-        $('#success-modal').velocity("fadeOut",{duration: 200});
+        hideInformationModal("success");
       },3500)
     }
 
@@ -66,8 +66,14 @@ $(document).ready(function() {
   }
 
   function showInformationModal(type, title, description) {
-    
+    $('#'+type+'-modal').velocity("fadeIn",{duration: 200});
+    $('#'+type+'-modal').children('.right-part').children('h4').text(title);
+    $('#'+type+'-modal').children('.right-part').children('p').text(description);
   }
+  function hideInformationModal(type) {
+    $('#'+type+'-modal').velocity("fadeOut",{duration: 200});
+  }
+
 
   function truncateText(element,startIdx,endIdx) {
     var truncated = element.substring(startIdx,endIdx);

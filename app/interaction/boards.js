@@ -94,7 +94,7 @@ $(document).ready(function() {
       description: $('#editBoardDescriptionField').val()
     };
 
-    $('#processing-modal').velocity("fadeIn",{duration: 100});
+    showInformationModal("processing", "Updating board...", "Just a second.");
     $editPopup.hide();
 
     $('#'+idToEdit).addClass('loading');
@@ -111,9 +111,9 @@ $(document).ready(function() {
       $('#'+idToEdit).children('.description-wrapper').children('.description').text(data.responseJSON.description);
       $('#'+idToEdit).children('.title-wrapper').html("<h4><b>"+data.responseJSON.title+"</b></h4>")
       $('#'+idToEdit).removeClass('loading');
-      $('#success-modal').velocity("fadeIn",{duration: 200});
+      showInformationModal("success","Completed.","Board updated successfully.");
       setTimeout(function() {
-        $('#success-modal').velocity("fadeOut",{duration: 200});
+        hideInformationModal("success");
       },3500)
     }
 
@@ -167,6 +167,9 @@ $(document).ready(function() {
       },1000);
       return false;
     }
+    if (object.val().length > 70) {
+      return false;
+    }
     object.css("border-color","none");
     object.removeClass("animated shake");
     return true;
@@ -174,7 +177,12 @@ $(document).ready(function() {
 
   // Ova funkcija postoji i u createBoard.js tako da ovo ide u jednu.
   function showInformationModal(type, title, description) {
-    
+    $('#'+type+'-modal').velocity("fadeIn",{duration: 200});
+    $('#'+type+'-modal').children('.right-part').children('h4').text(title);
+    $('#'+type+'-modal').children('.right-part').children('p').text(description);
+  }
+  function hideInformationModal(type) {
+    $('#'+type+'-modal').velocity("fadeOut",{duration: 200});
   }
   
   
