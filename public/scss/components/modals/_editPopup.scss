@@ -1,0 +1,65 @@
+#editPopup{
+  display: none;
+  .overlay{
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    max-height: auto;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 11;
+
+    .editPopupDialog{
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      min-height: 300px;
+      max-height: auto;
+      background: #fff;
+      @include border-radius(4px);
+      @include custom-shadow(0px, 3px, 5px, 0px, 0.17);
+      padding-top: 10px;
+      padding-bottom: 20px;
+      
+
+      .popup-header{
+        padding-left: 30px;
+        padding-right: 30px;
+
+        span {
+          font-weight: bold;
+        }
+      }
+      .popup-body{
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: 0.95em;
+
+        #editBoardForm{
+            input{
+              box-shadow: none !important;
+              outline: none !important;
+              height: 40px;
+            }
+            input:focus{
+              border-left: 3px solid $blue;
+              border-color: $blue;
+            }
+
+            textarea{
+              resize: none;
+              box-shadow: none !important;
+              font-size: 0.99em;
+            }
+            textarea:focus{
+              border-left: 3px solid $blue;
+              border-color: $blue;
+            }
+        }
+      }
+    }
+  }
+}

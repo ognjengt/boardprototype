@@ -67,22 +67,44 @@ $(document).ready(function() {
     $successModal.velocity("fadeOut",{duration: 200});
   });
 
+  //Edit
   $editButton.on('click',function() { //TODO uzeti iz baze od ovog boarda workspace i tim, mozda cak i description i type, da se ne bakcem sa htmlom ovde 
-    openEditPopupAndPopulate(this.parentNode.parentNode.id);
+    var boardId = this.parentNode.parentNode.id;
+    var boardTitle = $(this).parent().parent().parent().children('.title-wrapper').text().trim();
+    var boardDescription = $(this).parent().parent().parent().children('.description-wrapper').text().trim();
+    openEditPopupAndPopulate(boardId,boardTitle,boardDescription);
   });
+
+  $('#btnCancelBoardEdit').on('click',function(e) {
+    e.preventDefault();
+    closeEditPopup();
+  });
+
+  $('#btn-close-dialog-edit').on('click',function() {
+    closeEditPopup();
+  });
+
 
 
 // Functions
   function openArchivePopup(id,boardName) {
     idToArchive = isolateID(id);
-    $('#nameOfBoardToDelete').text("'"+boardName.childNodes[5].innerText+"'"); //TODO ispraviti, pravi jedan space pre poslednjeg '
+    $('#nameOfBoardToDelete').text(boardName.childNodes[5].innerText.trim()); //TODO ispraviti, pravi jedan space pre poslednjeg '
     $confirmArchivePopup.show();
   }
-  function openEditPopupAndPopulate(id) {
+  function openEditPopupAndPopulate(id,title,description) {
     idToEdit = isolateID(id);
     console.log(idToEdit);
-    $editPopup.velocity("fadeIn");
-    $('#pageContent').hide();
+    $editPopup.show();
+
+    //Ajax get request for workspaces and team
+
+    
+    //Populate the editPopup
+    $('#editBoardName').text(title);
+    $('#editBoardTitleField').val(title);
+    $('#editBoardDescriptionField').val(description);
+
   }
 
   function isolateID(id) {
@@ -90,6 +112,9 @@ $(document).ready(function() {
     return isolatedID;
   }
 
+  function closeEditPopup() {
+    $editPopup.hide();
+  }
   
   
 });
