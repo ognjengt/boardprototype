@@ -815,6 +815,78 @@ a {
         #addPopup .overlay .addFormBody #boardDetails #btnCancelInput {
           float: right; }
 
+#editPopup {
+  display: none; }
+  #editPopup .overlay {
+    width: 100%;
+    min-height: 100%;
+    max-height: auto;
+    position: relative; }
+    #editPopup .overlay #btn-close-dialog-edit {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 4em;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1; }
+    #editPopup .overlay .editFormBody {
+      width: 100%;
+      min-height: 100%;
+      max-height: auto; }
+      #editPopup .overlay .editFormBody .form-header {
+        padding: 10px 20px; }
+        #editPopup .overlay .editFormBody .form-header h4 {
+          color: #878787; }
+      #editPopup .overlay .editFormBody #editBoardDetails {
+        padding: 20px;
+        width: 100%;
+        height: 100%; }
+        #editPopup .overlay .editFormBody #editBoardDetails .col-md-10 {
+          padding: 0; }
+        #editPopup .overlay .editFormBody #editBoardDetails #editBoardForm {
+          margin-top: 20px; }
+          #editPopup .overlay .editFormBody #editBoardDetails #editBoardForm label {
+            padding-left: 2px;
+            color: #494949; }
+          #editPopup .overlay .editFormBody #editBoardDetails #editBoardForm col-md-6 {
+            margin-left: 20px; }
+        #editPopup .overlay .editFormBody #editBoardDetails input {
+          height: 50px;
+          box-shadow: none !important;
+          font-size: 0.99em; }
+        #editPopup .overlay .editFormBody #editBoardDetails input:focus {
+          border-left: 3px solid #0080FF;
+          border-color: #0080FF; }
+        #editPopup .overlay .editFormBody #editBoardDetails textarea {
+          resize: none;
+          box-shadow: none !important;
+          font-size: 0.99em; }
+        #editPopup .overlay .editFormBody #editBoardDetails textarea:focus {
+          border-left: 3px solid #0080FF;
+          border-color: #0080FF; }
+        #editPopup .overlay .editFormBody #editBoardDetails .col-md-6 {
+          margin: 0;
+          padding: 0; }
+        #editPopup .overlay .editFormBody #editBoardDetails select {
+          width: 100%;
+          cursor: pointer;
+          height: 50px; }
+          #editPopup .overlay .editFormBody #editBoardDetails select option {
+            height: 50px; }
+        #editPopup .overlay .editFormBody #editBoardDetails select:focus {
+          border-left: 3px solid #0080FF;
+          border-color: #0080FF; }
+        #editPopup .overlay .editFormBody #editBoardDetails #editBoardTeamPicker {
+          width: 90%; }
+        #editPopup .overlay .editFormBody #editBoardDetails #editBoardWorkspacePicker {
+          float: left; }
+        #editPopup .overlay .editFormBody #editBoardDetails #btnSubmitBoardEdit {
+          float: right;
+          margin-left: 20px; }
+        #editPopup .overlay .editFormBody #editBoardDetails #btnCancelBoardEdit {
+          float: right; }
+
 #confirmArchivePopup {
   display: none; }
   #confirmArchivePopup .overlay {

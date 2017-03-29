@@ -13,6 +13,7 @@ $(document).ready(function() {
   var $modalCloseBtn = $('.btn-close-modal');
   //Edit board
   var $editButton = $('.edit-board');
+  var $editPopup = $('#editPopup');
   var idToEdit = 0;
 
 
@@ -67,7 +68,7 @@ $(document).ready(function() {
   });
 
   $editButton.on('click',function() { //TODO uzeti iz baze od ovog boarda workspace i tim, mozda cak i description i type, da se ne bakcem sa htmlom ovde 
-    openEditPopup(this.parentNode.parentNode.id);
+    openEditPopupAndPopulate(this.parentNode.parentNode.id);
   });
 
 
@@ -77,9 +78,11 @@ $(document).ready(function() {
     $('#nameOfBoardToDelete').text("'"+boardName.childNodes[5].innerText+"'"); //TODO ispraviti, pravi jedan space pre poslednjeg '
     $confirmArchivePopup.show();
   }
-  function openEditPopup(id) {
+  function openEditPopupAndPopulate(id) {
     idToEdit = isolateID(id);
     console.log(idToEdit);
+    $editPopup.velocity("fadeIn");
+    $('#pageContent').hide();
   }
 
   function isolateID(id) {

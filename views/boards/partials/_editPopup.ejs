@@ -1,0 +1,68 @@
+<div id="editPopup">
+  <div class="overlay">
+  <div id="btn-close-dialog-edit">
+    <i class="pe-7s-close-circle"></i>
+  </div>
+  <div class="editFormBody">
+    <div class="container-fluid">
+      <div class="col-md-12 col-lg-12 col-md-offset-0 col-lg-offset-0">
+        <div class="form-header">
+          <h1>Edit '<span id="editBoardName">boardName</span>'</h1>
+        </div>
+
+        <div id="editBoardDetails">
+          <!-- <div class="line"></div> -->
+          <h4><b id="editBoardDetailsHeader"></b></h4>
+
+          <div class="col-md-10">
+            <form id="editBoardForm" action="akcijaizbacka" method="post">
+
+              <div class="form-group">
+                <label>Title</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="Board name or title" name="title" pattern=".{1,70}" title="Title can only contain up to 70 characters"
+                maxlength="70" id="editBoardTitleField">
+              </div>
+
+              <div class="form-group">
+                <label>Description</label>
+                <textarea autocomplete="off" class="form-control" placeholder="What is this board about?" name="description" id="editBoardDescriptionField" rows="6"></textarea>
+              </div>
+
+
+              <div class="col-md-6">
+                <label>Team</label>
+                <select type="text" class="form-control selectpicker" placeholder="Team" name="team" id="editBoardTeamPicker"><!--TODO ovde populatovati timove foreach tim bacaj opciju sa timom kojem user pripada-->
+                  <option>Personal board</option>
+                  <option>Team1</option>
+                </select>
+              </div>
+
+
+              <div class="col-md-6">
+                <label>Workspace</label>
+                <select type="text" class="form-control selectpicker" placeholder="Workspace" name="workspace" id="editBoardWorkspacePicker"><!--TODO ovde populatovati workspaceove foreach tim bacaj opciju sa timom kojem user pripada-->
+                 <option>No workspace</option>
+                 <option>WS1</option>
+                </select>
+              </div>
+
+
+
+                <div class="col-md-offset-6">
+                  <button class="btn button-signin shorten" type="submit" name="button" id="btnSubmitBoardEdit"><b>Save Changes</b></button>
+
+                  <button class="btn button-cancel shorten" name="button" id="btnCancelBoardEdit"><b>Cancel</b></button>
+                </div>
+                
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div> <!--kraj overlaya-->
+
+</div> <!--kraj popupa-->
