@@ -45,3 +45,13 @@ module.exports.getAllBoards = function(userId,res) { //ovo je cist api, samo da 
 module.exports.getAllBoardsAndRender = function(userId,res,callback) { // ovo je getAllBoards sa callback funkcijom koju cu proslediti
   Board.find({userId: userId}, callback);
 }
+
+module.exports.updateTitleAndDescription = function(boardId, updatedBoard, res) {
+  Board.findByIdAndUpdate(boardId, { $set: {title: updatedBoard.title, description: updatedBoard.description} },{ new: false }, function(err, board) {
+    if (err) {
+      throw err;
+    }
+    res.send(updatedBoard);
+    res.end();
+  })
+}

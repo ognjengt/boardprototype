@@ -98,4 +98,13 @@ router.post('/addBoard',function(req, res, next) {
   Board.createBoard(req.user._id,newBoard,res);
 });
 
+// Update board
+router.post('/update/:id',function(req, res, next) {
+  var updatedBoard = {
+    title: req.body.title,
+    description: req.body.description
+  };
+  Board.updateTitleAndDescription(req.params.id, updatedBoard, res);
+});
+
 module.exports = router;

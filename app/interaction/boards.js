@@ -84,6 +84,51 @@ $(document).ready(function() {
     closeEditPopup();
   });
 
+  // ---------- UPDATE BOARD --------------
+  $('#editBoardForm').on('submit',function(e) {
+    e.preventDefault();
+    if (!validateBoardEdit($('#editBoardTitleField'))) return false;
+
+    var updatedBoard = {
+      title: $('#editBoardTitleField').val(),
+      description: $('#editBoardDescriptionField').val()
+    };
+
+    $('#processing-modal').velocity("fadeIn",{duration: 100});
+    $editPopup.hide();
+
+    $('#'+idToEdit).addClass('loading');
+
+    $.ajax({
+    type: 'POST',
+    data: JSON.stringify(updatedBoard),
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    url: '/boards/update/'+idToEdit,
+    complete: function(data) {
+      console.log(data.responseJSON);
+      $('#processing-modal').hide();
+      $('#'+idToEdit).children('.description-wrapper').children('.description').text(data.responseJSON.description);
+      $('#'+idToEdit).children('.title-wrapper').html("<h4><b>"+data.responseJSON.title+"</b></h4>")
+      $('#'+idToEdit).removeClass('loading');
+      $('#success-modal').velocity("fadeIn",{duration: 200});
+      setTimeout(function() {
+        $('#success-modal').velocity("fadeOut",{duration: 200});
+      },3500)
+    }
+
+    });
+
+  });
+
+  // To return field border color back to normal
+  $('#editBoardTitleField').on('focus',function() {
+    $(this).css("border-color","#0080FF");
+  });
+  $('#editBoardTitleField').on('blur',function() {
+    $(this).css("border-color","#CCCCCC");
+  });
+
 
 
 // Functions
@@ -97,9 +142,6 @@ $(document).ready(function() {
     console.log(idToEdit);
     $editPopup.show();
 
-    //Ajax get request for workspaces and team
-
-    
     //Populate the editPopup
     $('#editBoardName').text(title);
     $('#editBoardTitleField').val(title);
@@ -114,6 +156,25 @@ $(document).ready(function() {
 
   function closeEditPopup() {
     $editPopup.hide();
+  }
+
+  function validateBoardEdit(object) {
+    if (object.val() == "" || object.val() == null) {
+      object.css("border-color","#e74c3c");
+      object.addClass("animated shake");
+      setTimeout(function() {
+        object.removeClass("animated shake");
+      },1000);
+      return false;
+    }
+    object.css("border-color","none");
+    object.removeClass("animated shake");
+    return true;
+  }
+
+  // Ova funkcija postoji i u createBoard.js tako da ovo ide u jednu.
+  function showInformationModal(type, title, description) {
+    
   }
   
   

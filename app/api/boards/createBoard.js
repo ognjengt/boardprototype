@@ -40,7 +40,7 @@ $(document).ready(function() {
       },3500)
     }
 
-  });
+    });
 
     });
 
@@ -55,62 +55,18 @@ $(document).ready(function() {
     var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<div class='title-wrapper'><h4><b>"+data.title+"</b></h4></div>"+"<div class='type-wrapper'><div class='type-title'><h5><b>"+data.type+"</b></h5></div></div>"+"<div class='description-wrapper'><p class='description'>"+data.description+"</p></div>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li><i class='pe-7s-pen'></i> Edit</li><li><i class='pe-7s-albums'></i> Add to workspace</li><li><i class='pe-7s-users'></i> Add to team</li><hr><li id='archive-board'><i class='pe-7s-trash'></i> Archive</li></ul></div></div></div></a>";
 
     $('#allBoards').prepend(snippet);
-    // idCounter++;
-    // //link creationg
-    // var fullBoard = document.createElement('a');
-    // fullBoard.id = "linkToBoard"+idCounter;
-    // //board creating
-    // var grid = document.createElement('div');
-    // grid.className = 'col-sm-6 col-md-4 col-lg-3';
-    // var board = document.createElement('div');
-    // board.className = 'board board-'+data.type+' loading'; //dodaj loading klasu
-    // board.id = "createdBoard"+idCounter;
-    // //dodavanje dugmeta za pin
-    // var pinButton = document.createElement('div');
-    // pinButton.className = 'pin';
-    // var pinIcon = document.createElement('i');
-    // pinIcon.className = 'pe-7s-pin'; // TODO ovde ubaciti pravu ikonicu kad nadjemo
-    // //dodavanje dugmeta za more
-    // var moreButton = document.createElement('div');
-    // moreButton.className = 'more';
-    // var moreIcon = document.createElement('i');
-    // moreIcon.className = 'pe-7s-more'; // TODO ovde ubaciti pravu ikonicu kad nadjemo
-    // //naslov
-    // var title = document.createElement('h4');
-    // var bold = document.createElement('b');
-    // //bold.innerText = data.title;
-    // bold.textContent = data.title; // da bi radilo na mozili
-    // title.appendChild(bold);
-    // //type creationg
-    // var type = document.createElement('div');
-    // type.className = 'type-title';
-    // var h5 = document.createElement('h5');
-    // var bold2 = document.createElement('b');
-    // bold2.textContent = data.type;
-    // h5.appendChild(bold2);
-    // type.appendChild(h5);
-    // //description creation
-    // var description = document.createElement('p');
-    // description.textContent = data.description;
-    //
-    // pinButton.appendChild(pinIcon);
-    // moreButton.appendChild(moreIcon);
-    // board.appendChild(pinButton);
-    // board.appendChild(moreButton);
-    // board.appendChild(title);
-    // board.appendChild(type);
-    // board.appendChild(description);
-    // grid.appendChild(board);
-    // fullBoard.appendChild(grid)
-    // $('#allBoards').prepend(fullBoard);
   }
- // ova metoda se brise posto postoji jos jedna ista takva u newBoard.js
+ // ove 2 metode se brise posto postoji jos jedna ista takva u newBoard.js
   function clearFields() {
     $('#boardType').val("");
     $('#boardTitle').val("");
     $('#boardDescription').val("");
     $('#boardTeam').val("Personal board");
     $('#boardWorkspace').val("No workspace");
+  }
+
+  function showInformationModal(type, title, description) {
+    
   }
 
   function truncateText(element,startIdx,endIdx) {
