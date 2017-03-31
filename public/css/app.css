@@ -816,7 +816,7 @@ a {
           float: right; }
 
 #addPopupEdit {
-  display: block; }
+  display: none; }
   #addPopupEdit .overlay {
     width: 100%;
     min-height: 100%;
