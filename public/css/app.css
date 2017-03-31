@@ -815,6 +815,75 @@ a {
         #addPopup .overlay .addFormBody #boardDetails #btnCancelInput {
           float: right; }
 
+#addPopupEdit {
+  display: block; }
+  #addPopupEdit .overlay {
+    width: 100%;
+    min-height: 100%;
+    max-height: auto;
+    position: relative; }
+    #addPopupEdit .overlay #btn-close-dialog {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 4em;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1; }
+    #addPopupEdit .overlay .addFormBody {
+      width: 100%;
+      min-height: 100%;
+      max-height: auto; }
+      #addPopupEdit .overlay .addFormBody .form-header {
+        padding: 10px 20px; }
+        #addPopupEdit .overlay .addFormBody .form-header h4 {
+          color: #878787; }
+      #addPopupEdit .overlay .addFormBody #workspaceDetails {
+        padding: 20px;
+        display: block;
+        width: 100%;
+        height: 100%; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails .col-md-10 {
+          padding: 0; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails #addWorkspaceForm {
+          margin-top: 20px; }
+          #addPopupEdit .overlay .addFormBody #workspaceDetails #addWorkspaceForm label {
+            padding-left: 2px;
+            color: #494949; }
+          #addPopupEdit .overlay .addFormBody #workspaceDetails #addWorkspaceForm col-md-6 {
+            margin-left: 20px; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails input {
+          height: 50px;
+          box-shadow: none !important;
+          font-size: 0.99em; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails input:focus {
+          border-left: 3px solid #0080FF;
+          border-color: #0080FF; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails textarea {
+          resize: none;
+          box-shadow: none !important;
+          font-size: 0.99em; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails textarea:focus {
+          border-left: 3px solid #0080FF;
+          border-color: #0080FF; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails .col-md-6 {
+          margin: 0;
+          padding: 0; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails select {
+          width: 100%;
+          cursor: pointer;
+          height: 50px; }
+          #addPopupEdit .overlay .addFormBody #workspaceDetails select option {
+            height: 50px; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails select:focus {
+          border-left: 3px solid #0080FF;
+          border-color: #0080FF; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails #btnSubmitNewWorkspace {
+          float: right;
+          margin-left: 20px; }
+        #addPopupEdit .overlay .addFormBody #workspaceDetails #btnCancelNewWorkspace {
+          float: right; }
+
 #editPopup {
   display: none; }
   #editPopup .overlay {

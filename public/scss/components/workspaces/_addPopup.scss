@@ -1,0 +1,101 @@
+#addPopupEdit {
+  display: block;
+ .overlay{
+    width: 100%;
+    min-height: 100%;
+    max-height: auto;
+    position: relative;
+
+    #btn-close-dialog{
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 4em;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .addFormBody{
+      width: 100%;
+      min-height: 100%;
+      max-height: auto;
+      //background: #fff;
+
+      .form-header{
+        padding: 10px 20px;
+        h4{
+          color: $groupTitleGray;
+        }
+      }
+
+      #workspaceDetails{
+        padding: 20px;
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        .col-md-10{
+          padding: 0;
+        }
+
+        #addWorkspaceForm{
+          margin-top: 20px;
+          label{
+            padding-left: 2px;
+            color: $labelColor;
+          }
+
+          col-md-6{
+            margin-left: 20px;
+          }
+        }
+
+        input{
+          height: 50px;
+          box-shadow: none !important;
+          font-size: 0.99em;
+        }
+        input:focus{
+          border-left: 3px solid $blue;
+          border-color: $blue;
+        }
+        textarea{
+          resize: none;
+          box-shadow: none !important;
+          font-size: 0.99em;
+        }
+        textarea:focus{
+          border-left: 3px solid $blue;
+          border-color: $blue;
+        }
+        .col-md-6{
+          margin: 0;
+          padding: 0;
+        }
+        select{
+          width: 100%;
+          cursor: pointer;
+          height: 50px;
+
+          option{
+            height: 50px;
+          }
+        }
+        select:focus{
+          border-left: 3px solid $blue;
+          border-color: $blue;
+        }
+
+        #btnSubmitNewWorkspace{
+          float: right;
+          margin-left: 20px;
+        }
+        #btnCancelNewWorkspace {
+          float: right;
+        }
+      }
+
+
+    }
+  }
+}

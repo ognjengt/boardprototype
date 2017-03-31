@@ -1,0 +1,51 @@
+<div id="addPopupEdit">
+  <div class="overlay">
+  <div id="btn-close-dialog">
+    <i class="pe-7s-close-circle"></i>
+  </div>
+  <div class="addFormBody">
+    <div class="container-fluid">
+      <div class="col-md-12 col-lg-12 col-md-offset-0 col-lg-offset-0">
+        <div class="form-header">
+          <h1>Create new workspace</h1>
+          <h4 id="chooseTypeDescription">Workspace is a collection or a group of specific boards. Better organize your boards by adding them to a workspace, and manage them as a one whole.</h4>
+        </div>
+
+        <div id="workspaceDetails">
+          <!-- <div class="line"></div> -->
+          <h4><b id="workspaceDetailsHeader"></b></h4>
+          <div class="col-md-10">
+
+            <form id="addWorkspaceForm" action="" method="post">
+                  <!--TODO ovo ispraviti ne ispisuje ovu formu na ekran, sa novim cssom addPopup-->
+              <div class="form-group">
+                <label>Title</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="For example 'Rocket Model' or 'Personal Portfolio'" name="title" pattern=".{1,70}" title="Title can only contain up to 70 characters"
+                maxlength="70" id="workspaceTitleField">
+              </div>
+
+              <div class="form-group">
+                <label>Description</label>
+                <textarea autocomplete="off" class="form-control" placeholder="What does this workspace contain, or what is it about?" name="description" id="workspaceDescriptionField" rows="6"></textarea>
+              </div>
+
+
+
+              <div class="col-md-offset-6">
+                <button class="btn button-signin shorten" type="submit" name="button" id="btnSubmitNewWorkspace"><b>Create Board</b></button>
+
+                <button class="btn button-cancel shorten" name="button" id="btnCancelNewWorkspace"><b>Cancel</b></button>
+              </div>
+                
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div> <!--kraj overlaya-->
+
+</div> <!--kraj popupa-->

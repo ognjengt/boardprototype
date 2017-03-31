@@ -106,14 +106,14 @@ $(document).ready(function() {
   function getScripts(page) { // TODO u zavisnosti od prosledjene stranice loadovati odredjene skripte
     if(page === "boards") {
       $.getScript('../../interaction/bootstrap-select-activate.js');
-      $.getScript('../../interaction/newBoard.js');
-      $.getScript('../../interaction/boards.js');
+      $.getScript('../../interaction/boards/newBoard.js');
+      $.getScript('../../interaction/boards/boards.js');
       $.getScript('../../api/boards/createBoard.js');
       $('.selectpicker').selectpicker('render');
       //$.getScript('../../js/velocity.js');
     }
     else if(page === "workspaces") {
-      // skripte za workspaces
+      $.getScript('../../interaction/workspaces/workspaces.js');
     }
   }
 
