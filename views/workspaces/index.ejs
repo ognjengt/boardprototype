@@ -21,18 +21,25 @@
 
   <div class="main-content">
     <div class="row workspace-row">
-      
-      <a href="#">
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="workspace">
-            <div class="workspace-back1"></div>
-            <div class="workspace-back2"></div>
-            <h4><b>Workspace title</b></h4>
-            <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <!--<% if(hasWorkspaces) {%>-->
+        <!--<% workspaces.forEach(function(workspace)) {%>-->
+        <a href="#">
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="workspace">
+              <div class="workspace-back1"></div>
+              <div class="workspace-back2"></div>
+              <h4><b>Workspace title</b></h4>
+              <br>
+              <p>Workspace description</p>
+            </div>
           </div>
+        </a>
+        <!--<% }); %>-->
+      <!--<%} else {%>-->
+        <div id="noWorkspacesMsg">
+          <h2>Nema workspaceova</h2>
         </div>
-      </a>
+      <!--<%}%>-->
 
       <!--<div class="col-sm-12 col-md-6 col-lg-4">
         <div class="workspace"></div>

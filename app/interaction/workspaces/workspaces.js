@@ -42,9 +42,14 @@ $(document).ready(function() {
     console.log(data);
 
     showInformationModal("processing", "Creating workspace...", "Just a second.");
-    //TODO skloni poruku no workspaces
+    
+    if($('#noWorkspacesMsg').is(':visible')) {
+      $('#noWorkspacesMsg').hide();
+    }
 
     //TODO ajax
+
+  
    });
 
 
