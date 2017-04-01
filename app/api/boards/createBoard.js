@@ -56,48 +56,10 @@ $(document).ready(function() {
 
     $('#allBoards').prepend(snippet);
   }
- // ove 2 metode se brise posto postoji jos jedna ista takva u newBoard.js
-  // function clearFields() {
-  //   $('#boardType').val("");
-  //   $('#boardTitle').val("");
-  //   $('#boardDescription').val("");
-  //   $('#boardTeam').val("Personal board");
-  //   $('#boardWorkspace').val("No workspace");
-  // }
-
-  // function showInformationModal(type, title, description) {
-  //   $('#'+type+'-modal').velocity("fadeIn",{duration: 200});
-  //   $('#'+type+'-modal').children('.right-part').children('h4').text(title);
-  //   $('#'+type+'-modal').children('.right-part').children('p').text(description);
-  // }
-  // function hideInformationModal(type) {
-  //   $('#'+type+'-modal').velocity("fadeOut",{duration: 200});
-  // }
-
-
-  // function truncateText(element,startIdx,endIdx) {
-  //   var truncated = element.substring(startIdx,endIdx);
-  //   truncated += '...';
-  //   return truncated;
-  // }
 
   // function updateBoardNumber() { funkcija za povecavanje broja boardova u sidebaru
   //   numBoards++;
   //   $('#numberOfBoards').text(numBoards);
-  // }
-
-  // function validate(object) {
-  //   if(object.val() == "" || object.val() == null) {
-  //     object.css("border-color","#e74c3c");
-  //     object.addClass("animated shake");
-  //     setTimeout(function() {
-  //       object.removeClass("animated shake");
-  //     },1000);
-  //     return false;
-  //   }
-  //   object.css("border-color","none");
-  //   object.removeClass("animated shake");
-  //   return true;
   // }
 
 })

@@ -31,8 +31,8 @@ $(document).ready(function() {
     e.preventDefault();
     if(!validate($('#workspaceTitleField'))) return false;
     var data = {
-      title: $('#workspaceTitleField'),
-      description: $('#workspaceDescriptionField'),
+      title: $('#workspaceTitleField').val(),
+      description: $('#workspaceDescriptionField').val(),
       team: "noteam", // TODO
       dateCreated: new Date(),
       boards: []
@@ -52,39 +52,4 @@ $(document).ready(function() {
   function createWorkspace(data) {
     //TODO implementation
   }
-  // function clearFields() {
-  //   $('#workspaceTitleField').val("");
-  //   $('#workspaceDescriptionField').val("");
-  //   $('#workspaceBoardsField').val(""); // ovo ce se verovatno menjati
-  // }
-  // function openNewWorkspacePopup() {
-  //   $addPopupEdit.velocity("fadeIn");
-  //   $workspacePageContent.hide();
-  // }
-  // function closeNewWorkspacePopup() {
-  //   $addPopupEdit.hide();
-  //   $workspacePageContent.show();
-  // }
-  // function validate(object) {
-  //   if(object.val() == "" || object.val() == null) {
-  //     object.css("border-color","#e74c3c");
-  //     object.addClass("animated shake");
-  //     setTimeout(function() {
-  //       object.removeClass("animated shake");
-  //     },1000);
-  //     return false;
-  //   }
-  //   object.css("border-color","none");
-  //   object.removeClass("animated shake");
-  //   return true;
-  // }
-  //Modal Functions
-  // function showInformationModal(type, title, description) {
-  //   $('#'+type+'-modal').velocity("fadeIn",{duration: 200});
-  //   $('#'+type+'-modal').children('.right-part').children('h4').text(title);
-  //   $('#'+type+'-modal').children('.right-part').children('p').text(description);
-  // }
-  // function hideInformationModal(type) {
-  //   $('#'+type+'-modal').velocity("fadeOut",{duration: 200});
-  // }
 });

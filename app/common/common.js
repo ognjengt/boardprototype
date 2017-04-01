@@ -67,6 +67,12 @@ function closePopup(popup) {
     $('#addPopupEdit').hide();
     $('#workspacePageContent').show();
   }
+  else if(popup == "editBoardPopup") {
+    $('#editPopup').hide();
+  }
+  else if(popup == "archiveBoardPopup") {
+    $('#confirmArchivePopup').hide();
+  }
     
 }
 
@@ -79,5 +85,11 @@ function closePopup(popup) {
     else if(popup == "addNewWorkspacePopup") {
       $('#addPopupEdit').velocity("fadeIn");
       $('#workspacePageContent').hide();
+    }
+    else if(popup == "editBoardPopup") {
+      $('#editPopup').show();
+    }
+    else if(popup == "archiveBoardPopup") {
+      $('#confirmArchivePopup').show();
     }
   }

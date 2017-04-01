@@ -6,14 +6,12 @@ $(document).ready(function() {
   var $archiveButton = $('.archive-board');
   var $btnConfirmArchive = $('#btnConfirmArchive');
   var $btnCancelArchive = $('#btnCancelArchive');
-  var $confirmArchivePopup = $('#confirmArchivePopup');
   var idToArchive = 0;
   //Close modal
   var $successModal = $('#success-modal');
   var $modalCloseBtn = $('.btn-close-modal');
   //Edit board
   var $editButton = $('.edit-board');
-  var $editPopup = $('#editPopup');
   var idToEdit = 0;
 
 
@@ -60,7 +58,7 @@ $(document).ready(function() {
   });
 
   $btnCancelArchive.on('click', function() {
-    $confirmArchivePopup.hide();
+    closePopup("archiveBoardPopup");
   });
 
   $modalCloseBtn.on('click',function() {
@@ -77,17 +75,17 @@ $(document).ready(function() {
 
   $('#btnCancelBoardEdit').on('click',function(e) {
     e.preventDefault();
-    closeEditPopup();
+    closePopup("editBoardPopup");
   });
 
   $('#btn-close-dialog-edit').on('click',function() {
-    closeEditPopup();
+    closePopup("editBoardPopup");
   });
 
   // ---------- UPDATE BOARD --------------
   $('#editBoardForm').on('submit',function(e) {
     e.preventDefault();
-    if (!validateBoardEdit($('#editBoardTitleField'))) return false;
+    if (!validate($('#editBoardTitleField'))) return false;
 
     var updatedBoard = {
       title: $('#editBoardTitleField').val(),
@@ -95,7 +93,7 @@ $(document).ready(function() {
     };
 
     showInformationModal("processing", "Updating board...", "Just a second.");
-    $editPopup.hide();
+    closePopup("editBoardPopup");
 
     $('#'+idToEdit).addClass('loading');
 
@@ -134,13 +132,13 @@ $(document).ready(function() {
 // Functions
   function openArchivePopup(id,boardName) {
     idToArchive = isolateID(id);
-    $('#nameOfBoardToDelete').text(boardName.childNodes[5].innerText.trim()); //TODO ispraviti, pravi jedan space pre poslednjeg '
-    $confirmArchivePopup.show();
+    $('#nameOfBoardToDelete').text(boardName.childNodes[5].innerText.trim());
+    openPopup("archiveBoardPopup");
   }
   function openEditPopupAndPopulate(id,title,description) {
     idToEdit = isolateID(id);
     console.log(idToEdit);
-    $editPopup.show();
+    openPopup("editBoardPopup");
 
     //Populate the editPopup
     $('#editBoardName').text(title);
@@ -152,37 +150,6 @@ $(document).ready(function() {
   function isolateID(id) {
     var isolatedID = id.substring(9,id.length);
     return isolatedID;
-  }
-
-  function closeEditPopup() {
-    $editPopup.hide();
-  }
-
-  function validateBoardEdit(object) {
-    if (object.val() == "" || object.val() == null) {
-      object.css("border-color","#e74c3c");
-      object.addClass("animated shake");
-      setTimeout(function() {
-        object.removeClass("animated shake");
-      },1000);
-      return false;
-    }
-    if (object.val().length > 70) {
-      return false;
-    }
-    object.css("border-color","none");
-    object.removeClass("animated shake");
-    return true;
-  }
-
-  // Ova funkcija postoji i u createBoard.js tako da ovo ide u jednu.
-  function showInformationModal(type, title, description) {
-    $('#'+type+'-modal').velocity("fadeIn",{duration: 200});
-    $('#'+type+'-modal').children('.right-part').children('h4').text(title);
-    $('#'+type+'-modal').children('.right-part').children('p').text(description);
-  }
-  function hideInformationModal(type) {
-    $('#'+type+'-modal').velocity("fadeOut",{duration: 200});
   }
   
   
