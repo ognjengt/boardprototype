@@ -48,25 +48,7 @@ $(document).ready(function() {
     }
 
     //TODO ajax
-  //   $.ajax({
-  //   type: 'POST',
-  //   data: JSON.stringify(data),
-  //   contentType: 'application/json; charset=utf-8',
-  //   dataType: 'json',
-  //   url: '/workspaces/addWorkspace',
-  //   complete: function(data) {
-  //     console.log(data.responseJSON);
-  //     // $('#linkToBoard'+idCounter).attr("href",data.responseJSON._id);
-  //     // $('#createdBoard'+idCounter).attr("id",data.responseJSON._id);
-  //     // $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id);
-  //     $('#processing-modal').hide();
-  //     showInformationModal("success","Completed.","Succesfully created new board.");
-  //     setTimeout(function() {
-  //       hideInformationModal("success");
-  //     },3500)
-  //   }
 
-  // });
   
    });
 
