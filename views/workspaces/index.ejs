@@ -20,10 +20,10 @@
 
 
   <div class="main-content">
-    <div class="row workspace-row">
+    <div class="row workspace-row" id="allWorkspaces">
       <% if(hasWorkspaces) { %>
         <% workspaces.forEach(function(workspace) {%>
-        <a href="#">
+        <a href="<%= workspace._id %>">
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="workspace">
               <div class="workspace-back1"></div>
@@ -51,3 +51,6 @@
 
 <!--Add popup-->
 <% include partials/_addPopup.ejs %>
+
+<!--Modals-->
+<% include ../_modals.ejs %>

@@ -52,6 +52,7 @@ $(document).ready(function() {
     if(data.description.length > 73)
       data.description = truncateText(data.description,0,73);
 
+      //U nekom trenutku i ovo prebaciti u ES6 string literal i zameniti + sa ${idCounter} npr, pogledati primer workspaces
     var snippet = "<a id='linkToBoard"+idCounter+"'>"+"<div class='col-sm-6 col-md-4 col-lg-3'>"+"<div class='board board-"+data.type+" loading' id='createdBoard"+idCounter+"'>"+"<div class='pin'><i class='pe-7s-pin'></i></div>"+"<div class='more'><i class='pe-7s-more'></i></div>"+"<div class='title-wrapper'><h4><b>"+data.title+"</b></h4></div>"+"<div class='type-wrapper'><div class='type-title'><h5><b>"+data.type+"</b></h5></div></div>"+"<div class='description-wrapper'><p class='description'>"+data.description+"</p></div>"+"<div class='more-dropdown' id='dropdown-"+idCounter+"'>"+"<ul><li><i class='pe-7s-pen'></i> Edit</li><li><i class='pe-7s-albums'></i> Add to workspace</li><li><i class='pe-7s-users'></i> Add to team</li><hr><li id='archive-board'><i class='pe-7s-trash'></i> Archive</li></ul></div></div></div></a>";
 
     $('#allBoards').prepend(snippet);

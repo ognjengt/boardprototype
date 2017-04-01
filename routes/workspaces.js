@@ -26,8 +26,8 @@ router.get('/sparender',function(req, res, next) {
       if(workspace.title.length > 40)
       workspace.title = middleware.truncateText(workspace.title,0,40);
 
-      if(workspace.description.length > 73)
-      workspace.description = middleware.truncateText(workspace.description,0,73);
+      if(workspace.description.length > 130)
+      workspace.description = middleware.truncateText(workspace.description,0,130);
     });
 
     res.render('workspaces/index', {

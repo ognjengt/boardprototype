@@ -1,4 +1,5 @@
 $(document).ready(function() {
+   var idCounter = 0;
    var $btnAddNewWorkspace = $('#btnAddNewWorkspace');
    var $addPopupEdit = $('#addPopupEdit');
    var $workspacePageContent = $('#workspacePageContent');
@@ -19,9 +20,10 @@ $(document).ready(function() {
     closePopup("addNewWorkspacePopup");
    });
 
-   $('#workspaceTitleField').on('focus',function() {
-    $(this).css("border-color","#0080FF");
+  $('#workspaceTitleField').on('focus',function() {
+  $(this).css("border-color","#0080FF");
   });
+
   $('#workspaceTitleField').on('blur',function() {
     $(this).css("border-color","#CCCCCC");
   });
@@ -46,6 +48,7 @@ $(document).ready(function() {
     if($('#noWorkspacesMsg').is(':visible')) {//ako postoji poruka da nema boardova, skloni je
       $('#noWorkspacesMsg').hide();
     }
+    closePopup("addNewWorkspacePopup");
 
     $.ajax({
     type: 'POST',
@@ -55,10 +58,12 @@ $(document).ready(function() {
     url: '/workspaces/addWorkspace',
     complete: function(data) {
       console.log(data.responseJSON);
-      // $('#createdBoard'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
-      // $('#linkToBoard'+idCounter).attr("href",data.responseJSON._id);
-      // $('#createdBoard'+idCounter).attr("id",data.responseJSON._id);
-      // $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id);
+      //!!!!!!!!!!!!!!!!!! TODO LOADING WORKSPACE, opacity itd... dodati more dropdown itd... !!!!!!!!!!!!!!!!!!!!!!
+
+       //$('#createdWorkspace'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
+       $('#linkToWorkspace'+idCounter).attr("href",data.responseJSON._id);
+       $('#createdWorkspace'+idCounter).attr("id",data.responseJSON._id);
+      // $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id); //ovo kad se ubace more dropdowni itd...
       $('#processing-modal').hide();
       showInformationModal("success","Completed.","Succesfully created new workspace.");
       setTimeout(function() {
@@ -73,6 +78,27 @@ $(document).ready(function() {
 
   // //Functions
   function createWorkspace(data) {
-    //TODO implementation
+    idCounter++;
+    if(data.title.length > 40)
+      data.title = truncateText(data.title,0,40);
+    
+    if(data.description.length > 130) {
+      data.description = truncateText(data.description,0,130);
+    }
+
+    var snippet = `
+      <a id="linkToWorkspace${idCounter}">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="workspace" id="createdWorkspace${idCounter}">
+            <div class="workspace-back1"></div>
+            <div class="workspace-back2"></div>
+            <h4><b>${data.title}</b></h4>
+            <br>
+            <p>${data.description}</p>
+          </div>
+        </div>
+      </a>
+    `;
+    $('#allWorkspaces').prepend(snippet);
   }
 });
