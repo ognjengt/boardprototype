@@ -58,9 +58,9 @@ $(document).ready(function() {
     url: '/workspaces/addWorkspace',
     complete: function(data) {
       console.log(data.responseJSON);
-      //!!!!!!!!!!!!!!!!!! TODO LOADING WORKSPACE, opacity itd... dodati more dropdown itd... !!!!!!!!!!!!!!!!!!!!!!
+      //!!!!!!!!!!!!!!!!!! TODO dodati more dropdown itd... !!!!!!!!!!!!!!!!!!!!!!
 
-       //$('#createdWorkspace'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
+       $('#createdWorkspace'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
        $('#linkToWorkspace'+idCounter).attr("href",data.responseJSON._id);
        $('#createdWorkspace'+idCounter).attr("id",data.responseJSON._id);
       // $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id); //ovo kad se ubace more dropdowni itd...
@@ -89,7 +89,7 @@ $(document).ready(function() {
     var snippet = `
       <a id="linkToWorkspace${idCounter}">
         <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="workspace" id="createdWorkspace${idCounter}">
+          <div class="workspace loading" id="createdWorkspace${idCounter}">
             <div class="workspace-back1"></div>
             <div class="workspace-back2"></div>
             <h4><b>${data.title}</b></h4>
