@@ -16,6 +16,7 @@ router.get('/',middleware.ensureAuthenticated,function(req, res, next) {
 });
 // ruta /sparender je za single page ajax call rendering kod svakog, tima,workspacea,boarda
 router.get('/sparender',function(req, res, next) {
+  var workspacesExist = false;
   res.render('workspaces/index');
 });
 

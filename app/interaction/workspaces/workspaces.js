@@ -40,7 +40,8 @@ $(document).ready(function() {
     createWorkspace(data);
     clearFields("addNewWorkspacePopup");
     console.log(data);
-    //TODO modal
+
+    showInformationModal("processing", "Creating workspace...", "Just a second.");
     //TODO skloni poruku no workspaces
 
     //TODO ajax

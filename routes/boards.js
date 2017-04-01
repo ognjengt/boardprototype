@@ -31,32 +31,35 @@ router.get('/getBoards', function(req, res, next) {
 }); //uzima sve boardove od tog usera mozda kasnije bude trebalo
 
 router.get('/sparender',function(req, res, next) {
-  var boardsExist=false;
-  if(req.user.boards[0]) {
-    boardsExist = true;
-    // nadji sve boardove od tog usera
-    Board.find({userId: req.user._id}, function(err,boards) {
-      boards.forEach(function(board) {
-        if(board.title.length > 40)
-        board.title = middleware.truncateText(board.title,0,40);
+  var boardsExist = false;
+  // nadji sve boardove od tog usera
+  Board.find({userId: req.user._id}, function(err,boards) {
+    if(boards[0]) { // Ako postoji makar 1 board, renderuj
+      boardsExist = true;
 
-        if(board.description.length > 73)
-        board.description = middleware.truncateText(board.description,0,73);
-      });
-      res.render('boards/index', {
-        boards: boards.reverse(),
-        hasBoards: boardsExist
-      });
-    })
+      boards.forEach(function(board) {
+      if(board.title.length > 40)
+      board.title = middleware.truncateText(board.title,0,40);
+
+      if(board.description.length > 73)
+      board.description = middleware.truncateText(board.description,0,73);
+    });
+
+    res.render('boards/index', {
+      boards: boards.reverse(),
+      hasBoards: boardsExist
+    });
   }
-  else {
-    //da ne bi dzabe pozivao upit iz db-a nego samo baci da nema
+  else { // U suprotnom bacaj da nema boardova
     res.render('boards/index', {
       boards: [],
       hasBoards: boardsExist
     });
   }
-})
+    
+  });
+  
+});
 
 router.get('/test',function(req, res, next) { //okej ovako bi getovao Workspaceove, timove itd, znaci da mi renderuje stranicu i da uzme iz baze ove podatke
   Board.getAllBoardsAndRender(req.user._id,res,function(err,boards) {
