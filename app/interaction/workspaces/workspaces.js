@@ -42,9 +42,31 @@ $(document).ready(function() {
     console.log(data);
 
     showInformationModal("processing", "Creating workspace...", "Just a second.");
-    //TODO skloni poruku no workspaces
+    
+    if($('#noWorkspacesMsg').is(':visible')) {//ako postoji poruka da nema boardova, skloni je
+      $('#noWorkspacesMsg').hide();
+    }
 
-    //TODO ajax
+    $.ajax({
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    url: '/workspaces/addWorkspace',
+    complete: function(data) {
+      console.log(data.responseJSON);
+      // $('#createdBoard'+idCounter).removeClass('loading');// kada se board skroz ucita stavi opacity na 1
+      // $('#linkToBoard'+idCounter).attr("href",data.responseJSON._id);
+      // $('#createdBoard'+idCounter).attr("id",data.responseJSON._id);
+      // $('#dropdown-'+idCounter).attr("id","dropdown-"+data.responseJSON._id);
+      $('#processing-modal').hide();
+      showInformationModal("success","Completed.","Succesfully created new workspace.");
+      setTimeout(function() {
+        hideInformationModal("success");
+      },3500)
+    }
+
+    });
    });
 
 

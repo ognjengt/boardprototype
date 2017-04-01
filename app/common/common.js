@@ -54,6 +54,7 @@ function clearFields(command) {
 }
 // Will close the popup provided
 function closePopup(popup) {
+  var typeText = "Choose board type that suits your needs.<br> Whether you are planing a trip, starting a new project, or need to come up with a new idea for your business."; // for closing board.
   if (popup == "addNewBoardPopup") {
     $('#addPopup').hide();
     $('#pageContent').show();

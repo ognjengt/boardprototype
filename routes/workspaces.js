@@ -17,7 +17,33 @@ router.get('/',middleware.ensureAuthenticated,function(req, res, next) {
 // ruta /sparender je za single page ajax call rendering kod svakog, tima,workspacea,boarda
 router.get('/sparender',function(req, res, next) {
   var workspacesExist = false;
-  res.render('workspaces/index');
+
+    Workspace.find({userId: req.user._id}, function(err,workspaces) {
+    if(workspaces[0]) { // Ako postoji makar 1 workspace, renderuj
+      workspacesExist = true;
+
+      workspaces.forEach(function(workspace) {
+      if(workspace.title.length > 40)
+      workspace.title = middleware.truncateText(workspace.title,0,40);
+
+      if(workspace.description.length > 73)
+      workspace.description = middleware.truncateText(workspace.description,0,73);
+    });
+
+    res.render('workspaces/index', {
+      workspaces: workspaces.reverse(),
+      hasWorkspaces: workspacesExist
+    });
+  }
+  else { // U suprotnom bacaj da nema workspaceova
+    res.render('workspaces/index', {
+      workspaces: [],
+      hasWorkspaces: workspacesExist
+    });
+  }
+    
+  });
+
 });
 
 router.post('/addWorkspace',function(req, res, next) {
