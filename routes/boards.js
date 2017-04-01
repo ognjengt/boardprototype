@@ -82,14 +82,14 @@ router.get('/test2',function(req, res, next) {
   res.redirect('/user/'+req.user.username+'/boards');
 });*/ //nepotrebno posto ide samo /boards
 
-router.post('/addBoard',function(req, res, next) {
+router.post('/addBoard', function(req, res, next) {
   var newBoard = new Board({
     _id: new mongoose.Types.ObjectId,
     title: req.body.title,
     boardType: req.body.type,
     description: req.body.description,
-    teams: req.body.team,//TODO ovo napraviti kada se ubace workspaceovi i timovi
-    workspaces: req.body.workspace, //ovo isto
+    teams: [req.body.team],//TODO ovo napraviti kada se ubace workspaceovi i timovi, samo napomena, ovde treba da ide ID od tog workspacea, sto znaci getovati id od obelezenog workspace-a i dodati ga.
+    workspaces: [req.body.workspace], //ovo isto
     pinned: req.body.pinned,
     dateCreated: req.body.dateCreated,
     userId: req.user._id

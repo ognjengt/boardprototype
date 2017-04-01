@@ -7,7 +7,23 @@ var BoardSchema = mongoose.Schema({
   description: String,
   boardType: String,//type je kljucna rec
   pinned: Boolean,
-  dateCreated: Date,//TODO dodati workspaces i teams
+  dateCreated: Date,//TODO odkomentarisati kada se naprave workspaceovi i timovi
+  // workspaces: [
+  //   {
+  //     _id: {
+  //       type: mongoose.Schema.Types.ObjectId,
+  //       required: true
+  //     }
+  //   }
+  // ],
+  // teams: [
+  //   {
+  //     _id: {
+  //       type: mongoose.Schema.Types.ObjectId,
+  //       required: true
+  //     }
+  //   }
+  // ],
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     index: true
@@ -17,7 +33,6 @@ var BoardSchema = mongoose.Schema({
 var Board = module.exports = mongoose.model('Board', BoardSchema);
 
 module.exports.createBoard = function(userId,newBoard,res) {
-
   User.findByIdAndUpdate(userId, {$push: {boards: new Object({_id: newBoard._id})}},{new: true}, function(err, user) {
     if (err) {
       throw err;

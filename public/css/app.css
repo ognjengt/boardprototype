@@ -822,7 +822,7 @@ a {
     min-height: 100%;
     max-height: auto;
     position: relative; }
-    #addPopupEdit .overlay #btn-close-dialog {
+    #addPopupEdit .overlay #btn-close-dialog-workspace-popup {
       position: absolute;
       top: 0;
       right: 0;

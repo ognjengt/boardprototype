@@ -7,16 +7,16 @@ $(document).ready(function() {
   var brainstormBoardText = "";
 
   $('#btnAddNewBoard').on('click',function() {
-    openPopup();
+    openPopup("addNewBoardPopup");
   });
 
   $('#btn-close-dialog').on('click',function() {
-    closePopup();
+    closePopup("addNewBoardPopup");
   });
 
   $('#btnSubmitNewBoard').on('click',function() {
     if(!validate($('#boardTitle'))) return false;
-    closePopup();
+    closePopup("addNewBoardPopup");
   });
 
   $('.chosen').on('click',function() {
@@ -37,8 +37,8 @@ $(document).ready(function() {
 
   $('#btnCancelInput').on('click',function(e){
     e.preventDefault();
-    closePopup();
-    clearFields();
+    closePopup("addNewBoardPopup");
+    clearFields("addNewBoardPopup");
   });
 
   $('#boardTitle').on('focus',function() {
@@ -48,45 +48,45 @@ $(document).ready(function() {
     $(this).css("border-color","#CCCCCC");
   });
 
-  function openPopup() {
-    $('#addPopup').velocity("fadeIn");
-    $('#pageContent').hide();
-  }
+  // function openPopup() {
+  //   $('#addPopup').velocity("fadeIn");
+  //   $('#pageContent').hide();
+  // }
 
-  function closePopup() {
-    $('#addPopup').hide();
-    $('#pageContent').show();
-    $('#choosingType').show();
-    $('#choosingType').velocity({opacity:1});
-    $('#boardDetails').hide();
-    $('#chooseTypeDescription').html(typeText);
-    $('#boardTitle').css("border-color","#ccc");
-  }
+  // function closePopup() {
+  //   $('#addPopup').hide();
+  //   $('#pageContent').show();
+  //   $('#choosingType').show();
+  //   $('#choosingType').velocity({opacity:1});
+  //   $('#boardDetails').hide();
+  //   $('#chooseTypeDescription').html(typeText);
+  //   $('#boardTitle').css("border-color","#ccc");
+  // }
 
-  function clearFields() {
-    $('#boardType').val("");
-    $('#boardTitle').val("");
-    $('#boardDescription').val("");
-    $('#boardTeam').val("Personal board");
-    $('#boardWorkspace').val("No workspace");
-  }
+  // function clearFields() {
+  //   $('#boardType').val("");
+  //   $('#boardTitle').val("");
+  //   $('#boardDescription').val("");
+  //   $('#boardTeam').val("Personal board");
+  //   $('#boardWorkspace').val("No workspace");
+  // }
 
-  function validate(object) {
-    if(object.val() == "" || object.val() == null) {
-      object.css("border-color","#e74c3c");
-      object.addClass("animated shake");
-      setTimeout(function() {
-        object.removeClass("animated shake");
-      },1000);
-      return false;
-    }
-    if (object.val().length > 70) {
-      return false;
-    }
-    console.log(object.val().length); //novo dotato
-    object.css("border-color","#ccc");
-    object.removeClass("animated shake");
-    return true;
-  }
+  // function validate(object) {
+  //   if(object.val() == "" || object.val() == null) {
+  //     object.css("border-color","#e74c3c");
+  //     object.addClass("animated shake");
+  //     setTimeout(function() {
+  //       object.removeClass("animated shake");
+  //     },1000);
+  //     return false;
+  //   }
+  //   if (object.val().length > 70) {
+  //     return false;
+  //   }
+  //   console.log(object.val().length); //novo dotato
+  //   object.css("border-color","#ccc");
+  //   object.removeClass("animated shake");
+  //   return true;
+  // }
 
 });
