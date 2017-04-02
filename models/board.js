@@ -33,18 +33,20 @@ var BoardSchema = mongoose.Schema({
 var Board = module.exports = mongoose.model('Board', BoardSchema);
 
 module.exports.createBoard = function(userId,newBoard,res) {
-  User.findByIdAndUpdate(userId, {$push: {boards: new Object({_id: newBoard._id})}},{new: true}, function(err, user) {
+  // Ovo cisto cuvam posto ce mi trebati kako se ubacuje u array novi object sad za workspaceove, ali necu vise da user ima boardove u svom arrayu, sve je raspodeljeno
+  // User.findByIdAndUpdate(userId, {$push: {boards: new Object({_id: newBoard._id})}},{new: true}, function(err, user) {
+  //   if (err) {
+  //     throw err;
+  //   }
+  // });
+
+  newBoard.save(function(err) {
     if (err) {
       throw err;
     }
-    newBoard.save(function(err) {
-      if (err) {
-        throw err;
-      }
-    })
-    res.send(newBoard);
-    res.end();
-  });
+  })
+  res.send(newBoard);
+  res.end();
 }
 
 module.exports.getAllBoards = function(userId,res) { //ovo je cist api, samo da mi posalje nazad sve boardove od tog usera u jsonu

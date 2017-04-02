@@ -6,8 +6,25 @@ $(document).ready(function() {
    var $btnCloseWorkspaceAddPopup = $('#btn-close-dialog-workspace-popup');
    var $btnCancelWorkspaceAddPopup = $('#btnCancelNewWorkspace');
    var $addWorkspaceForm = $('#addWorkspaceForm');
+
+   // For multiselect: Every time workspaces are opened, gets all boards from the database and maps it to variable boardArray, then this boardArray will be used to search for boards when adding them to a workspace.
+
+   var boardArray = {};
+   $.ajax({
+    type: 'GET',
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    url: '/boards/getBoards',
+    complete: function(data) {
+     // console.log(data);
+      boardArray = data.responseJSON;
+    }
+
+  });
+
   
    $btnAddNewWorkspace.on('click',function() {
+     console.log(boardArray);
       openPopup("addNewWorkspacePopup");
    });
 
@@ -72,6 +89,7 @@ $(document).ready(function() {
     }
 
     });
+  
    });
 
 

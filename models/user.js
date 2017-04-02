@@ -17,14 +17,15 @@ var UserSchema = mongoose.Schema({
   fullName: String,
   password: String,
   picture: String,
-  boards: [
-    {
-      _id: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true
-      }
-    }
-  ]
+  // korisnik vise nece imati array boardova kod sebe posto nema smisla kad se ubace timovi.
+  // boards: [
+  //   {
+  //     _id: {
+  //       type: mongoose.Schema.Types.ObjectId,
+  //       required: true
+  //     }
+  //   }
+  // ]
   //ovde workspaceovi
 });
 
