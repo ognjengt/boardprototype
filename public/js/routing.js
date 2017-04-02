@@ -1,3 +1,7 @@
+//Global scope: this variables are needed in files such as workspaces.js for populating the boards array, in boards to populate teams and workspaces, and so on...
+var boardArray = {};
+
+
 $(document).ready(function() {
   var $workspaceContent = $('#workspace-content'); //caching
   var firstLoad = true;
@@ -40,7 +44,9 @@ $(document).ready(function() {
       changeActiveLink($('nav ul a:nth-child(1)'));
       changeCollapsedActive(1);
       showLoader();
-      loadContent('/boards/sparender',"boards"); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
+      var apiEndpoints = [];
+      var objectsToMap = [];
+      loadContent('/boards/sparender',"boards",apiEndpoints,objectsToMap); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
       if(firstLoad) { //TODO ovaj firstload prebaciti u svaki , sada menjace se nece biti function test, nego workspaces pa na svaki samo da se zna na loadu sta da se aktivira sa strane
         changeActiveLink($('nav ul a:nth-child(1)'));
         firstLoad = false;
@@ -51,7 +57,9 @@ $(document).ready(function() {
     changeActiveLink($('nav ul a:nth-child(2)'));
     changeCollapsedActive(2);
     showLoader();
-    loadContent('/workspaces/sparender',"workspaces");
+    var apiEndpoints = ['/boards/getBoards'];
+    var objectsToMap = ["boardArray"];
+    loadContent('/workspaces/sparender',"workspaces",apiEndpoints,objectsToMap);
   }
 
   function test() {
@@ -69,20 +77,52 @@ $(document).ready(function() {
   }
 
   // Load content
-  function loadContent(url,page) {
-    //setTimeout(function(){ //odkomentarisati kada treba za testove
-    request = $.ajax({
-          url: url,
-          success: function(data) {
-            $workspaceContent.html(data);
-            getScripts(page);
-            hideLoader();
-            showContent();
-            processing = false;
+  function loadContent(url,page,apiEndpoints,objectsToMap) {
+    if (apiEndpoints[0]) { //ako postoji bar jedan endpoint ka kom gadja prodji kroz niz
+      var i =0;
+      apiEndpoints.forEach(function(endpoint) {
+
+        //setTimeout(function() { //for testing purposes
+        $.ajax({
+          type: 'GET',
+          contentType: 'application/json; charset=utf-8',
+          dataType: 'json',
+          url: endpoint,
+          complete: function(data) {
+            if(objectsToMap[i] == "boardArray") boardArray = data.responseJSON; // jedan nacin workarounda, da se prosledjuju stringovi i na osnovu stringa ucitava se u odredjeni array
+            i++;
+            
+            if(i == apiEndpoints.length) {
+              //setTimeout(function(){ //odkomentarisati kada treba za testove
+              renderView(page,url);
+              //},1000)
+            }
           }
         });
+      //}, 3000);
+      
+      })
+    }
+    else { // samo getuj page
+      //setTimeout(function(){ //odkomentarisati kada treba za testove
+    renderView(page,url);
     //},1000)
+    }
+    
 
+  } // end function loadContent
+
+  function renderView(page,url) {
+    request = $.ajax({
+                url: url,
+                success: function(data) {
+                  $workspaceContent.html(data);
+                  getScripts(page);
+                  hideLoader();
+                  showContent();
+                  processing = false;
+                }
+              });
   }
 
   // Prikazivanje loadera itd...
