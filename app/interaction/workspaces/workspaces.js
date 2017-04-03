@@ -50,7 +50,7 @@ $(document).ready(function() {
 
     showInformationModal("processing", "Creating workspace...", "Just a second.");
     
-    if($('#noWorkspacesMsg').is(':visible')) {//ako postoji poruka da nema boardova, skloni je
+    if($('#noWorkspacesMsg').is(':visible')) {//ako postoji poruka da nema workspaceova, skloni je
       $('#noWorkspacesMsg').hide();
     }
     closePopup("addNewWorkspacePopup");
@@ -78,6 +78,14 @@ $(document).ready(function() {
 
     });
   
+   });
+
+  //  //Multisearch
+   $("#myMultiSearch").multisearch({
+      source: boardArray,
+      keyAttrs: ['_id'],
+      searchAttrs: ['title'],
+      formatPickerItem: function( data ) { return '<li><a href="#">'+data.title+'</a></li>'; }
    });
 
 

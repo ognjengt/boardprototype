@@ -1,0 +1,30 @@
+#myMultiSearch {
+  
+  input {
+    width: 100%;
+  }
+  ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: black;
+        margin: 3px;
+    }
+
+    a:hover, a.hover, li.hover a {
+        color: green;
+    }
+
+    .picker {
+        border: 1px solid silver;
+        padding: 10px;
+    }
+}

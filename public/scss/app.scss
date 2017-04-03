@@ -1,13 +1,14 @@
 @import "variables";
 @import "mixins";
 @import "components/buttons";
+@import "components/multisearch";
 @import "components/main/sidebar";
 @import "components/main/topbar";
 @import "bootstrap-fixes/fixes";
 @import "components/boards/top";
 @import "components/boards/boards";
-@import "components/workspaces/workspaces";
 @import "components/boards/addPopup";
+@import "components/workspaces/workspaces";
 @import "components/workspaces/addPopup";
 @import "components/modals/editPopup";
 @import "components/modals/modals";
