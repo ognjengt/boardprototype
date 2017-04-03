@@ -81,11 +81,14 @@ $(document).ready(function() {
    });
 
   //  //Multisearch
-   $("#myMultiSearch").multisearch({
+   $("#boardsMultisearch").multisearch({
       source: boardArray,
       keyAttrs: ['_id'],
       searchAttrs: ['title'],
-      formatPickerItem: function( data ) { return '<li><a href="#">'+data.title+'</a></li>'; }
+      formatPickerItem: function( data ) { return '<li><a href="#">'+data.title+'</a></li>'; },
+      formatSelectedItem: function( data ) { return '<a href="#" class="label label-default pull-left selectedItem" data-role="selected-item">'+data.title+'<span class="close pe-7s-close" data-action="remove"></span></a>'; },
+      minSearchChars: 1,
+      useAutoWidth: false
    });
 
 

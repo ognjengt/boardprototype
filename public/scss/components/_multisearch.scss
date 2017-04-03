@@ -1,12 +1,9 @@
-#myMultiSearch {
-  
-  input {
-    width: 100%;
-  }
+#boardsMultisearch {
   ul {
         list-style: none;
         margin: 0;
         padding: 0;
+        width: 100%;
     }
 
     li {
@@ -15,16 +12,34 @@
     }
 
     a {
-        color: black;
+        color: $lightgray;
         margin: 3px;
     }
 
     a:hover, a.hover, li.hover a {
-        color: green;
+        color: $blue;
     }
 
     .picker {
         border: 1px solid silver;
         padding: 10px;
+        width: 100%;
+        background: #fff;
+        @include custom-radius(0px,0px,4px,4px);
+        @include custom-shadow(0px, 2px, 5px, 0px, 0.10);
     }
+
+    a.selectedItem {
+      color: $lightgray;
+      background: #f7f7f7;
+      font-size: 0.9em;
+
+      span.close{
+        color: #000 !important;
+        font-size: 1.2em;
+        opacity: 0.8;
+        font-weight: bold;
+      }
+    }
+
 }
