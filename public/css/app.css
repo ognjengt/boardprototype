@@ -118,7 +118,8 @@
   color: #606060;
   margin: 3px; }
 #boardsMultisearch a:hover, #boardsMultisearch a.hover, #boardsMultisearch li.hover a {
-  color: #0080FF; }
+  color: #0080FF;
+  cursor: pointer; }
 #boardsMultisearch .picker {
   border: 1px solid silver;
   padding: 10px;
@@ -148,6 +149,12 @@
     font-size: 1.2em;
     opacity: 0.8;
     font-weight: bold; }
+#boardsMultisearch a.label:focus, #boardsMultisearch a.label:active, #boardsMultisearch a.label:visited {
+  box-shadow: none;
+  outline: none;
+  border: none; }
+#boardsMultisearch .active {
+  border: none; }
 
 #sidebar {
   height: 100vh;

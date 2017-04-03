@@ -85,10 +85,19 @@ $(document).ready(function() {
       source: boardArray,
       keyAttrs: ['_id'],
       searchAttrs: ['title'],
-      formatPickerItem: function( data ) { return '<li><a href="#">'+data.title+'</a></li>'; },
-      formatSelectedItem: function( data ) { return '<a href="#" class="label label-default pull-left selectedItem" data-role="selected-item">'+data.title+'<span class="close pe-7s-close" data-action="remove"></span></a>'; },
+      formatPickerItem: function( data ) { return '<li><a>'+data.title+'</a></li>'; },
+      formatSelectedItem: function( data ) { return '<a class="label label-default pull-left selectedItem" data-role="selected-item">'+data.title+'<span class="close pe-7s-close" data-action="remove"></span></a>'; },
       minSearchChars: 1,
-      useAutoWidth: false
+      useAutoWidth: false,
+      added: function(data,element) { //ovu metodu koristiti za dodavanje u neki objekat koji ce se slati serveru na submit.
+        console.log(element.data._id);
+      },
+      removed: function(data,element) { //ovde samo pozvati metodu koja ce obrisati ovaj dobijeni id iz tog nekog globalnog objekta
+        console.log(element.data._id);
+      },
+      itemselect: function(e) {
+        e.preventDefault();
+      }
    });
 
 

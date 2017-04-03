@@ -18,6 +18,7 @@
 
     a:hover, a.hover, li.hover a {
         color: $blue;
+        cursor: pointer;
     }
 
     .picker {
@@ -40,6 +41,14 @@
         opacity: 0.8;
         font-weight: bold;
       }
+    }
+    a.label:focus, a.label:active, a.label:visited{
+      box-shadow: none;
+      outline: none;
+      border: none;
+    }
+    .active{
+      border:none;
     }
 
 }
