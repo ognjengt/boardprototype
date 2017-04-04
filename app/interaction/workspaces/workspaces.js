@@ -85,8 +85,8 @@ $(document).ready(function() {
       source: boardArray,
       keyAttrs: ['_id'],
       searchAttrs: ['title'],
-      formatPickerItem: function( data ) { return '<li><a>'+data.title+'</a></li>'; },
-      formatSelectedItem: function( data ) { return '<a class="label label-default pull-left selectedItem" data-role="selected-item">'+data.title+'<span class="close pe-7s-close" data-action="remove"></span></a>'; },
+      formatPickerItem: function( data ) { return '<li><a>'+data.title+' ('+data.boardType+') '+'</a></li>'; },
+      formatSelectedItem: function( data ) { return '<a class="label label-default pull-left selectedItem" data-role="selected-item">'+data.title+' ('+data.boardType+') '+'<span class="close pe-7s-close" data-action="remove"></span></a>'; },
       minSearchChars: 1,
       useAutoWidth: false,
       added: function(data,element) { //ovu metodu koristiti za dodavanje u neki objekat koji ce se slati serveru na submit.
@@ -97,7 +97,12 @@ $(document).ready(function() {
       },
       itemselect: function(e) {
         e.preventDefault();
-      }
+      },
+      preventNotFound: true
+   });
+
+   $('#boardsMultisearch input').on('click',function() {
+     //TODO when input is clicked populate the picker with all of the data.
    });
 
 
