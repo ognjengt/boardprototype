@@ -65,7 +65,7 @@ function closePopup(popup) {
     $('#boardTitle').css("border-color","#ccc");
   }
   else if(popup == "addNewWorkspacePopup") {
-    $('#addPopupEdit').hide();
+    $('#addPopupWorkspace').hide();
     $('#workspacePageContent').show();
   }
   else if(popup == "editBoardPopup") {
@@ -84,7 +84,7 @@ function closePopup(popup) {
       $('#pageContent').hide();
     }
     else if(popup == "addNewWorkspacePopup") {
-      $('#addPopupEdit').velocity("fadeIn");
+      $('#addPopupWorkspace').velocity("fadeIn");
       $('#workspacePageContent').hide();
     }
     else if(popup == "editBoardPopup") {

@@ -62,7 +62,7 @@ $(document).ready(function() {
   });
 
   $modalCloseBtn.on('click',function() {
-    $successModal.velocity("fadeOut",{duration: 200});
+    hideInformationModal("success");
   });
 
   //Edit

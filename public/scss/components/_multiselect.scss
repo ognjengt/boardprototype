@@ -1,0 +1,24 @@
+.select2{
+  width: 100% !important;
+  font-size: 0.94em !important;
+}
+.selection {
+  ul {
+    li{
+      input{
+        width: 600px !important;
+        //font-size: 0.91em !important;
+        padding-left: 5px !important;
+      }
+      input:focus{
+        border: none !important;
+      }
+    }
+  }
+}
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #ccc !important;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: 1px solid $blue !important;
+}

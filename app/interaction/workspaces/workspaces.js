@@ -1,11 +1,14 @@
 $(document).ready(function() {
    var idCounter = 0;
    var $btnAddNewWorkspace = $('#btnAddNewWorkspace');
-   var $addPopupEdit = $('#addPopupEdit');
+   var $addPopupWorkspace = $('#addPopupWorkspace');
    var $workspacePageContent = $('#workspacePageContent');
    var $btnCloseWorkspaceAddPopup = $('#btn-close-dialog-workspace-popup');
    var $btnCancelWorkspaceAddPopup = $('#btnCancelNewWorkspace');
    var $addWorkspaceForm = $('#addWorkspaceForm');
+
+   //Modals
+   var $modalCloseBtn = $('.btn-close-modal');
 
    // For multiselect: Every time workspaces are opened, gets all boards from the database and maps it to variable boardArray, then this boardArray will be used to search for boards when adding them to a workspace.
 
@@ -31,6 +34,10 @@ $(document).ready(function() {
 
   $('#workspaceTitleField').on('blur',function() {
     $(this).css("border-color","#CCCCCC");
+  });
+
+   $modalCloseBtn.on('click',function() {
+    hideInformationModal("success");
   });
 
    //Submit new workspace
@@ -81,30 +88,42 @@ $(document).ready(function() {
    });
 
   //  //Multisearch
-   $("#boardsMultisearch").multisearch({
-      source: boardArray,
-      keyAttrs: ['_id'],
-      searchAttrs: ['title'],
-      formatPickerItem: function( data ) { return '<li><a>'+data.title+' ('+data.boardType+') '+'</a></li>'; },
-      formatSelectedItem: function( data ) { return '<a class="label label-default pull-left selectedItem" data-role="selected-item">'+data.title+' ('+data.boardType+') '+'<span class="close pe-7s-close" data-action="remove"></span></a>'; },
-      minSearchChars: 1,
-      useAutoWidth: false,
-      added: function(data,element) { //ovu metodu koristiti za dodavanje u neki objekat koji ce se slati serveru na submit.
-        console.log(element.data._id);
-      },
-      removed: function(data,element) { //ovde samo pozvati metodu koja ce obrisati ovaj dobijeni id iz tog nekog globalnog objekta
-        console.log(element.data._id);
-      },
-      itemselect: function(e) {
-        e.preventDefault();
-      },
-      preventNotFound: true
-   });
+  //  $("#boardsMultisearch").multisearch({
+  //     source: boardArray,
+  //     keyAttrs: ['_id'],
+  //     searchAttrs: ['title'],
+  //     formatPickerItem: function( data ) { return '<li><a>'+data.title+' ('+data.boardType+') '+'</a></li>'; },
+  //     formatSelectedItem: function( data ) { return '<a class="label label-default pull-left selectedItem" data-role="selected-item">'+data.title+' ('+data.boardType+') '+'<span class="close pe-7s-close" data-action="remove"></span></a>'; },
+  //     minSearchChars: 1,
+  //     useAutoWidth: false,
+  //     added: function(data,element) { //ovu metodu koristiti za dodavanje u neki objekat koji ce se slati serveru na submit.
+  //       console.log(element.data._id);
+  //     },
+  //     removed: function(data,element) { //ovde samo pozvati metodu koja ce obrisati ovaj dobijeni id iz tog nekog globalnog objekta
+  //       console.log(element.data._id);
+  //     },
+  //     itemselect: function(e) {
+  //       e.preventDefault();
+  //     },
+  //     preventNotFound: true
+  //  });
 
-   $('#boardsMultisearch input').on('click',function() {
-     //TODO when input is clicked populate the picker with all of the data.
-   });
+  //  $('#boardsMultisearch input').on('click',function() {
+  //    //TODO when input is clicked populate the picker with all of the data.
+  //  });
 
+  var boardsToSelect = [];
+  boardArray.forEach(function(board) {
+    boardsToSelect.push({
+      "id": board._id,
+      "text": board.title+' ('+board.boardType+' )'
+    });
+  });
+
+  $('.boardsMultiselect').select2({
+    data: boardsToSelect,
+    placeholder: "Search for board names you would like to add in this workspace"
+  });
 
 
   // //Functions

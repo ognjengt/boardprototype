@@ -1,4 +1,4 @@
-<div id="addPopupEdit">
+<div id="addPopupWorkspace">
   <div class="overlay">
   <div id="btn-close-dialog-workspace-popup">
     <i class="pe-7s-close-circle"></i>
@@ -33,7 +33,8 @@
                 <label>Boards</label>
                 <input autocomplete="off" type="text" class="form-control" placeholder="Search for board names you would like to add in this workspace" name="title" title="Title can only contain up to 70 characters" id="workspaceBoardsField">
               </div>-->
-              <div id="boardsMultisearch">
+
+              <!--<div id="boardsMultisearch">
                 <label>Boards</label>
                 <div data-role="selected-list">
                     <input class="form-control pull-left" data-role="input" type="text" placeholder="Search for boards you would like to add..."/>
@@ -43,7 +44,11 @@
                     <ul class="list-group" data-role="picker-list">
                     </ul>
                 </div>
-              </div>
+              </div>-->
+              <label>Boards</label>
+              <select class="boardsMultiselect" multiple="multiple">
+                  
+              </select>
 
               <div class="col-md-offset-6">
                 <button class="btn button-signin shorten" type="submit" name="button" id="btnSubmitNewWorkspace"><b>Create Workspace</b></button>
