@@ -122,7 +122,8 @@ $(document).ready(function() {
 
   $('.boardsMultiselect').select2({
     data: boardsToSelect,
-    placeholder: "Search for board names you would like to add in this workspace"
+    placeholder: "Search for board names you would like to add in this workspace",
+    allowClear: false
   });
 
 

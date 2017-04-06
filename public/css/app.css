@@ -701,7 +701,17 @@
   border: 1px solid #ccc !important; }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-  border: 1px solid #0080FF !important; }
+  border: 1px solid #0080FF !important;
+  border-left: 3px solid #0080FF !important; }
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: #eae9e9 !important;
+  color: #606060 !important;
+  font-weight: bold !important;
+  font-size: 0.92em !important; }
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #0080FF !important; }
 
 #sidebar {
   height: 100vh;
