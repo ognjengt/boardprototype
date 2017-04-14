@@ -49,7 +49,7 @@ $(document).ready(function() {
       description: $('#workspaceDescriptionField').val(),
       team: "noteam", // TODO
       dateCreated: new Date(),
-      boards: []
+      boards: $('.boardsMultiselect').val()
     };
     createWorkspace(data);
     clearFields("addNewWorkspacePopup");
@@ -111,6 +111,7 @@ $(document).ready(function() {
   //  $('#boardsMultisearch input').on('click',function() {
   //    //TODO when input is clicked populate the picker with all of the data.
   //  });
+
 
   var boardsToSelect = [];
   boardArray.forEach(function(board) {

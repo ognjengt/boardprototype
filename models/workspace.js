@@ -7,12 +7,7 @@ var WorkspaceSchema = mongoose.Schema({
   title: String,
   description: String,
   dateCreated: Date,
-  boards: { //ovo namestiti kako valja
-    id: {
-      type: mongoose.Schema.Types.ObjectId,
-      index: true
-    }
-  },
+  boards: [{ type : mongoose.Schema.Types.ObjectId, index: true }],
   // TODO dodati timove kada se naprave, i ovde i u boards.
   // teams: [
   //   {
