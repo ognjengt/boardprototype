@@ -16,6 +16,10 @@ var projectBoardCounter = 0;
 router.get('/',middleware.ensureAuthenticated,function(req, res, next) {
   res.render('main/layout');
 });
+
+router.get('/getWorkspaces', function(req, res, next) {
+  Workspace.getAllWorkspaces(req.user._id,res);
+}); //uzima sve boardove od tog usera mozda kasnije bude trebalo
 // ruta /sparender je za single page ajax call rendering kod svakog, tima,workspacea,boarda
 router.get('/sparender',function(req, res, next) {
   var workspacesExist = false;

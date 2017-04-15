@@ -35,6 +35,16 @@ module.exports.createWorkspace = function(userId,newWorkspace,res) {
     res.end();
 }
 
+module.exports.getAllWorkspaces = function(userId,res) {
+  Workspace.find({userId: userId}, function(err,workspaces) {
+    if (err) {
+      throw err;
+    }
+    res.send(workspaces);
+    res.end();
+  });
+}
+
 module.exports.addToWorkspace = function(boardId,res) {
   
 }

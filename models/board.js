@@ -56,7 +56,7 @@ module.exports.getAllBoards = function(userId,res) { //ovo je cist api, samo da 
     }
     res.send(boards);
     res.end();
-  })
+  });
 }
 
 module.exports.getAllBoardsAndRender = function(userId,res,callback) { // ovo je getAllBoards sa callback funkcijom koju cu proslediti

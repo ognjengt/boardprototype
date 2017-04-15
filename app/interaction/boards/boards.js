@@ -133,7 +133,9 @@ $(document).ready(function() {
   // Add board to workspace functionality
   $btnAddBoardToWorkspaces.on('click',function(e) {
     e.preventDefault();
-    openPopup("addBoardToWorkspaces");
+    var boardId = this.parentNode.parentNode.id;
+    var boardTitle = $(this).parent().parent().parent().children('.title-wrapper').text().trim();
+    openAddBoardToWorkspacesPopupAndPopulate(boardId,boardTitle);
   });
 
   $btnCancelBoardToWorkspaces.on('click',function(e) {
@@ -141,8 +143,20 @@ $(document).ready(function() {
     closePopup("addBoardToWorkspaces");
   });
 
+  var workspacesToSelect = [];
+  workspaceArray.forEach(function(workspace) {
+    workspacesToSelect.push({
+      "id": workspace._id,
+      "text": workspace.title
+    });
+  });
+
   // Multiselect
-  $('.workspacesMultiselect').select2();
+  $('.workspacesMultiselect').select2({
+    data: workspacesToSelect,
+    placeholder: 'Search for workspaces, you would like to add this board to.',
+    closeOnSelect: true
+  });
 
 
 
@@ -152,6 +166,7 @@ $(document).ready(function() {
     $('#nameOfBoardToDelete').text(boardName.childNodes[5].innerText.trim());
     openPopup("archiveBoardPopup");
   }
+
   function openEditPopupAndPopulate(id,title,description) {
     idToEdit = isolateID(id);
     console.log(idToEdit);
@@ -162,6 +177,15 @@ $(document).ready(function() {
     $('#editBoardTitleField').val(title);
     $('#editBoardDescriptionField').val(description);
 
+  }
+
+  function openAddBoardToWorkspacesPopupAndPopulate(id,title) {
+    idToAdd = isolateID(id);
+    console.log(idToAdd);
+    openPopup("addBoardToWorkspaces");
+
+    //Populate the addBoardToWorkspacesPopup
+    $('#boardToAddName').text(title);
   }
 
   function isolateID(id) {

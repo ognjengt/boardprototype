@@ -1,5 +1,6 @@
-//Global scope: these variables are needed in files such as workspaces.js for populating the boards array, in boards to populate teams and workspaces, and so on...
+//Global scope: these variables are needed in files such as workspaces.js for populating the boards array, in boards.js to populate teams and workspaces, and so on...
 var boardArray = {};
+var workspaceArray = {};
 
 
 $(document).ready(function() {
@@ -44,8 +45,8 @@ $(document).ready(function() {
       changeActiveLink($('nav ul a:nth-child(1)'));
       changeCollapsedActive(1);
       showLoader();
-      var apiEndpoints = [];
-      var objectsToMap = [];
+      var apiEndpoints = ['/workspaces/getWorkspaces'];
+      var objectsToMap = ["workspaceArray"];
       loadContent('/boards/sparender',"boards",apiEndpoints,objectsToMap); //boards predstavlja script type, ubaciti nove kada se bude drugi palio
       if(firstLoad) { //TODO ovaj firstload prebaciti u svaki , sada menjace se nece biti function test, nego workspaces pa na svaki samo da se zna na loadu sta da se aktivira sa strane
         changeActiveLink($('nav ul a:nth-child(1)'));
@@ -90,6 +91,7 @@ $(document).ready(function() {
           url: endpoint,
           complete: function(data) {
             if(objectsToMap[i] == "boardArray") boardArray = data.responseJSON; // jedan nacin workarounda, da se prosledjuju stringovi i na osnovu stringa ucitava se u odredjeni array
+            else if(objectsToMap[i] == "workspaceArray") workspaceArray = data.responseJSON;
             i++;
             
             if(i == apiEndpoints.length) {
