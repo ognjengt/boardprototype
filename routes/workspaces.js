@@ -9,6 +9,8 @@ var User = require('../models/user');
 var Board = require('../models/board');
 var Workspace = require('../models/workspace');
 
+var projectBoardCounter = 0;
+
 //Spa render, renderuje samo content unutar workspaceova, dok /workspaces getuje ceo layout koji pomocu rutiranja poziva /sparender
 
 router.get('/',middleware.ensureAuthenticated,function(req, res, next) {
@@ -28,12 +30,23 @@ router.get('/sparender',function(req, res, next) {
 
       if(workspace.description.length > 130)
       workspace.description = middleware.truncateText(workspace.description,0,130);
+
+      // TODO Ovde logika za racunanje koliko ima boardova kog tipa ako se bude ubacivalo
+      // Ovo ovako ne moze zato sto je asinhron request, najbolje bi bilo cuvati ceo Board u workspaceu pa onda njemu pristupiti
+      // workspace.boards.forEach(function(boardId) {
+      //   Board.findById(boardId,function(err,board) {
+      //     if(board.boardType == "Project") projectBoardCounter++;
+      //     //console.log(projectBoardCounter);
+      //   })
+      // })
+
     });
 
     res.render('workspaces/index', {
       workspaces: workspaces.reverse(),
       hasWorkspaces: workspacesExist
     });
+
   }
   else { // U suprotnom bacaj da nema workspaceova
     res.render('workspaces/index', {

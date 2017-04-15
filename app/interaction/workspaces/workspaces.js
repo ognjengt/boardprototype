@@ -12,7 +12,7 @@ $(document).ready(function() {
 
    // For multiselect: Every time workspaces are opened, gets all boards from the database and maps it to variable boardArray, then this boardArray will be used to search for boards when adding them to a workspace.
 
-   console.log(boardArray);
+   //console.log(boardArray);
 
   
    $btnAddNewWorkspace.on('click',function() {
@@ -112,6 +112,7 @@ $(document).ready(function() {
   //    //TODO when input is clicked populate the picker with all of the data.
   //  });
 
+  // Multiselect
 
   var boardsToSelect = [];
   boardArray.forEach(function(board) {

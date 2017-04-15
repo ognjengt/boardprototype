@@ -34,3 +34,7 @@ module.exports.createWorkspace = function(userId,newWorkspace,res) {
     res.send(newWorkspace);
     res.end();
 }
+
+module.exports.addToWorkspace = function(boardId,res) {
+  
+}

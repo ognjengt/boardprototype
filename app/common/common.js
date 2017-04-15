@@ -74,6 +74,9 @@ function closePopup(popup) {
   else if(popup == "archiveBoardPopup") {
     $('#confirmArchivePopup').hide();
   }
+  else if(popup == "addBoardToWorkspaces") {
+    $('#addBoardToWorkspaces').hide();
+  }
     
 }
 
@@ -93,4 +96,7 @@ function closePopup(popup) {
     else if(popup == "archiveBoardPopup") {
       $('#confirmArchivePopup').show();
     }
+    else if(popup == "addBoardToWorkspaces") {
+    $('#addBoardToWorkspaces').show();
+  }
   }

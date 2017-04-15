@@ -13,6 +13,9 @@ $(document).ready(function() {
   //Edit board
   var $editButton = $('.edit-board');
   var idToEdit = 0;
+  //Add board to workspace
+  var $btnAddBoardToWorkspaces = $('.add-board-to-workspaces');
+  var $btnCancelBoardToWorkspaces = $('#btnCancelBoardToWorkspaces');
 
 
   $('#workspace').on('click', '.more', function(e) {
@@ -126,6 +129,20 @@ $(document).ready(function() {
   $('#editBoardTitleField').on('blur',function() {
     $(this).css("border-color","#CCCCCC");
   });
+
+  // Add board to workspace functionality
+  $btnAddBoardToWorkspaces.on('click',function(e) {
+    e.preventDefault();
+    openPopup("addBoardToWorkspaces");
+  });
+
+  $btnCancelBoardToWorkspaces.on('click',function(e) {
+    e.preventDefault();
+    closePopup("addBoardToWorkspaces");
+  });
+
+  // Multiselect
+  $('.workspacesMultiselect').select2();
 
 
 
