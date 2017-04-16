@@ -6,13 +6,12 @@ $(document).ready(function() {
   var $archiveButton = $('.archive-board');
   var $btnConfirmArchive = $('#btnConfirmArchive');
   var $btnCancelArchive = $('#btnCancelArchive');
-  var idToArchive = 0;
   //Close modal
   var $successModal = $('#success-modal');
   var $modalCloseBtn = $('.btn-close-modal');
   //Edit board
   var $editButton = $('.edit-board');
-  var idToEdit = 0;
+  var selectedBoardId = 0;
   //Add board to workspace
   var $btnAddBoardToWorkspaces = $('.add-board-to-workspaces');
   var $btnCancelBoardToWorkspaces = $('#btnCancelBoardToWorkspaces');
@@ -56,7 +55,7 @@ $(document).ready(function() {
   });
 
   $btnConfirmArchive.on('click',function() {
-    console.log(idToArchive);
+    console.log(selectedBoardId);
     //ovde logika za archive boarda
   });
 
@@ -98,20 +97,20 @@ $(document).ready(function() {
     showInformationModal("processing", "Updating board...", "Just a second.");
     closePopup("editBoardPopup");
 
-    $('#'+idToEdit).addClass('loading');
+    $('#'+selectedBoardId).addClass('loading');
 
     $.ajax({
     type: 'POST',
     data: JSON.stringify(updatedBoard),
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
-    url: '/boards/update/'+idToEdit,
+    url: '/boards/update/'+selectedBoardId,
     complete: function(data) {
       console.log(data.responseJSON);
       $('#processing-modal').hide();
-      $('#'+idToEdit).children('.description-wrapper').children('.description').text(data.responseJSON.description);
-      $('#'+idToEdit).children('.title-wrapper').html("<h4><b>"+data.responseJSON.title+"</b></h4>")
-      $('#'+idToEdit).removeClass('loading');
+      $('#'+selectedBoardId).children('.description-wrapper').children('.description').text(data.responseJSON.description);
+      $('#'+selectedBoardId).children('.title-wrapper').html("<h4><b>"+data.responseJSON.title+"</b></h4>")
+      $('#'+selectedBoardId).removeClass('loading');
       showInformationModal("success","Completed.","Board updated successfully.");
       setTimeout(function() {
         hideInformationModal("success");
@@ -140,9 +139,12 @@ $(document).ready(function() {
 
   $btnCancelBoardToWorkspaces.on('click',function(e) {
     e.preventDefault();
+    $('.workspacesMultiselect').val([]).trigger("change");
     closePopup("addBoardToWorkspaces");
   });
 
+
+  // Instanciranje workspacesToSelect objekta da bi sadrzao formu kakva treba za select2 a to je da ima id i text
   var workspacesToSelect = [];
   workspaceArray.forEach(function(workspace) {
     workspacesToSelect.push({
@@ -155,21 +157,63 @@ $(document).ready(function() {
   $('.workspacesMultiselect').select2({
     data: workspacesToSelect,
     placeholder: 'Search for workspaces, you would like to add this board to.',
-    closeOnSelect: true
+    closeOnSelect: true,
+    allowClear: true
+  });
+
+  // ----------------- ADD BOARD TO WORKSPACES ------------------
+  $('#addBoardToWorkspacesForm').on('submit',function(e) {
+    e.preventDefault();
+    // check if input ok
+    if($('.workspacesMultiselect').val() == null) {
+      console.log("Popunite input u koje workspaceove zelite da dodate");
+      return false;
+      // Ovde logika da se zacrveni input itd...
+    }
+    // get value from input
+    var workspacesToPopulate = {
+      boardId: selectedBoardId,
+      workspaces: $('.workspacesMultiselect').val()
+    }
+
+    // Fire up processing modal
+    showInformationModal("processing", "Populating workspaces...", "Just a second.");
+    closePopup("addBoardToWorkspaces");
+    // ajax call
+    $.ajax({
+    type: 'POST',
+    data: JSON.stringify(workspacesToPopulate),
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    url: '/workspaces/populateWithBoard',
+    complete: function(data) {
+      console.log(data.responseJSON);
+      $('#processing-modal').hide();
+      showInformationModal("success","Completed.","Workspaces populated succesfully.");
+      setTimeout(function() {
+        hideInformationModal("success");
+      },3500)
+      $('.workspacesMultiselect').val([]).trigger("change");
+    }
+
+    });
+    // api endpoint u routesu
+
+    // metoda u modelu
   });
 
 
 
 // Functions
   function openArchivePopup(id,boardName) {
-    idToArchive = isolateID(id);
+    selectedBoardId = isolateID(id);
     $('#nameOfBoardToDelete').text(boardName.childNodes[5].innerText.trim());
     openPopup("archiveBoardPopup");
   }
 
   function openEditPopupAndPopulate(id,title,description) {
-    idToEdit = isolateID(id);
-    console.log(idToEdit);
+    selectedBoardId = isolateID(id);
+    console.log(selectedBoardId);
     openPopup("editBoardPopup");
 
     //Populate the editPopup
@@ -180,8 +224,8 @@ $(document).ready(function() {
   }
 
   function openAddBoardToWorkspacesPopupAndPopulate(id,title) {
-    idToAdd = isolateID(id);
-    console.log(idToAdd);
+    selectedBoardId = isolateID(id);
+    console.log(selectedBoardId);
     openPopup("addBoardToWorkspaces");
 
     //Populate the addBoardToWorkspacesPopup

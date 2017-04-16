@@ -19,7 +19,8 @@ router.get('/',middleware.ensureAuthenticated,function(req, res, next) {
 
 router.get('/getWorkspaces', function(req, res, next) {
   Workspace.getAllWorkspaces(req.user._id,res);
-}); //uzima sve boardove od tog usera mozda kasnije bude trebalo
+});
+
 // ruta /sparender je za single page ajax call rendering kod svakog, tima,workspacea,boarda
 router.get('/sparender',function(req, res, next) {
   var workspacesExist = false;
@@ -76,5 +77,11 @@ router.post('/addWorkspace',function(req, res, next) {
   });
   Workspace.createWorkspace(req.user._id,newWorkspace,res);
 });
+
+router.post('/populateWithBoard',function(req, res, next) {
+  var boardId = req.body.boardId;
+  var workspaces = req.body.workspaces;
+  Workspace.populateWithBoard(boardId,workspaces,res);
+})
 
 module.exports = router;

@@ -45,6 +45,19 @@ module.exports.getAllWorkspaces = function(userId,res) {
   });
 }
 
-module.exports.addToWorkspace = function(boardId,res) {
-  
+module.exports.populateWithBoard = function(boardId,workspaces,res) {
+  var i = 0;
+  workspaces.forEach(function(workspaceId) {
+    // proveriti da se doda novi samo ukoliko on vec ne postoji u tom workspaceu
+    Workspace.findByIdAndUpdate(workspaceId, {$push: {boards: new Object({_id: boardId})}},{new: true}, function(err, user) {
+    if (err) {
+      throw err;
+    }
+      i++;
+      if(i == workspaces.length) {
+        res.send(workspaces);
+        res.end();
+      }
+    });
+  });
 }

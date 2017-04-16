@@ -1648,7 +1648,7 @@ a {
       left: 50%;
       transform: translateX(-50%);
       width: 600px;
-      min-height: 300px;
+      min-height: 200px;
       max-height: auto;
       background: #fff;
       -webkit-border-radius: 4px;

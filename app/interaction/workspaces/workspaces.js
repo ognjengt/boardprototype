@@ -25,6 +25,7 @@ $(document).ready(function() {
 
    $btnCancelWorkspaceAddPopup.on('click',function(e) {
     e.preventDefault();
+    $('.boardsMultiselect').val([]).trigger("change"); //clears the multiselect
     closePopup("addNewWorkspacePopup");
    });
 
@@ -81,6 +82,7 @@ $(document).ready(function() {
       setTimeout(function() {
         hideInformationModal("success");
       },3500)
+      $('.boardsMultiselect').val([]).trigger("change");
     }
 
     });
@@ -125,18 +127,19 @@ $(document).ready(function() {
   $('.boardsMultiselect').select2({
     data: boardsToSelect,
     placeholder: "Search for board names you would like to add in this workspace",
-    closeOnSelect: true
+    closeOnSelect: true,
+    allowClear: true
   });
 
   //Zapravo mi ni ne trebaju ovi listeneri posto $('boardsMultiselect').val() vraca array od id-eva boardova koji su dodati, tako da bukvalno imam sve sto mi treba, na submit samo treba uzeti podatke odatle, i dodati samo taj array u board array za taj workspace, mozda eventualno koristiti ove listenere ispod za neko dodavanje u neke lepse uredjene objekte
-  $('select').on('select2:select', function (evt) {
-    //ovaj listener koristiti za dodavanje u neki objekat koji ce se slati serveru na submit.
-    console.log($('.boardsMultiselect').val());
-  });
+  // $('select').on('select2:select', function (evt) {
+  //   //ovaj listener koristiti za dodavanje u neki objekat koji ce se slati serveru na submit.
+  //   console.log($('.boardsMultiselect').val());
+  // });
 
-  $('select').on('select2:unselect', function (evt) {
+  // $('select').on('select2:unselect', function (evt) {
 
-  });
+  // });
 
 
   // //Functions
