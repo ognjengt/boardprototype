@@ -49,7 +49,7 @@ module.exports.populateWithBoard = function(boardId,workspaces,res) {
   var i = 0;
   workspaces.forEach(function(workspaceId) {
     // proveriti da se doda novi samo ukoliko on vec ne postoji u tom workspaceu
-    Workspace.findByIdAndUpdate(workspaceId, {$push: {boards: new Object({_id: boardId})}},{new: true}, function(err, user) {
+    Workspace.findByIdAndUpdate(workspaceId, {$push: {boards: new Object({_id: boardId})}},{new: true}, function(err) {
     if (err) {
       throw err;
     }
@@ -60,4 +60,13 @@ module.exports.populateWithBoard = function(boardId,workspaces,res) {
       }
     });
   });
+  // Ovo isto radi ali kaze cant set headers after they are sent, sto znaci da on vrati res send odma, a ovi to i ne izvrse, tako da ovo iznad je bukvalno isto resenje sa workaroundom
+  
+  // Workspace.update({ _id: { $in: [workspaces] }}, { $push: {boards: new Object({_id: boardId})}}, { new: true }, function(err) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     res.send(workspaces);
+  //     res.end();
+  // });
 }

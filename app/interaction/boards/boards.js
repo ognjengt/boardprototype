@@ -196,10 +196,8 @@ $(document).ready(function() {
       $('.workspacesMultiselect').val([]).trigger("change");
     }
 
-    });
-    // api endpoint u routesu
-
-    // metoda u modelu
+  });
+  
   });
 
 
