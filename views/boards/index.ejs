@@ -22,59 +22,102 @@
     </div>
   </div>
 
-  <div class="group-title">
-    <h5><b>All boards</b></h5>
-  </div>
-
-
+  
   <div class="main-content">
-    <div class="row board-row" id="allBoards">
 
-        <!-- <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="board board-Todo loading">
-          <h4><b>Proba</b></h4>
-          <div class="type-title"><h5><b>titl</b></h5></div>
-          <p>desc</p>
-        </div>
-      </div> LOADING TEST-->
+    <% if(hasPinnedBoards) { %>
+    <div class="boardGroup" id="boardGroup-pinned">
+      <div class="group-title">
+        <h5><b>Pinned</b></h5>
+      </div>
+      <div class="row board-row">
+        <% pinnedBoards.forEach(function(board) { %>
+        <a href="<%=board._id%>">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="board board-<%=board.boardType%>" id="<%=board._id%>">
+                  <div class="pin"><i class="pe-7s-pin"></i></div>
+                  <div class="more"><i class="pe-7s-more"></i></div>
+                  <div class="title-wrapper">
+                    <h4><b><%= board.title%></b></h4>
+                  </div>
+                  <div class="type-wrapper">
+                    <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
+                  </div>
+                  <div class="description-wrapper">
+                    <p class="description"><%= board.description%></p>
+                  </div>
 
-      <% if(hasBoards) {%>
-        <% boards.forEach(function(board) {%>
-          <a href="<%=board._id%>">
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="board board-<%=board.boardType%>" id="<%=board._id%>">
-                <div class="pin"><i class="pe-7s-pin"></i></div>
-                <div class="more"><i class="pe-7s-more"></i></div>
-                <div class="title-wrapper">
-                  <h4><b><%= board.title%></b></h4>
+
+                  <div class="more-dropdown" id="dropdown-<%=board._id%>">
+                    <ul>
+                      <li class="edit-board"><i class="pe-7s-pen"></i> Edit</li>
+                      <li class="add-board-to-workspaces"><i class="pe-7s-albums"></i> Add to workspaces</li>
+                      <li><i class="pe-7s-users"></i> Add to team</li>
+                      <hr>
+                      <li class="archive-board"><i class="pe-7s-trash"></i> Archive</li>
+                    </ul>
+                  </div>
+
                 </div>
-                <div class="type-wrapper">
-                  <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
-                </div>
-                <div class="description-wrapper">
-                  <p class="description"><%= board.description%></p>
-                </div>
-
-
-                <div class="more-dropdown" id="dropdown-<%=board._id%>">
-                  <ul>
-                    <li class="edit-board"><i class="pe-7s-pen"></i> Edit</li>
-                    <li class="add-board-to-workspaces"><i class="pe-7s-albums"></i> Add to workspaces</li>
-                    <li><i class="pe-7s-users"></i> Add to team</li>
-                    <hr>
-                    <li class="archive-board"><i class="pe-7s-trash"></i> Archive</li>
-                  </ul>
-                </div>
-
               </div>
-            </div>
-          </a>
+            </a>
         <% }); %>
-      <%} else {%>
-        <div id="noBoardsMsg">
-          <h2>Nema boardova</h2>
-        </div>
-      <%}%>
+
+      </div>
+    </div>
+    <% } %>
+
+    <div class="boardGroup">
+      <div class="group-title">
+        <h5><b>All boards</b></h5>
+      </div>
+      <div class="row board-row" id="allBoards">
+          <!-- <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="board board-Todo loading">
+            <h4><b>Proba</b></h4>
+            <div class="type-title"><h5><b>titl</b></h5></div>
+            <p>desc</p>
+          </div>
+        </div> LOADING TEST-->
+
+        <% if(hasBoards) {%>
+          <% boards.forEach(function(board) {%>
+            <a href="<%=board._id%>">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="board board-<%=board.boardType%>" id="<%=board._id%>">
+                  <div class="pin"><i class="pe-7s-pin"></i></div>
+                  <div class="more"><i class="pe-7s-more"></i></div>
+                  <div class="title-wrapper">
+                    <h4><b><%= board.title%></b></h4>
+                  </div>
+                  <div class="type-wrapper">
+                    <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
+                  </div>
+                  <div class="description-wrapper">
+                    <p class="description"><%= board.description%></p>
+                  </div>
+
+
+                  <div class="more-dropdown" id="dropdown-<%=board._id%>">
+                    <ul>
+                      <li class="edit-board"><i class="pe-7s-pen"></i> Edit</li>
+                      <li class="add-board-to-workspaces"><i class="pe-7s-albums"></i> Add to workspaces</li>
+                      <li><i class="pe-7s-users"></i> Add to team</li>
+                      <hr>
+                      <li class="archive-board"><i class="pe-7s-trash"></i> Archive</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </a>
+          <% }); %>
+        <%} else {%>
+          <div id="noBoardsMsg">
+            <h2>Nema boardova</h2>
+          </div>
+        <%}%>
+      </div>
     </div>
 
 

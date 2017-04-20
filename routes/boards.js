@@ -32,6 +32,8 @@ router.get('/getBoards', function(req, res, next) {
 
 router.get('/sparender',function(req, res, next) {
   var boardsExist = false;
+  var hasPinnedBoards = false;
+  var pinnedBoardsArray = [];
   // nadji sve boardove od tog usera
   Board.find({userId: req.user._id}, function(err,boards) {
     if(boards[0]) { // Ako postoji makar 1 board, renderuj
@@ -43,17 +45,29 @@ router.get('/sparender',function(req, res, next) {
 
       if(board.description.length > 73)
       board.description = middleware.truncateText(board.description,0,73);
+
+      if(board.pinned) {
+        if(hasPinnedBoards == false)
+          hasPinnedBoards = true;
+        
+          pinnedBoardsArray.push(board);
+      }
+        
     });
 
     res.render('boards/index', {
       boards: boards.reverse(),
-      hasBoards: boardsExist
+      hasBoards: boardsExist,
+      hasPinnedBoards: hasPinnedBoards,
+      pinnedBoards: pinnedBoardsArray
     });
   }
   else { // U suprotnom bacaj da nema boardova
     res.render('boards/index', {
       boards: [],
-      hasBoards: boardsExist
+      hasBoards: boardsExist,
+      hasPinnedBoards: hasPinnedBoards,
+      pinnedBoards: pinnedBoardsArray
     });
   }
     
