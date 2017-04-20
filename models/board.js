@@ -72,3 +72,12 @@ module.exports.updateTitleAndDescription = function(boardId, updatedBoard, res) 
     res.end();
   })
 }
+
+module.exports.handlePin = function(boardId,pinned,res) {
+  Board.findByIdAndUpdate(boardId, { $set: { pinned: !pinned } }, { new: false },function(err,board) {
+    if(err) throw err;
+
+    res.send(board);
+    res.end();
+  })
+}

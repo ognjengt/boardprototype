@@ -16,6 +16,7 @@ $(document).ready(function() {
   var $btnAddBoardToWorkspaces = $('.add-board-to-workspaces');
   var $btnCancelBoardToWorkspaces = $('#btnCancelBoardToWorkspaces');
 
+  console.log(workspaceArray);
 
   $('#workspace').on('click', '.more', function(e) {
     handleMoreDropdown(e,this);
@@ -180,6 +181,7 @@ $(document).ready(function() {
     showInformationModal("processing", "Populating workspaces...", "Just a second.");
     closePopup("addBoardToWorkspaces");
     // ajax call
+    //TODO/NOTE mozda ovde proveriti da li taj workspace sadrzi taj board, posto imam workspaceArray promenljivu, i onda ako neki od workspaceova koji je naveden sadrzi taj odredjeni board, da se ne da korisniku da se submituje.
     $.ajax({
     type: 'POST',
     data: JSON.stringify(workspacesToPopulate),
@@ -199,6 +201,31 @@ $(document).ready(function() {
   });
   
   });
+
+// ----------------- PINNING --------------------
+  $('.pin').on('click',function(e) {
+    e.preventDefault();
+    var boardId = this.parentNode.id;
+    
+    var data = {
+      boardId: boardId
+    }
+    // send ajax request to the db, and change the pinned field of this board to !pinned.
+    $.ajax({
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    url: '/boards/pin/'+boardId,
+    complete: function(data) {
+      console.log(data.responseJSON);
+      console.log("Uspeo");
+    }
+
+  });
+
+  });
+
 
 
 

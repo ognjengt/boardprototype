@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 var User = require('../models/user');
 var Board = require('../models/board');
 
+
+
 var WorkspaceSchema = mongoose.Schema({
   title: String,
   description: String,
@@ -47,11 +49,11 @@ module.exports.getAllWorkspaces = function(userId,res) {
 
 module.exports.populateWithBoard = function(boardId,workspaces,res) {
   var i = 0;
+
   workspaces.forEach(function(workspaceId) {
     // proveriti da se doda novi samo ukoliko on vec ne postoji u tom workspaceu
-
+    var returnArr = [];
     Workspace.findById(workspaceId,function(err,ws) {
-      console.log(ws.boards.indexOf(boardId));
       if(!(ws.boards.indexOf(boardId) > -1)) {
         Workspace.findByIdAndUpdate(workspaceId, {$push: {boards: new Object({_id: boardId})}},{new: true}, function(err) {
           if (err) {
@@ -59,11 +61,16 @@ module.exports.populateWithBoard = function(boardId,workspaces,res) {
           }
           });
       }
+      else {
+        returnArr.push(workspaceId);
+      }
     });
 
       i++;
       if(i == workspaces.length) {
-        res.send(workspaces);
+        console.log(returnArr);
+        // Videti sta ne valja zasto vidi ovu gore a ne ovo sto je dodato. Nesto je do asinhronog requesta, ovo namestiti da vrati taj array u koji se pushuju workspaceovi
+        res.send(returnArr);
         res.end();
       }
     

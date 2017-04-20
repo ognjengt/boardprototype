@@ -110,4 +110,12 @@ router.post('/update/:id',function(req, res, next) {
   Board.updateTitleAndDescription(req.params.id, updatedBoard, res);
 });
 
+//Pin board
+router.post('/pin/:id', function(req, res, next) {
+  Board.findById(req.params.id,function(err,board) {
+    Board.handlePin(req.params.id,board.pinned,res);
+  })
+  
+});
+
 module.exports = router;
