@@ -54,6 +54,10 @@ router.get('/sparender',function(req, res, next) {
       }
         
     });
+    // Sklanja iz glavnog boards arraya, one boardove koji su pinovani, tako da ne bi bilo duplikata na view-u
+    boards = boards.filter(function(board) {
+      return pinnedBoardsArray.indexOf(board) < 0;
+    });
 
     res.render('boards/index', {
       boards: boards.reverse(),

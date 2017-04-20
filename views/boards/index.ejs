@@ -30,9 +30,9 @@
       <div class="group-title">
         <h5><b>Pinned</b></h5>
       </div>
-      <div class="row board-row">
+      <div class="row board-row" id="pinnedBoardsRow">
         <% pinnedBoards.forEach(function(board) { %>
-        <a href="<%=board._id%>">
+            <a href="<%=board._id%>">
               <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="board board-<%=board.boardType%>" id="<%=board._id%>">
                   <div class="pin"><i class="pe-7s-pin"></i></div>
@@ -67,7 +67,7 @@
     </div>
     <% } %>
 
-    <div class="boardGroup">
+    <div class="boardGroup" id="boardGroup-allBoards">
       <div class="group-title">
         <h5><b>All boards</b></h5>
       </div>
