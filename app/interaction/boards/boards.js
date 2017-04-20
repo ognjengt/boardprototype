@@ -230,6 +230,8 @@ $(document).ready(function() {
 
   // Ako ne postoji boardGroup-pinned id, pravim ga i pravim unutra i group title, i board-row i dodajem ovaj board, a sklanjam ga iz allBoards
   var pinnedBoardsGroup = $('#boardGroup-pinned').length;
+  var currentBoardGroup = $(this).parent().parent().parent().parent().attr('id');
+  var pinnedBoardCounter = 0;
   if(pinnedBoardsGroup == 0) { //element ne postoji, napraviti podlogu za pinned boards
     var pinnedBoardGroupUI = `
     <div class="boardGroup" id="boardGroup-pinned">
@@ -244,8 +246,8 @@ $(document).ready(function() {
     `;
     $('.main-content').prepend(pinnedBoardGroupUI);
   }
-
-  var boardSnippet = `
+  if(currentBoardGroup == "allBoards") {
+    var boardSnippet = `
     <a href="${boardId}">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="board board-${boardType}" id="${boardId}">
@@ -278,7 +280,50 @@ $(document).ready(function() {
   `;
   $('#pinnedBoardsRow').prepend(boardSnippet);
   $('#allBoards').children('a[href='+boardId+']').remove();
+  pinnedBoardCounter++;
+}
+else if(currentBoardGroup == "pinnedBoardsRow") {
+  var boardSnippet = `
+    <a href="${boardId}">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="board board-${boardType}" id="${boardId}">
+            <div class="pin"><i class="pe-7s-pin"></i></div>
+            <div class="more"><i class="pe-7s-more"></i></div>
+            <div class="title-wrapper">
+              <h4><b>${boardTitle}</b></h4>
+            </div>
+            <div class="type-wrapper">
+              <div class="type-title"><h5><b>${boardType}</b></h5></div>
+            </div>
+            <div class="description-wrapper">
+              <p class="description">${boardDescription}</p>
+            </div>
+
+
+            <div class="more-dropdown" id="dropdown-${boardId}">
+              <ul>
+                <li class="edit-board"><i class="pe-7s-pen"></i> Edit</li>
+                <li class="add-board-to-workspaces"><i class="pe-7s-albums"></i> Add to workspaces</li>
+                <li><i class="pe-7s-users"></i> Add to team</li>
+                <hr>
+                <li class="archive-board"><i class="pe-7s-trash"></i> Archive</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </a>
+  `;
+  $('#allBoards').prepend(boardSnippet);
+  $('#pinnedBoardsRow').children('a[href='+boardId+']').remove();
+  pinnedBoardCounter--;
   
+  //TODO provera ako nema vise pinovanih, removeovati ceo boardGroup-pinned
+  
+}
+
+  
+
   });
 
 
