@@ -94,6 +94,8 @@ router.get('/sparender',function(req, res, next) {
   
 });
 
+// ovde opet napraviti onako rutiranje, po funkcijama pogledati na githubu.
+
 router.get('/test',function(req, res, next) { //okej ovako bi getovao Workspaceove, timove itd, znaci da mi renderuje stranicu i da uzme iz baze ove podatke
   Board.getAllBoardsAndRender(req.user._id,res,function(err,boards) {
     if (err) {
