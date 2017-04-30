@@ -67,6 +67,49 @@
     </div>
     <% } %>
 
+    <% if(hasWorkspaces) { %>
+      <% workspacesToRender.forEach(function(workspace) { %>
+        <div class="boardGroup" id="boardGroup-<%=workspace._id%>">
+        <div class="group-title">
+          <h5><b><%=workspace.title%></b></h5>
+        </div>
+          <div class="row board-row" id="workspacesBoardRow-<%=workspace._id%>">
+            <% workspace.boards.forEach(function(board) { %>
+              <a href="<%=board._id%>">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="board board-<%=board.boardType%>" id="<%=board._id%>">
+                  <div class="pin"><i class="pe-7s-pin"></i></div>
+                  <div class="more"><i class="pe-7s-more"></i></div>
+                  <div class="title-wrapper">
+                    <h4><b><%= board.title%></b></h4>
+                  </div>
+                  <div class="type-wrapper">
+                    <div class="type-title"><h5><b><%= board.boardType%></b></h5></div>
+                  </div>
+                  <div class="description-wrapper">
+                    <p class="description"><%= board.description%></p>
+                  </div>
+
+
+                  <div class="more-dropdown" id="dropdown-<%=board._id%>">
+                    <ul>
+                      <li class="edit-board"><i class="pe-7s-pen"></i> Edit</li>
+                      <li class="add-board-to-workspaces"><i class="pe-7s-albums"></i> Add to workspaces</li>
+                      <li><i class="pe-7s-users"></i> Add to team</li>
+                      <hr>
+                      <li class="archive-board"><i class="pe-7s-trash"></i> Archive</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </a>
+            <% }); %>
+          </div>
+        </div>
+      <% }); %>
+    <% } %>
+
     <div class="boardGroup" id="boardGroup-allBoards">
       <div class="group-title">
         <h5><b>All boards</b></h5>
@@ -79,6 +122,7 @@
             <p>desc</p>
           </div>
         </div> LOADING TEST-->
+        
 
         <% if(hasBoards) {%>
           <% boards.forEach(function(board) {%>
