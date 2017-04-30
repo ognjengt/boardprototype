@@ -72,7 +72,7 @@ router.post('/addWorkspace',function(req, res, next) {
     teams: [req.body.team],//TODO ovo napraviti kada se ubace workspaceovi i timovi, samo napomena, ovde treba da ide ID od tog workspacea, sto znaci getovati id od obelezenog workspace-a i dodati ga.,
     dateCreated: req.body.dateCreated,
     userId: req.user._id,
-    boards: req.body.boards
+    boards: req.body.boards || []
     //ovde jos description, goal i kom useru pripada itd...
   });
   Workspace.createWorkspace(req.user._id,newWorkspace,res);

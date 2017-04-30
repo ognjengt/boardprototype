@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 
 var User = require('../models/user');
 var Board = require('../models/board');
+var Workspace = require('../models/workspace');
 
 /* GET home page. */
 router.get('/', middleware.ensureAuthenticated, function(req, res, next) {
@@ -34,6 +35,9 @@ router.get('/sparender',function(req, res, next) {
   var boardsExist = false;
   var hasPinnedBoards = false;
   var pinnedBoardsArray = [];
+  var i = 0;
+
+  var workspacesArray = [];
   // nadji sve boardove od tog usera
   Board.find({userId: req.user._id}, function(err,boards) {
     if(boards[0]) { // Ako postoji makar 1 board, renderuj
@@ -52,6 +56,17 @@ router.get('/sparender',function(req, res, next) {
         
           pinnedBoardsArray.push(board);
       }
+
+      // TODO odraditi renderovanje boardova po workspaceu, na papirima je neki pocetak algoritma. Uzeti neku promenljivu i samo namestiti da se dodaju celi boardovi u taj nas workspace sto pravimo.
+
+      Workspace.find({ userId: req.user._id, boards: board._id }, function(err, workspaces) {
+        
+        workspaces.forEach(function(workspace) {
+          console.log("Iteracija "+i);
+          console.log(workspace.title + " sadrzi board: "+ board.title);
+        }); 
+        i++;
+      });
         
     });
     // Sklanja iz glavnog boards arraya, one boardove koji su pinovani, tako da ne bi bilo duplikata na view-u
