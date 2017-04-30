@@ -31,97 +31,17 @@ router.get('/getBoards', function(req, res, next) {
   Board.getAllBoards(req.user._id,res);
 }); //uzima sve boardove od tog usera mozda kasnije bude trebalo
 
-// router.get('/sparender',function(req, res, next) {
-//   var boardsExist = false;
-//   var hasPinnedBoards = false;
-//   var pinnedBoardsArray = [];
-//   var i = 0;
+router.get('/sparender',function(req, res, next) {
+  var boardsExist = false;
+  var hasPinnedBoards = false;
+  var pinnedBoardsArray = [];
+  var i = 0;
 
-//   var retWorkspacesArray = [];
-//   // nadji sve boardove od tog usera
-//   Board.find({userId: req.user._id}, function(err,boards) {
-//     if(boards[0]) { // Ako postoji makar 1 board, renderuj
-//       boardsExist = true;
-
-//       boards.forEach(function(board) {
-//       if(board.title.length > 40)
-//       board.title = middleware.truncateText(board.title,0,40);
-
-//       if(board.description.length > 73)
-//       board.description = middleware.truncateText(board.description,0,73);
-
-//       if(board.pinned) {
-//         if(hasPinnedBoards == false)
-//           hasPinnedBoards = true;
-        
-//           pinnedBoardsArray.push(board);
-//       }
-
-//       // TODO odraditi renderovanje boardova po workspaceu, na papirima je neki pocetak algoritma. Uzeti neku promenljivu i samo namestiti da se dodaju celi boardovi u taj nas workspace sto pravimo.
-        
-//     });
-//     // Sklanja iz glavnog boards arraya, one boardove koji su pinovani, tako da ne bi bilo duplikata na view-u
-//     boards = boards.filter(function(board) {
-//       return pinnedBoardsArray.indexOf(board) < 0;
-//     });
-
-//     Workspace.find({ userId: req.user._id },function(err,workspaces) {
-//       if(err) throw err;
-
-//       // Prodji kroz sve workspaceove od tog usera i svaki board nadji i dodaj ga u objekat
-
-//       workspaces.forEach(function(workspace) {
-//         var newWorkspace = {
-//           _id: workspace._id,
-//           title: workspace.title,
-//           dateCreated: workspace.dateCreated,
-//           userId: workspace.userId,
-//           boards: []
-//         }
-
-//         workspace.boards.forEach(function(boardId) {
-//           Board.findById(boardId, function(err,board) {
-//             if(err) throw err;
-
-//             newWorkspace.boards.push(board);
-//             console.log(newWorkspace);
-//           });
-
-//         });
-//         retWorkspacesArray.push(newWorkspace);
-//       });
-      
-
-//       res.render('boards/index', {
-//         boards: boards.reverse(),
-//         hasBoards: boardsExist,
-//         hasPinnedBoards: hasPinnedBoards,
-//         pinnedBoards: pinnedBoardsArray
-//       });
-
-//     }); //ovde
-//   }
-//   else { // U suprotnom bacaj da nema boardova
-//     res.render('boards/index', {
-//       boards: [],
-//       hasBoards: boardsExist,
-//       hasPinnedBoards: hasPinnedBoards,
-//       pinnedBoards: pinnedBoardsArray
-//     });
-//   }
-    
-//   });
-  
-// });
-
-function getBoardsAsync(req,res,next) {
-   req.boardsExist = false;
-   req.hasPinnedBoards = false;
-   req.pinnedBoardsArray = [];
+  var workspacesArray = [];
   // nadji sve boardove od tog usera
   Board.find({userId: req.user._id}, function(err,boards) {
     if(boards[0]) { // Ako postoji makar 1 board, renderuj
-      req.boardsExist = true;
+      boardsExist = true;
 
       boards.forEach(function(board) {
       if(board.title.length > 40)
@@ -131,104 +51,48 @@ function getBoardsAsync(req,res,next) {
       board.description = middleware.truncateText(board.description,0,73);
 
       if(board.pinned) {
-        if(req.hasPinnedBoards == false)
-          req.hasPinnedBoards = true;
+        if(hasPinnedBoards == false)
+          hasPinnedBoards = true;
         
-          req.pinnedBoardsArray.push(board);
+          pinnedBoardsArray.push(board);
       }
+
+      // TODO odraditi renderovanje boardova po workspaceu, na papirima je neki pocetak algoritma. Uzeti neku promenljivu i samo namestiti da se dodaju celi boardovi u taj nas workspace sto pravimo.
+
+      Workspace.find({ userId: req.user._id, boards: board._id }, function(err, workspaces) {
+        
+        workspaces.forEach(function(workspace) {
+          console.log("Iteracija "+i);
+          console.log(workspace.title + " sadrzi board: "+ board.title);
+        }); 
+        i++;
+      });
         
     });
     // Sklanja iz glavnog boards arraya, one boardove koji su pinovani, tako da ne bi bilo duplikata na view-u
     boards = boards.filter(function(board) {
-      return req.pinnedBoardsArray.indexOf(board) < 0;
+      return pinnedBoardsArray.indexOf(board) < 0;
     });
 
-    req.allBoards = boards;
-    return next();
+    res.render('boards/index', {
+      boards: boards.reverse(),
+      hasBoards: boardsExist,
+      hasPinnedBoards: hasPinnedBoards,
+      pinnedBoards: pinnedBoardsArray
+    });
   }
   else { // U suprotnom bacaj da nema boardova
     res.render('boards/index', {
       boards: [],
-      hasBoards: req.boardsExist,
-      hasPinnedBoards: req.hasPinnedBoards,
-      pinnedBoards: req.pinnedBoardsArray
+      hasBoards: boardsExist,
+      hasPinnedBoards: hasPinnedBoards,
+      pinnedBoards: pinnedBoardsArray
     });
   }
     
   });
-}
-
-function getWorkspacesAsync(req,res,next) {
-  req.retWorkspacesArray = [];
-  Workspace.find({ userId: req.user._id },function(err,workspaces) {
-      if(err) throw err;
-
-
-      workspaces.forEach(function(workspace) {
-         req.newWorkspace = {
-          _id: workspace._id,
-          title: workspace.title,
-          dateCreated: workspace.dateCreated,
-          userId: workspace.userId,
-          boards: []
-        }
-        req.currentWorkspace = workspace;
-        
-        // kazem da mi prodje kroz sve boardove od req.CurrentWorkspace workspacea, kada zavrsi ispise array workspaceova koji je vracen, tj onaj koji ce biti renderovan
-        goThroughBoards(req,res,next,function(wsArray) {
-          console.log('Vracen retWorkspacesArray ');
-          console.log(wsArray);
-        });
-      });
-  });
-}
- 
- //prolazi kroz sve boardove od zadatog workspacea i dodaje ih u newWorkspace
-function goThroughBoards(req,res,next,callback) {
-  var counter = 0;
-  req.currentWorkspace.boards.forEach(function(boardId) {
-    req.currentBoardId = boardId;
-    getThatBoard(req,res,next,function(board) {
-      req.newWorkspace.boards.push(board);
-      counter++;
-      console.log('Vracen board od getThatBoard i upisan u workspace: ');
-      console.log(req.newWorkspace);
-      if(counter == req.currentWorkspace.boards.length) {
-        req.retWorkspacesArray.push(req.newWorkspace);
-        console.log('Counter je '+counter+' i ispisujem retWsArray');
-        console.log(req.retWorkspacesArray);
-        return next();
-      }
-    });
-  });
-  callback(req.retWorkspacesArray);
-}
-
-// vraca board koji je zatrazen
-function getThatBoard(req,res,next,callback) {
-  Board.findById(req.currentBoardId,function(err,board) {
-    callback(board);
-  })
-}
-
-function renderBoards(req,res,next) {
-  console.log(req.retWorkspacesArray);
-  var workspacesExist = false;
-  if(req.retWorkspacesArray[0]) {
-    workspacesExist = true;
-  }
-  if(req.retWorkspacesArray[0])
-  res.render('boards/index', {
-    boards: req.allBoards.reverse(),
-    hasBoards: req.boardsExist,
-    hasPinnedBoards: req.hasPinnedBoards,
-    pinnedBoards: req.pinnedBoardsArray,
-    hasWorkspaces: workspacesExist,
-    workspacesToRender: req.retWorkspacesArray
-  });
-}
-
-router.get('/sparender', getBoardsAsync, getWorkspacesAsync, renderBoards);
+  
+});
 
 router.get('/test',function(req, res, next) { //okej ovako bi getovao Workspaceove, timove itd, znaci da mi renderuje stranicu i da uzme iz baze ove podatke
   Board.getAllBoardsAndRender(req.user._id,res,function(err,boards) {
